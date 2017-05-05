@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_tv_white"
+    android:orientation="vertical">
+    <include
+        android:id="@+id/ly_title"
+        layout="@layout/include_mainhead" />
+    <include
+        layout="@layout/layout_send_code"/>
+
+    <LinearLayout
+        style="@style/common_white_linear"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true">
+        <TextView
+            android:id="@+id/tv_login"
+            style="@style/login_btn"
+            android:layout_height="40dp"
+            android:background="@drawable/border_purple_bg"
+            android:text="@string/login_title"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/common_12dp"
+            android:orientation="horizontal">
+
+            <View
+                style="@style/common_line_hor"
+                android:background="@color/color_tv_gray_e5"
+                android:layout_weight="1"/>
+            <TextView
+                android:layout_width="wrap_content"
+                style="@style/login_btn"
+                android:textColor="@color/color_tv_black_33"
+                android:text="or"/>
+            <View
+                style="@style/common_line_hor"
+                android:layout_weight="1"
+                android:background="@color/color_tv_gray_e5"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/ly_weixin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/common_12dp"
+            android:gravity="center"
+            android:background="@drawable/border_green_33_bg">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_weixin_login"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/common_36dp"
+                android:gravity="center"
+                android:layout_marginLeft="@dimen/common_12dp"
+                android:text="@string/login_weixin"
+                android:textColor="@color/color_tv_white"
+                android:textSize="@dimen/text_size_12sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ly_qq"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/common_12dp"
+            android:layout_marginRight="@dimen/common_12dp"
+            android:layout_marginBottom="@dimen/common_20dp"
+            android:gravity="center"
+            android:background="@drawable/border_blue_13_bg">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_qq_login"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/common_36dp"
+                android:gravity="center"
+                android:text="@string/login_qq"
+                android:textColor="@color/color_tv_white"
+                android:layout_marginLeft="@dimen/common_12dp"
+                android:textSize="@dimen/text_size_12sp" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lv_phone"
+        android:layout_below="@+id/et_phone"
+        style="@style/common_listview"
+        android:visibility="gone"
+        android:layout_marginLeft="@dimen/common_12dp"
+        android:layout_marginRight="@dimen/common_12dp"/>
+</RelativeLayout>

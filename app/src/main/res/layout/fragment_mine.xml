@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <include
+        layout="@layout/include_mainhead"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/common_main_color"
+        android:scrollbars="none">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/iv_mine_head_bg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                android:src="@drawable/icon_mine_head_bg" />
+
+            <ImageView
+                android:id="@+id/iv_head"
+                android:layout_width="@dimen/common_70dp"
+                android:layout_height="@dimen/common_70dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/common_90dp"
+                android:src="@drawable/default_bg"/>
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_tv_white"
+                android:text="加加减减"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/common_10dp"
+                android:layout_below="@+id/iv_head"
+                android:textSize="@dimen/text_size_14sp"/>
+
+            <RelativeLayout
+                android:id="@+id/rl_account"
+                style="@style/mine_layout"
+                android:layout_below="@+id/tv_name"
+                android:layout_marginTop="@dimen/common_18dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_40dp">
+
+                <TextView
+                    style="@style/mine_common_text"
+                    android:text="@string/mine_account"/>
+
+                <TextView
+                    android:id="@+id/tv_gold"
+                    style="@style/mine_common_text"
+                    android:layout_toLeftOf="@+id/tv_gold_tip"
+                    android:layout_marginRight="@dimen/common_0dp"
+                    android:text="0.0"/>
+
+                <TextView
+                    android:id="@+id/tv_gold_tip"
+                    style="@style/mine_common_text"
+                    android:layout_toLeftOf="@+id/tv_credit"
+                    android:layout_marginLeft="@dimen/common_0dp"
+                    android:textStyle="normal"
+                    android:text="@string/gold"/>
+                <TextView
+                    android:id="@+id/tv_credit"
+                    style="@style/mine_common_text"
+                    android:layout_marginLeft="@dimen/common_0dp"
+                    android:layout_marginRight="@dimen/common_0dp"
+                    android:layout_toLeftOf="@+id/tv_credit_tip"
+                    android:text="0.0"/>
+
+                <TextView
+                    android:id="@+id/tv_credit_tip"
+                    style="@style/mine_common_text"
+                    android:text="@string/credit"
+                    android:textStyle="normal"
+                    android:layout_marginLeft="@dimen/common_0dp"
+                    android:layout_alignParentRight="true"/>
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_get_gold"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_40dp"
+                style="@style/mine_common_text"
+                android:background="@drawable/border_blue_00_bg"
+                android:layout_marginTop="@dimen/common_5dp"
+                android:gravity="center"
+                android:text="@string/mine_get_gold"
+                android:layout_below="@+id/rl_account"/>
+            <TextView
+                android:id="@+id/tv_mine_guess"
+                style="@style/mine_text"
+                android:layout_below="@+id/tv_get_gold"
+                android:layout_marginTop="@dimen/common_16dp"
+                android:text="@string/mine_guess"/>
+
+            <TextView
+                android:id="@+id/tv_mine_task"
+                style="@style/mine_text"
+                android:layout_below="@+id/tv_mine_guess"
+                android:layout_marginTop="@dimen/common_3dp"
+                android:text="@string/mine_task"/>
+
+            <TextView
+                android:id="@+id/tv_mine_shop"
+                style="@style/mine_text"
+                android:layout_below="@+id/tv_mine_task"
+                android:layout_marginTop="@dimen/common_3dp"
+                android:text="@string/mine_shop"/>
+
+            <TextView
+                android:id="@+id/tv_mine_activity"
+                style="@style/mine_text"
+                android:layout_below="@+id/tv_mine_shop"
+                android:layout_marginTop="@dimen/common_3dp"
+                android:text="@string/mine_activity"/>
+            <TextView
+                android:id="@+id/tv_mine_tool"
+                style="@style/mine_text"
+                android:layout_below="@+id/tv_mine_activity"
+                android:layout_marginTop="@dimen/common_3dp"
+                android:text="@string/mine_tool"/>
+
+        </RelativeLayout>
+    </ScrollView>
+
+</LinearLayout>

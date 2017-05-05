@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- textView -->
+    <item name="tv_guide" type="id"></item>
+    <item name="tv_title" type="id"></item>
+    <item name="tv_right" type="id"></item>
+
+    <!--imageview-->
+    <item name="iv_back" type="id"></item>
+    <item name="iv_setting" type="id"></item>
+    <item name="iv_share" type="id"></item>
+
+    <!--RelativeLayout-->
+    <item name="rl_title" type="id"></item>
+
+    <!--xrefresh-->
+    <item name="xf_view" type="id"></item>
+    <item name="recycler_view" type="id"></item>
+    <item name="list_view" type="id"></item>
+
+</resources>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@id/rl_title"
+    style="@style/title_layout" >
+
+    <!-- 返回键 -->
+    <ImageView
+        android:id="@id/iv_back"
+        style="@style/title_icon"
+        android:src="@drawable/icon_back"
+        android:visibility="gone"
+        />
+
+    <TextView
+        android:id="@id/tv_guide"
+        style="@style/title_left"
+        android:drawableLeft="@drawable/icon_setting"
+        android:visibility="gone"
+        android:text="@string/mine_title_guide"
+        />
+
+    <!-- 标题 -->
+    <TextView
+        android:id="@id/tv_title"
+        style="@style/title_textview"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:textStyle="bold"
+        android:text="首页"/>
+
+    <ImageView
+        android:id="@id/iv_share"
+        style="@style/title_icon"
+        android:layout_alignParentRight="true"
+        android:visibility="gone"
+        android:src="@drawable/icon_share" />
+
+    <ImageView
+        android:id="@id/iv_setting"
+        style="@style/title_icon"
+        android:layout_alignParentRight="true"
+        android:visibility="gone"
+        android:src="@drawable/icon_setting" />
+
+
+    <TextView
+        android:id="@id/tv_right"
+        style="@style/title_right"
+        android:text="@string/confirm"
+        android:visibility="gone"
+        android:layout_alignParentRight="true"/>
+
+</RelativeLayout>

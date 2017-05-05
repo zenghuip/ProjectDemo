@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">ProjectDemo</string>
+    <string name="net_error">请检查网络！</string>
+</resources>

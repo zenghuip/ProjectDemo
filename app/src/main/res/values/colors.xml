@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="common_main_bg">@color/color_tv_gray_e2</color>
+    <color name="common_main_color">@color/color_tv_purple_2f</color>
+
+    <color name="color_tv_black_40">#66000000</color>
+    <color name="color_tv_trans">#00000000</color>
+    <color name="color_tv_black_33">#333333</color>
+    <color name="color_tv_black_55">#555555</color>
+    <color name="color_tv_gray_88">#888888</color>
+    <color name="color_tv_gray_99">#999999</color>
+    <color name="color_tv_black_07">#070707</color>
+
+
+
+    <color name="color_tv_purple_9c">#9c849e</color>
+    <color name="color_tv_purple_2f">#2f0233</color>
+    <color name="color_tv_purple_38">#38003d</color>
+    <color name="color_tv_purple_30">#300034</color>
+    <color name="color_tv_purple_38_60">#9938003d</color>
+    <color name="color_tv_purple_2f_70">#b32f0233</color>
+    <color name="color_tv_purple_89">#8957a1</color>
+
+    <color name="color_tv_white">#ffffff</color>
+    <color name="color_tv_white_07">#12ffffff</color>
+    <color name="color_tv_white_20">#33ffffff</color>
+    <color name="color_tv_white_30">#4cffffff</color>
+    <color name="color_tv_white_40">#66ffffff</color>
+    <color name="color_tv_white_50">#7fffffff</color>
+    <color name="color_tv_white_80">#efffffff</color>
+
+    <color name="color_tv_blue">#007aff</color>
+    <color name="color_tv_blue_20">#33007aff</color>
+    <color name="color_tv_blue_50">#7f007aff</color>
+    <color name="color_tv_blue_13">#13b8f5</color>
+    <color name="color_tv_blue_00">#00f3fe</color>
+
+    <color name="color_tv_orange">#f37006</color>
+    <color name="color_tv_orange_40">#66f37006</color>
+    <color name="color_tv_orange_f8">#f86600</color>
+    <color name="color_tv_orange_d4">#d46206</color>
+
+    <color name="color_tv_green">#28c263</color>
+    <color name="color_tv_green_28_40">#6628c263</color>
+    <color name="color_tv_green_28_60">#9628c263</color>
+    <color name="color_tv_green_28_80">#cc28c263</color>
+    <color name="color_tv_green_33">#33b331</color>
+    <color name="color_tv_green_4a">#4aa57a</color>
+    <color name="color_tv_green_c4b">#4ba255</color>
+    <color name="color_tv_green_5a">#5ac894</color>
+    <color name="color_tv_green_5a_80">#cc5ac894</color>
+    <color name="color_tv_green_ad">#ade4ca</color>
+    <color name="color_tv_green_50">#50be8a</color>
+    <color name="color_tv_green_41">#41d4c7</color>
+
+
+    <color name="color_tv_pink_ff">#ff0059</color>
+    <color name="color_tv_pink_ff_60">#99ff0059</color>
+
+    <color name="color_tv_red">#cc0000</color>
+    <color name="color_tv_red_cb">#cb0000</color>
+    <color name="color_tv_red_da">#da0f0f</color>
+    <color name="color_tv_red_ff">#ff3b30</color>
+    <color name="color_tv_red_f8">#f80000</color>
+    <color name="color_tv_red_f8_40">#66f80000</color>
+
+    <color name="color_tv_gray">#aeaeae</color>
+    <color name="color_tv_gray_01">#01000000</color>
+    <color name="color_tv_gray_10">#19000000</color>
+    <color name="color_tv_gray_15">#26000000</color>
+    <color name="color_tv_gray_20">#33000000</color>
+    <color name="color_tv_gray_25">#40000000</color>
+    <color name="color_tv_gray_30">#4c000000</color>
+    <color name="color_tv_gray_35">#59000000</color>
+    <color name="color_tv_gray_50">#7f000000</color>
+    <color name="color_tv_gray_66">#666666</color>
+    <color name="color_tv_gray_66_40">#66666666</color>
+    <color name="color_tv_gray_ea">#eaeaea</color>
+    <color name="color_tv_gray_70">#707070</color>
+    <color name="color_tv_gray_dd">#dddddd</color>
+    <color name="color_tv_gray_e9">#e9e9e9</color>
+    <color name="color_tv_gray_ee">#eeeeee</color>
+    <color name="color_tv_gray_e2">#e2e2e2</color>
+    <color name="color_tv_gray_e5">#e5e5e5</color>
+    <color name="color_tv_gray_aa">#aaaaaa</color>
+    <color name="color_tv_gray_f8">#f8f8f8</color>
+    <color name="color_tv_gray_f0">#f0f0f0</color>
+    <color name="color_tv_gray_a2">#a2a2a2</color>
+    <color name="color_tv_gray_79">#797979</color>
+    <color name="color_tv_gray_bc">#bcbcbc</color>
+    <color name="color_tv_gray_bb">#bbbbbb</color>
+    <color name="color_tv_gray_c5">#c5c5c5</color>
+    <color name="color_tv_gray_ef">#efefef</color>
+    <color name="color_tv_gray_ef_40">#66efefef</color>
+    <color name="color_tv_gray_dc">#dcdcdc</color>
+    <color name="color_tv_gray_dc_25">#40dcdcdc</color>
+
+    <!--pickerview-->
+    <color name="timetimepicker_default_text_color">#999999</color>
+    <color name="timepicker_toolbar_bg">#e60012</color>
+    <color name="timepicker_dialog_bg">#80000000</color>
+    <color name="timepicker_line">#e8e8e8</color>
+    <color name="timepicker_white">#ffffff</color>
+    <color name="visitor_login_btn">#4487c2</color>
+    <color name="max_length">#7d878e</color>
+    <color name="text_length">#4b7ea2</color>
+    <color name="trans">#00000000</color>
+</resources>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_tv_white"
+    android:orientation="horizontal"
+    android:padding="@dimen/common_8dp"
+    android:gravity="center_vertical">
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="时间"
+        android:textSize="@dimen/text_size_12sp"
+        android:layout_weight="2"
+        android:paddingLeft="@dimen/common_2dp"
+        android:textColor="@color/color_tv_gray_99"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="事件"
+        android:layout_weight="7"
+        android:textSize="@dimen/text_size_12sp"
+        android:paddingLeft="@dimen/common_5dp"
+        android:textColor="@color/color_tv_gray_99"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:lines="1"
+        android:gravity="center"
+        android:text="收支"
+        android:paddingLeft="@dimen/common_10dp"
+        android:textSize="@dimen/text_size_12sp"
+        android:textColor="@color/color_tv_gray_99"/>
+
+</LinearLayout>

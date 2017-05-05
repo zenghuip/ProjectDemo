@@ -1,0 +1,46 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_tv_white"
+    android:orientation="vertical">
+    <FrameLayout
+        android:id="@+id/main_workarea"
+        android:layout_width="match_parent"
+        android:layout_height="0.0dip"
+        android:background="@color/color_tv_gray_ea"
+        android:layout_weight="1" />
+
+    <com.jgg.games.widget.MyTabWidget
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_main_bottom_height"
+        android:orientation="horizontal"
+        android:background="@color/common_main_color">
+
+        <TextView
+            style="@style/tabitem_style"
+            android:drawableTop="@drawable/btn_main_bottom_index_selector"
+            android:text="@string/fragment_title_1" />
+
+        <TextView
+            style="@style/tabitem_style"
+            android:drawableTop="@drawable/btn_main_bottom_match_selector"
+            android:text="@string/fragment_title_2" />
+
+
+        <TextView
+            style="@style/tabitem_style"
+            android:drawableTop="@drawable/btn_main_bottom_guild_selector"
+            android:text="@string/fragment_title_3" />
+        <TextView
+            style="@style/tabitem_style"
+            android:drawableTop="@drawable/btn_main_bottom_circle_selector"
+            android:text="@string/fragment_title_4" />
+
+        <TextView
+            style="@style/tabitem_style"
+            android:drawableTop="@drawable/btn_main_bottom_personal_selector"
+            android:text="@string/fragment_title_5" />
+    </com.jgg.games.widget.MyTabWidget>
+
+</LinearLayout>

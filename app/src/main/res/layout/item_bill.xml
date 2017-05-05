@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_tv_white"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/common_12dp"
+    android:paddingLeft="@dimen/common_8dp"
+    android:paddingRight="@dimen/common_8dp"
+    android:paddingTop="@dimen/common_12dp">
+
+    <TextView
+        android:id="@+id/tv_hunbibill_time"
+        android:layout_width="@dimen/common_0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:lines="1"
+        android:paddingLeft="@dimen/common_2dp"
+        android:textColor="@color/color_tv_gray_66"
+        android:textSize="@dimen/text_size_14sp" />
+
+    <TextView
+        android:id="@+id/tv_hunbibill_sj"
+        android:layout_width="@dimen/common_0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="5"
+        android:paddingLeft="@dimen/common_5dp"
+        android:textColor="@color/color_tv_black_33"
+        android:textSize="@dimen/text_size_15sp" />
+
+    <TextView
+        android:id="@+id/tv_hunbibill_sz"
+        android:layout_width="@dimen/common_0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:gravity="center_vertical|right"
+        android:lines="1"
+        android:paddingLeft="@dimen/common_10dp"
+        android:textColor="@color/color_tv_green_c4b"
+        android:textSize="@dimen/text_size_14sp" />
+</LinearLayout>

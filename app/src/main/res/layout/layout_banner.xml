@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_tv_gray_e2"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_marginBottom="@dimen/common_3dp">
+
+
+        <cn.bingoogolapple.bgabanner.BGABanner
+            android:id="@+id/banner"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            app:banner_indicatorGravity="center_horizontal|bottom"
+            app:banner_isNeedShowIndicatorOnOnlyOnePage="true"
+            app:banner_pageChangeDuration="3000"
+            app:banner_tipTextColor="@color/color_tv_white"
+            app:banner_tipTextSize="@dimen/text_size_12sp"
+            app:banner_tipTextLocate="point_bottom"
+            app:banner_pointTopBottomMargin="@dimen/common_3dp"
+            app:banner_pointAutoPlayAble="true"
+            app:banner_pointDrawable="@drawable/bga_banner_selector_point_hollow"
+            app:banner_tipTextBgColor="@color/color_tv_purple_2f_70"
+            app:banner_pointContainerBackground="@color/color_tv_trans"
+            app:banner_transitionEffect="defaultEffect" />
+
+    </RelativeLayout>
+
+    <com.jgg.games.widget.MarqueeView
+        android:id="@+id/tv_marquee"
+        android:background="@color/color_tv_white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

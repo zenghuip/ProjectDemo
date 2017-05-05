@@ -1,0 +1,72 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tl="http://schemas.android.com/apk/res-auto"
+    android:background="@color/common_main_bg"
+    android:orientation="vertical">
+    <RelativeLayout
+        style="@style/index_top_rl">
+
+        <LinearLayout
+            android:id="@+id/ly_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_6dp"
+            android:orientation="horizontal"
+            android:layout_centerHorizontal="true"
+            android:paddingLeft="@dimen/common_16dp"
+            android:gravity="center_vertical"
+            android:background="@color/color_tv_trans">
+            <TextView
+                android:id="@+id/tv_datacenter"
+                style="@style/index_top_tv"
+                android:text="@string/fragment_index_datacenter"
+                android:visibility="gone"
+                android:layout_marginRight="@dimen/common_10dp"
+                android:drawableLeft="@drawable/icon_data_center"/>
+            <TextView
+                android:id="@+id/tv_rank"
+                style="@style/index_top_tv"
+                android:text="@string/fragment_index_rank"
+                android:drawableLeft="@drawable/icon_rank"/>
+
+            <TextView
+                style="@style/index_top_tv"
+                android:text="@string/fragment_index_search"
+                android:layout_marginLeft="@dimen/common_10dp"
+                android:visibility="gone"
+                android:drawableLeft="@drawable/icon_search"
+                android:id="@+id/tv_search" />
+
+        </LinearLayout>
+
+
+        <com.flyco.tablayout.SlidingTabLayout
+            android:id="@+id/tb_top"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_30dp"
+            android:layout_marginLeft="@dimen/common_4dp"
+            android:layout_below="@+id/ly_top"
+            tl:tl_divider_width="@dimen/common_0dp"
+            tl:tl_indicator_color="@color/color_tv_white"
+            tl:tl_indicator_height="@dimen/common_2dp"
+            tl:tl_indicator_width_equal_title="true"
+            tl:tl_divider_padding="@dimen/common_6dp"
+            tl:tl_tab_padding="@dimen/common_16dp"
+            tl:tl_textsize="@dimen/text_size_12sp"
+            tl:tl_tab_space_equal="false"
+            tl:tl_textSelectColor="@color/color_tv_white"
+            tl:tl_textUnselectColor="@color/color_tv_purple_9c"
+            tl:tl_underline_color="@color/trans"/>
+
+    </RelativeLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/index_fl"
+        android:layout_width="match_parent"
+        android:layout_height="0.0dip"
+        android:layout_alignParentTop="true"
+        android:layout_weight="1" />
+
+
+</LinearLayout>

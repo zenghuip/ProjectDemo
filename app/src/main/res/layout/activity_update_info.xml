@@ -1,0 +1,190 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/common_main_bg">
+    <include
+        android:id="@+id/ly_title"
+        layout="@layout/include_mainhead"/>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ly_title"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:id="@+id/rl_myinfo_head"
+                android:layout_width="fill_parent"
+                android:layout_height="90dp"
+                android:background="@color/color_tv_white"
+                android:clickable="true"
+                android:paddingLeft="15dp">
+
+                <TextView
+                    style="@style/myinfo_textview_word_style"
+                    android:layout_alignParentLeft="true"
+                    android:text="@string/text_myinfo_head" />
+
+                <ImageView
+                    android:id="@+id/iv_head"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/default_head" />
+
+
+            </RelativeLayout>
+
+            <View style="@style/line_style" />
+
+            <RelativeLayout
+                style="@style/myinfo_layout_style">
+
+                <TextView
+                    style="@style/myinfo_textview_word_style"
+                    android:text="@string/text_myinfo_name" />
+
+
+                <View
+                    style="@style/line_margin_15_style"
+                    android:layout_alignParentBottom="true" />
+
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    style="@style/myinfo_hint_textview_word_style"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@+id/iv_r2"
+                    android:hint="@string/text_myinfo_noset" />
+
+                <ImageView
+                    android:id="@+id/iv_r2"
+                    style="@style/into_textview_style" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                style="@style/myinfo_layout_style">
+
+                <TextView
+                    style="@style/myinfo_textview_word_style"
+                    android:text="@string/text_myinfo_sex" />
+
+
+                <View
+                    style="@style/line_style"
+                    android:layout_alignParentBottom="true" />
+
+
+                <TextView
+                    android:id="@+id/tv_sex"
+                    style="@style/myinfo_hint_textview_word_style"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@+id/iv_r3"
+                    android:hint="@string/text_myinfo_noset" />
+
+                <ImageView
+                    android:id="@+id/iv_r3"
+                    style="@style/into_textview_style" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                style="@style/myinfo_layout_style">
+
+                <TextView
+                    style="@style/myinfo_textview_word_style"
+                    android:text="@string/text_myinfo_tel" />
+
+
+                <View
+                    style="@style/line_style"
+                    android:layout_alignParentBottom="true" />
+
+
+                <TextView
+                    android:id="@+id/tv_tel"
+                    style="@style/myinfo_hint_textview_word_style"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@+id/iv_r4"
+                    android:hint="@string/text_myinfo_bangding" />
+
+                <ImageView
+                    android:id="@+id/iv_r4"
+                    style="@style/into_textview_style" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                style="@style/myinfo_layout_style">
+
+                <TextView
+                    style="@style/myinfo_textview_word_style"
+                    android:text="@string/text_myinfo_birth" />
+
+
+                <View
+                    style="@style/line_style"
+                    android:layout_alignParentBottom="true" />
+
+
+                <TextView
+                    android:id="@+id/tv_birth"
+                    style="@style/myinfo_hint_textview_word_style"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@+id/iv_r5"
+                    android:hint="@string/text_myinfo_noset" />
+
+                <ImageView
+                    android:id="@+id/iv_r5"
+                    style="@style/into_textview_style" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                style="@style/myinfo_layout_style"
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/myinfo_textview_word_style"
+                    android:text="实名认证" />
+
+
+                <View
+                    style="@style/line_style"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="0dp"/>
+
+
+
+                <ImageView
+                    style="@style/into_textview_style" />
+
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/tv_save"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_45dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:textColor="@color/color_tv_white"
+        android:text="保存"
+        android:textSize="@dimen/text_size_14sp"
+        android:background="@drawable/border_blue_13_bg"
+        android:layout_margin="@dimen/common_12dp"/>
+
+</RelativeLayout>

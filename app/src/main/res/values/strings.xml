@@ -1,0 +1,101 @@
+<resources>
+    <string name="app_name">ProjectDemo</string>
+
+    <string name="cancel">取消</string>
+    <string name="confirm">确定</string>
+    <string name="gold">竞币</string>
+    <string name="credit">积分</string>
+
+    <string name="fragment_title_1">首页</string>
+    <string name="fragment_title_2">赛事</string>
+    <string name="fragment_title_3">公会</string>
+    <string name="fragment_title_4">圈子</string>
+    <string name="fragment_title_5">我</string>
+
+
+    <!--登录-->
+    <string name="login_title">登录</string>
+    <string name="login_phone_hint">请输入手机号</string>
+    <string name="login_code_hint">请输入验证码</string>
+    <string name="login_get_code">获取验证码</string>
+    <string name="login_or">or</string>
+    <string name="login_weixin">微信登录</string>
+    <string name="login_qq">QQ登录</string>
+    <string name="login_resend_code">重新发送(%s)秒</string>
+    <string name="login_phone_hint_toast">请输入正确的手机号</string>
+
+    <!--个人信息-->
+    <string name="myinfo_title">个人信息</string>
+    <string name="myinfo_save">保存</string>
+    <string name="myinfo_edit">编辑</string>
+    <string name="text_myinfo_head">头像</string>
+    <string name="text_myinfo_name">用户名</string>
+    <string name="text_myinfo_name_hint">请输入用户名</string>
+    <string name="text_myinfo_name_lenght">当前用户名过长，请进行修改</string>
+    <string name="text_myinfo_update">修改资料</string>
+    <string name="text_myinfo_noset">未设置</string>
+    <string name="text_myinfo_bangding">绑定</string>
+    <string name="text_myinfo_sex">性别</string>
+    <string name="text_myinfo_tel">手机号</string>
+    <string name="text_myinfo_birth">出生年月</string>
+    <string name="text_myinfo_bindphone">绑定手机</string>
+    <string name="user_info_sex_boy">男</string>
+    <string name="user_info_sex_girl">女</string>
+    <string name="user_info_sex_sec">保密</string>
+
+    <!--index-->
+    <string name="fragment_index_datacenter">数据中心</string>
+    <string name="fragment_index_rank">竞猜排行榜</string>
+    <string name="fragment_index_search">搜索</string>
+
+    <!--我的-->
+    <string name="mine_title_guide">引导</string>
+    <string name="mine_account">我的账户</string>
+    <string name="mine_get_gold">获取竞币</string>
+    <string name="mine_guess">我的竞猜</string>
+    <string name="mine_task">我的任务</string>
+    <string name="mine_shop">电竞商城</string>
+    <string name="mine_activity">活动中心</string>
+    <string name="mine_atten">我的关注</string>
+    <string name="mine_circle">我的圈子</string>
+    <string name="mine_center">会员中心</string>
+    <string name="mine_tool">道具背包</string>
+
+
+
+    <string name="setting_title">设置</string>
+
+    <string name="waiting">敬请期待</string>
+
+    <string name="json_error">json解析错误</string>
+    <string name="exit_tip">再按一次退出程序</string>
+
+    <!--分享-->
+    <string name="share_qq">QQ</string>
+    <string name="share_weixin">微信</string>
+    <string name="share_weixin_circle">朋友圈</string>
+    <string name="share_sina">新浪微博</string>
+    <string name="share_qzone">QQ空间</string>
+    <string name="share_guild">发送到公会</string>
+    <string name="share_friends">发送给朋友</string>
+    <string name="share_circle">发布到圈子</string>
+
+    <!--umeng-->
+    <string name="umeng_authorize_error">授权失败</string>
+    <string name="umeng_authorize_cancel">取消授权</string>
+    <string name="umeng_authorize_suc">授权成功</string>
+    <string name="umeng_getinfo_error">获取用户信息失败</string>
+    <string name="umeng_getinfo_cancel">取消授权</string>
+    <string name="umeng_getinfo_suc">获取用户信息成功</string>
+
+    <string name="umeng_share_weixin">请先安装微信！</string>
+    <string name="umeng_share_qq">请先安装QQ！</string>
+
+    <!--pickerview-->
+    <string name="pickerview_cancel">取消</string>
+    <string name="pickerview_confirm">确定</string>
+    <string name="pickerview_choose_time">选择时间</string>
+    <string name="pickerview_option">option</string>
+    <string name="pickerview_time">time</string>
+
+</resources>

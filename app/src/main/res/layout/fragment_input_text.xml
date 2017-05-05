@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_main_bg"
+    android:orientation="vertical">
+    <include
+        layout="@layout/include_mainhead"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_tv_white"
+        android:layout_marginTop="@dimen/common_10dp">
+
+        <EditText
+            android:id="@+id/et_content"
+            style="@style/input_text_edittext"/>
+
+        <ImageView
+            android:id="@+id/iv_clear"
+            style="@style/image_clear"
+            android:visibility="gone"/>
+
+    </RelativeLayout>
+
+</LinearLayout>
