@@ -84,13 +84,13 @@ public abstract class ImageActivity<T extends HeaderDelegate> extends BaseActivi
         if (resultImg != null && resultImg.size()>0)
             url = resultImg.get(0);
         if (!StringUtils.isEmpty(url) && change && !isSuc) {
-            UploadFileManager.getInstance(this).getUploadToken(HEAD,new CommonCallback<CommonEntity<QnMsgEntity>>() {
+            UploadFileManager.getInstance().getUploadToken(HEAD,new CommonCallback<CommonEntity<QnMsgEntity>>() {
                 @Override
                 public void onSuccess(CommonEntity<QnMsgEntity> entity) {
                     QnMsgEntity response = entity.getData().getQiniuToken();
                     if (response != null) {
                         if (response.getCode() == 0) {
-                            UploadFileManager.getInstance(ImageActivity.this).uploadHeadToQiniu(url, response, new UpCompletionHandler() {
+                            UploadFileManager.getInstance().uploadHeadToQiniu(url, response, new UpCompletionHandler() {
                                 @Override
                                 public void complete(String key, ResponseInfo info, JSONObject response) {
                                     if (!info.isOK()) {

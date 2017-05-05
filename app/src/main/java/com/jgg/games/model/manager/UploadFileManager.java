@@ -1,15 +1,11 @@
 package com.jgg.games.model.manager;
 
-import android.content.Context;
-
 import com.google.gson.Gson;
 import com.jgg.games.http.HttpRequest;
-import com.jgg.games.http.base.BaseGraphqlRequest;
 import com.jgg.games.http.base.CommonCallback;
 import com.jgg.games.model.entity.JsonPostBean;
 import com.jgg.games.model.entity.QnMsgEntity;
 import com.jgg.games.model.entity.SystemParams;
-import com.jgg.games.model.entity.TiebaTypeEntity;
 import com.jgg.games.model.entity.UploadParams;
 import com.jgg.games.utils.SharedPreUtil;
 import com.jgg.games.utils.Utils;
@@ -24,7 +20,6 @@ import com.qiniu.android.storage.UploadManager;
 public class UploadFileManager {
 
     private static UploadFileManager instance = null;
-    private Context appCompatActivity;
     Configuration config = new Configuration.Builder()
             .chunkSize(256 * 1024)  //分片上传时，每片的大小。 默认256K
             .putThreshhold(512 * 1024)  // 启用分片上传阀值。默认512K
@@ -34,13 +29,10 @@ public class UploadFileManager {
             .build();
     public UploadManager uploadManager = new UploadManager(config);
 
-    public UploadFileManager(Context appCompatActivity) {
-        this.appCompatActivity = appCompatActivity;
-    }
 
-    public synchronized static UploadFileManager getInstance(Context appCompatActivity) {
+    public synchronized static UploadFileManager getInstance() {
         if (instance == null) {
-            instance = new UploadFileManager(appCompatActivity);
+            instance = new UploadFileManager();
         }
         return instance;
     }
@@ -50,7 +42,7 @@ public class UploadFileManager {
      * @param otherCallback
      */
     public void getUploadToken(String type,CommonCallback otherCallback) {
-        new HttpRequest(appCompatActivity).postUrl(true,getToken(type),otherCallback,QnMsgEntity.class);
+        new HttpRequest().postUrl(true,getToken(type),otherCallback,QnMsgEntity.class);
     }
 
     /**
@@ -72,7 +64,7 @@ public class UploadFileManager {
      * @param otherCallback
      */
     public void getUploadImageToken(String type,CommonCallback otherCallback) {
-        new HttpRequest(appCompatActivity).postUrl(true,getUploadImageToken(type),otherCallback,QnMsgEntity.class);
+        new HttpRequest().postUrl(true,getUploadImageToken(type),otherCallback,QnMsgEntity.class);
 
     }
 

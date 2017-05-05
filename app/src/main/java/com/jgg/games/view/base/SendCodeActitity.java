@@ -41,7 +41,7 @@ public abstract class SendCodeActitity<T extends SendCodeDelegate> extends BaseA
                     return;
                 }
 
-                UserManager.getInstance(this).getCode(phone, new CommonCallback<CommonEntity<BaseCodeEntity>>() {
+                UserManager.getInstance().getCode(phone, new CommonCallback<CommonEntity<BaseCodeEntity>>() {
 
                     @Override
                     public void onSuccess(CommonEntity<BaseCodeEntity> result) {

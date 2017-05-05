@@ -1,11 +1,7 @@
 package com.jgg.games.model.manager;
 
-import android.content.Context;
-
 import com.jgg.games.http.HttpRequest;
-import com.jgg.games.http.base.BaseGraphqlRequest;
 import com.jgg.games.http.base.CommonCallback;
-import com.jgg.games.model.entity.MatchListEntity;
 import com.jgg.games.model.entity.TiebaTypeEntity;
 
 /**
@@ -15,22 +11,18 @@ import com.jgg.games.model.entity.TiebaTypeEntity;
 public class CircleManager {
 
     private static CircleManager instance = null;
-    private Context appCompatActivity;
 
-    private CircleManager(Context appCompatActivity) {
-        this.appCompatActivity = appCompatActivity;
-    }
 
-    public synchronized static CircleManager getInstance(Context appCompatActivity) {
+    public synchronized static CircleManager getInstance() {
         if (instance == null) {
-            instance = new CircleManager(appCompatActivity);
+            instance = new CircleManager();
         }
         return instance;
     }
 
 
     public void getCircleType(CommonCallback callback) {
-        new HttpRequest(appCompatActivity).postUrl(false,getCircleType(),callback,TiebaTypeEntity.class);
+        new HttpRequest().postUrl(false,getCircleType(),callback,TiebaTypeEntity.class);
     }
 
     private String getCircleType(){

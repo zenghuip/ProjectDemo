@@ -38,10 +38,7 @@ public class ProgressSubscriber<T> extends Subscriber<T> {
     private boolean showPorgress = true;
     //    回调接口
     private SoftReference<HttpOnNextListener> mSubscriberOnNextListener;
-    //    软引用反正内存泄露
-    private Context mActivity;
-    //    加载框可自己定义
-    private CustomProgress pd;
+
     /*请求数据*/
     private BaseApi api;
 
@@ -50,58 +47,14 @@ public class ProgressSubscriber<T> extends Subscriber<T> {
      *
      * @param api
      */
-    public ProgressSubscriber(BaseApi api, Context mActivity) {
+    public ProgressSubscriber(BaseApi api) {
         this.api = api;
         this.mSubscriberOnNextListener = api.getOnNextListener();
-        this.mActivity = mActivity;
+
         setShowPorgress(api.isShowProgress());
-        if (api.isShowProgress()) {
-            initProgressDialog(api.getMessage(),api.isCancel());
-        }
-    }
-
-
-    /**
-     * 初始化加载框
-     */
-    private void initProgressDialog(String message,boolean cancel) {
-        if (pd == null && mActivity != null) {
-            pd = new CustomProgress(mActivity, R.style.Custom_Progress);
-            pd.setMessage(message);
-            pd.setCancelable(cancel);
-            if (cancel) {
-                pd.setOnCancelListener(new DialogInterface.OnCancelListener() {
-                    @Override
-                    public void onCancel(DialogInterface dialogInterface) {
-                        onCancelProgress();
-                    }
-                });
-            }
-        }
-    }
-
-
-    /**
-     * 显示加载框
-     */
-    private void showProgressDialog() {
-        if (((Activity)mActivity).hasWindowFocus()) {
-            if (isShowPorgress() && pd != null && mActivity != null && !pd.isShowing()) {
-                pd.show();
-            }
-        }
 
     }
 
-    /**
-     * 隐藏
-     */
-    private void dismissProgressDialog() {
-        if (!isShowPorgress()) return;
-        if (pd != null && pd.isShowing()) {
-            pd.dismiss();
-        }
-    }
 
     /**
      * 订阅开始时调用
@@ -109,9 +62,7 @@ public class ProgressSubscriber<T> extends Subscriber<T> {
      */
     @Override
     public void onStart() {
-        showProgressDialog();
         if (!BaseUtil.isNetworkAvailable(RxRetrofitApp.getApplication())) {
-            dismissProgressDialog();
             return;
         }
         /*缓存并且有网*/
@@ -136,7 +87,7 @@ public class ProgressSubscriber<T> extends Subscriber<T> {
      */
     @Override
     public void onCompleted() {
-        dismissProgressDialog();
+
     }
 
     /**
@@ -153,7 +104,6 @@ public class ProgressSubscriber<T> extends Subscriber<T> {
         } else {
             errorDo(e);
         }
-        dismissProgressDialog();
     }
 
     /**
@@ -198,7 +148,6 @@ public class ProgressSubscriber<T> extends Subscriber<T> {
      * @param e
      */
     private void errorDo(Throwable e) {
-        if (mActivity == null) return;
         HttpOnNextListener httpOnNextListener = mSubscriberOnNextListener.get();
         if (httpOnNextListener == null) return;
         if (e instanceof ApiException) {
@@ -211,8 +160,7 @@ public class ProgressSubscriber<T> extends Subscriber<T> {
         } else {
             httpOnNextListener.onError(new ApiException(e, CodeException.UNKNOWN_ERROR, e.getMessage()));
         }
-        /*可以在这里统一处理错误处理-可自由扩展*/
-        Toast.makeText(mActivity, e.getMessage(), Toast.LENGTH_SHORT).show();
+
     }
 
 

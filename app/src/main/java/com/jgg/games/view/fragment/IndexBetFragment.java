@@ -69,7 +69,7 @@ public class IndexBetFragment extends RecyclerRefreshFragment<MatchEntity,IndexB
             getAnnounce();
         }
 
-        BetManager.getInstance(activity).getMatchList(gameId,mCurrentPage, mPageCount, new CommonCallback<CommonEntity<MatchListEntity>>() {
+        BetManager.getInstance().getMatchList(gameId,mCurrentPage, mPageCount, new CommonCallback<CommonEntity<MatchListEntity>>() {
             @Override
             public void onSuccess(CommonEntity<MatchListEntity> result) {
                 matchList = result.getData().getMatches();
@@ -85,7 +85,7 @@ public class IndexBetFragment extends RecyclerRefreshFragment<MatchEntity,IndexB
     }
 
     public void getAnnounce(){
-        BetManager.getInstance(activity).getAnnounce(new CommonCallback<CommonEntity<AnnouncementEntity>>() {
+        BetManager.getInstance().getAnnounce(new CommonCallback<CommonEntity<AnnouncementEntity>>() {
             @Override
             public void onSuccess(CommonEntity<AnnouncementEntity> result) {
                 AnnouncementEntity entry = result.getData();
@@ -117,7 +117,7 @@ public class IndexBetFragment extends RecyclerRefreshFragment<MatchEntity,IndexB
     }
 
     public void getBanner(){
-        BetManager.getInstance(activity).getBanner(0,new CommonCallback<CommonEntity<IndexBannerEntity>>() {
+        BetManager.getInstance().getBanner(0,new CommonCallback<CommonEntity<IndexBannerEntity>>() {
             @Override
             public void onSuccess(CommonEntity<IndexBannerEntity> result) {
                 IndexBannerEntity entry = result.getData();

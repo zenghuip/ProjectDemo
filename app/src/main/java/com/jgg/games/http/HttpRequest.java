@@ -11,8 +11,8 @@ import com.jgg.games.http.base.CommonCallback;
 
 public class HttpRequest extends BaseGraphqlRequest {
 
-    public HttpRequest(Context appCompatActivity) {
-        super(appCompatActivity);
+    public HttpRequest() {
+        super();
     }
 
 

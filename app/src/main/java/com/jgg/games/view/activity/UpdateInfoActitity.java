@@ -142,21 +142,20 @@ public class UpdateInfoActitity extends ImageActivity<UserInfoDelegate> {
 
     @Override
     public void doPost() {
-        UserManager.getInstance(this).updateUserInfo(name, headUrl,  sex, birth, new CommonCallback<CommonEntity<BaseCodeEntity>>() {
+        UserManager.getInstance().updateUserInfo(name, headUrl,  sex, birth, new CommonCallback<CommonEntity<BaseCodeEntity>>() {
             @Override
             public void onSuccess(CommonEntity<BaseCodeEntity> result) {
                 BaseCodeEntity data = result.getData().getUpdateUserInformation();
                 if (data != null ){
+                    ToastUtil.showToast(data.getMsg());
                     if(data.getStatus() == 0){
-                        UserManager.getInstance(UpdateInfoActitity.this).getUserInfo();
+                        UserManager.getInstance().getUserInfo();
                         if (from.equals(LOGIN)){
                             AppManager.getAppManager().finishActivity(LoginActivity.class);
                             IntentUtils.intentNoparams(UpdateInfoActitity.this, MainActivity.class);
                             SharedPreUtil.setIslogin(true);
                         }
                         finish();
-                    }else {
-                        ToastUtil.showToast(data.getMsg());
                     }
                 }
             }

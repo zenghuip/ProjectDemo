@@ -66,7 +66,7 @@ public class AuthListener implements UMAuthListener {
                             String niName = map.get(NINAME);
                             SharedPreUtil.setWeixinOrQqHead(headUrl);
                             SharedPreUtil.setWeixinOrQqName(niName);
-                            UserManager.getInstance(activity).loginByOpenId(openId);
+                            UserManager.getInstance().loginByOpenId(activity,openId);
                         }
 
                         @Override

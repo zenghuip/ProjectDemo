@@ -20,13 +20,13 @@ public class SplashActivity extends BaseActivity<SplashActDelegate> {
     protected void initValue() {
         super.initValue();
         if (SharedPreUtil.getIslogin()){
-            UserManager.getInstance(this).checkToken(SharedPreUtil.getToken(), new CommonCallback<CommonEntity<BaseCodeEntity>>() {
+            UserManager.getInstance().checkToken(SharedPreUtil.getToken(), new CommonCallback<CommonEntity<BaseCodeEntity>>() {
                 @Override
                 public void onSuccess(CommonEntity<BaseCodeEntity> result) {
                     BaseCodeEntity data = result.getData().getValidateToken();
                     if (data != null && data.getStatus() == 0){ // token没过期
                         SharedPreUtil.setToken(data.getToken());
-                        UserManager.getInstance(SplashActivity.this).getUserInfo();
+                        UserManager.getInstance().getUserInfo();
                         goMain();
                     }else {
                         goLogin();

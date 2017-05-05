@@ -36,7 +36,7 @@ public class CircleTypeFragmet extends RecyclerRefreshFragment<TiebaTypeEntity,C
 
     @Override
     protected void getData() {
-        CircleManager.getInstance(activity).getCircleType(new CommonCallback<CommonEntity<TiebaTypeEntity>>() {
+        CircleManager.getInstance().getCircleType(new CommonCallback<CommonEntity<TiebaTypeEntity>>() {
             @Override
             public void onSuccess(CommonEntity<TiebaTypeEntity> result) {
                 if (result.getData() != null && result.getData().getPostCategories() != null){

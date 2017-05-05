@@ -1,16 +1,12 @@
 package com.jgg.games.model.manager;
 
-import android.app.Activity;
-import android.content.Context;
-
 import com.jgg.games.http.HttpRequest;
-import com.jgg.games.http.base.BaseGraphqlRequest;
 import com.jgg.games.http.base.CommonCallback;
 import com.jgg.games.http.callback.GetUserInfoCallback;
 import com.jgg.games.http.callback.LoginGetUserCallback;
 import com.jgg.games.model.entity.BaseCodeEntity;
-import com.jgg.games.model.entity.QnMsgEntity;
 import com.jgg.games.utils.SharedPreUtil;
+import com.jgg.games.view.base.BaseActivity;
 
 /**
  * Created by dingdongdong on 2017/3/28.
@@ -19,15 +15,11 @@ import com.jgg.games.utils.SharedPreUtil;
 public class UserManager{
 
     private static UserManager instance = null;
-    private Context appCompatActivity;
 
-    private UserManager(Context appCompatActivity) {
-        this.appCompatActivity = appCompatActivity;
-    }
 
-    public synchronized static UserManager getInstance(Context appCompatActivity) {
+    public synchronized static UserManager getInstance() {
         if (instance == null) {
-            instance = new UserManager(appCompatActivity);
+            instance = new UserManager();
         }
         return instance;
     }
@@ -38,14 +30,14 @@ public class UserManager{
      * @param callback
      */
     public void checkToken(String oldToken,CommonCallback callback) {
-        new HttpRequest(appCompatActivity).postUrl(false,checkToken(oldToken),callback,BaseCodeEntity.class);
+        new HttpRequest().postUrl(false,checkToken(oldToken),callback,BaseCodeEntity.class);
     }
 
     /*
     * 获取验证码
     */
     public void getCode(String phone, CommonCallback callback) {
-        new HttpRequest(appCompatActivity).postUrl(true,getCode(phone),callback, BaseCodeEntity.class);
+        new HttpRequest().postUrl(true,getCode(phone),callback, BaseCodeEntity.class);
     }
 
     /**
@@ -53,19 +45,20 @@ public class UserManager{
      * @param phone
      * @param code
      */
-    public void loginByPhone(String phone, String code) {
-        new HttpRequest(appCompatActivity).postUrl(true,loginByPhoneParam(phone,code),new LoginGetUserCallback((Activity) appCompatActivity), BaseCodeEntity.class);
+    public void loginByPhone(BaseActivity activity,String phone, String code) {
+        activity.showDialog();
+        new HttpRequest().postUrl(true,loginByPhoneParam(phone,code),new LoginGetUserCallback(activity), BaseCodeEntity.class);
     }
 
-    public void loginByOpenId(String openId) {
-        new HttpRequest(appCompatActivity).postUrl(true, loginByOpenid(openId), new LoginGetUserCallback((Activity) appCompatActivity), BaseCodeEntity.class);
+    public void loginByOpenId(BaseActivity activity,String openId) {
+        new HttpRequest().postUrl(true, loginByOpenid(openId), new LoginGetUserCallback(activity), BaseCodeEntity.class);
     }
 
     /**
      * 获取用户信息
      */
     public void getUserInfo() {
-        new HttpRequest(appCompatActivity).postUrl(false,getUserInfo(SharedPreUtil.getToken()),new GetUserInfoCallback(), BaseCodeEntity.class);
+        new HttpRequest().postUrl(false,getUserInfo(SharedPreUtil.getToken()),new GetUserInfoCallback(), BaseCodeEntity.class);
     }
 
     /**
@@ -77,7 +70,7 @@ public class UserManager{
      * @return
      */
     public void updateUserInfo(String name,String headUrl,int sex,long birth,CommonCallback callback) {
-        new HttpRequest(appCompatActivity).postUrl(true,updateUserInfo(name,headUrl,sex,birth),callback, BaseCodeEntity.class);
+        new HttpRequest().postUrl(true,updateUserInfo(name,headUrl,sex,birth),callback, BaseCodeEntity.class);
     }
 
     private String updateUserInfo(String name,String headUrl,int sex,long birth) {

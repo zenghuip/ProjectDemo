@@ -31,10 +31,8 @@ public abstract class BaseGraphqlRequest<T> extends BaseApi implements HttpOnNex
     private String urlParam = "";
     private CommonCallback commonCallback;
     private Class<T> tClass;
-    private Context appCompatActivity;
 
-    public BaseGraphqlRequest(Context appCompatActivity){
-        this.appCompatActivity = appCompatActivity;
+    public BaseGraphqlRequest(){
         setBaseUrl(baseUrl);
         setOnNextListener(this);
     }
@@ -87,7 +85,7 @@ public abstract class BaseGraphqlRequest<T> extends BaseApi implements HttpOnNex
         this.urlParam = urlParam;
         this.commonCallback = commonCallback;
         this.tClass = tClass;
-        HttpManager.getInstance(appCompatActivity).doHttpDeal(this);
+        HttpManager.getInstance().doHttpDeal(this);
     }
 
 }

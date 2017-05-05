@@ -68,7 +68,7 @@ public class LoginActivity extends SendCodeActitity<LoginActivityDelegate> {
                     return;
                 }
 
-                UserManager.getInstance(this).loginByPhone(phone,code);
+                UserManager.getInstance().loginByPhone(this,phone,code);
 
                 break;
 

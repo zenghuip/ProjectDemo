@@ -36,7 +36,7 @@ public class IndexFragment extends BaseFragment<IndexFrgDelegate> {
     protected void initValue() {
         super.initValue();
 
-        BetManager.getInstance(activity).getGameType(new CommonCallback<CommonEntity<GameTypeEntity>>() {
+        BetManager.getInstance().getGameType(new CommonCallback<CommonEntity<GameTypeEntity>>() {
             @Override
             public void onSuccess(CommonEntity<GameTypeEntity> result) {
                 if (result.getData() != null){

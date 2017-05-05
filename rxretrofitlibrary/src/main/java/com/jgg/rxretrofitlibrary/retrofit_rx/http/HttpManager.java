@@ -1,7 +1,5 @@
 package com.jgg.rxretrofitlibrary.retrofit_rx.http;
 
-import android.content.Context;
-
 import com.jgg.rxretrofitlibrary.retrofit_rx.Api.BaseApi;
 import com.jgg.rxretrofitlibrary.retrofit_rx.exception.FactoryException;
 import com.jgg.rxretrofitlibrary.retrofit_rx.exception.RetryWhenNetworkException;
@@ -23,16 +21,14 @@ import rx.schedulers.Schedulers;
  */
 public class HttpManager {
     /*软引用對象*/
-    private Context appCompatActivity;
-    private static HttpManager instance = null;
-    public HttpManager(Context appCompatActivity) {
 
-        this.appCompatActivity = appCompatActivity;
+    private static HttpManager instance = null;
+    public HttpManager() {
     }
 
-    public synchronized static HttpManager getInstance(Context appCompatActivity) {
+    public synchronized static HttpManager getInstance() {
         if (instance == null) {
-            instance = new HttpManager(appCompatActivity);
+            instance = new HttpManager();
         }
         return instance;
     }
@@ -54,7 +50,7 @@ public class HttpManager {
                 .baseUrl(basePar.getBaseUrl())
                 .build();
         /*rx处理*/
-        ProgressSubscriber subscriber = new ProgressSubscriber(basePar, appCompatActivity);
+        ProgressSubscriber subscriber = new ProgressSubscriber(basePar);
         Observable observable = basePar.getObservable(retrofit)
                 /*失败后的retry配置*/
                 .retryWhen(new RetryWhenNetworkException())
