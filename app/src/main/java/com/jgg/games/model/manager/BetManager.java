@@ -26,7 +26,7 @@ public class BetManager {
      * 获取游戏类型
      */
     public void getGameType(CommonCallback callback) {
-        new HttpRequest().postUrl(false,getGameType(0,20),callback,GameTypeEntity.class);
+        new HttpRequest().postUrl(getGameType(0,20),callback,GameTypeEntity.class);
     }
 
     /**
@@ -35,7 +35,7 @@ public class BetManager {
      * @param responseCallback
      */
     public void getAnnounce(CommonCallback responseCallback) {
-        new HttpRequest().postUrl(false,getAnnounce(),responseCallback,AnnouncementEntity.class);
+        new HttpRequest().postUrl(getAnnounce(),responseCallback,AnnouncementEntity.class);
     }
 
 
@@ -45,7 +45,7 @@ public class BetManager {
      * @param responseCallback position  0 首页 1 商城轮播图
      */
     public void getBanner(int position, CommonCallback responseCallback) {
-        new HttpRequest().postUrl(false,getBanner(position),responseCallback,IndexBannerEntity.class);
+        new HttpRequest().postUrl(getBanner(position),responseCallback,IndexBannerEntity.class);
     }
 
     /**
@@ -56,7 +56,7 @@ public class BetManager {
      * @param responseCallback
      */
     public void getMatchList(String gameId,int offset, int limit, CommonCallback responseCallback) {
-        new HttpRequest().postUrl(false,getMatchList(gameId,offset,limit),responseCallback,MatchListEntity.class);
+        new HttpRequest().postUrl(getMatchList(gameId,offset,limit),responseCallback,MatchListEntity.class);
     }
 
 

@@ -42,7 +42,7 @@ public class UploadFileManager {
      * @param otherCallback
      */
     public void getUploadToken(String type,CommonCallback otherCallback) {
-        new HttpRequest().postUrl(true,getToken(type),otherCallback,QnMsgEntity.class);
+        new HttpRequest().postUrl(getToken(type),otherCallback,QnMsgEntity.class);
     }
 
     /**
@@ -64,7 +64,7 @@ public class UploadFileManager {
      * @param otherCallback
      */
     public void getUploadImageToken(String type,CommonCallback otherCallback) {
-        new HttpRequest().postUrl(true,getUploadImageToken(type),otherCallback,QnMsgEntity.class);
+        new HttpRequest().postUrl(getUploadImageToken(type),otherCallback,QnMsgEntity.class);
 
     }
 

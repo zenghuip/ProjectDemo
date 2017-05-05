@@ -22,7 +22,7 @@ public class CircleManager {
 
 
     public void getCircleType(CommonCallback callback) {
-        new HttpRequest().postUrl(false,getCircleType(),callback,TiebaTypeEntity.class);
+        new HttpRequest().postUrl(getCircleType(),callback,TiebaTypeEntity.class);
     }
 
     private String getCircleType(){

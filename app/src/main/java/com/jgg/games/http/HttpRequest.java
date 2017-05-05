@@ -16,8 +16,7 @@ public class HttpRequest extends BaseGraphqlRequest {
     }
 
 
-    public void postUrl(boolean showProgress, String url, CommonCallback callback,Class cls){
-        setShowProgress(showProgress);
+    public void postUrl(String url, CommonCallback callback,Class cls){
         setCommonCallback(url,callback, cls);
     }
 

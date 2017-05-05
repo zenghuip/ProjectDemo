@@ -30,14 +30,14 @@ public class UserManager{
      * @param callback
      */
     public void checkToken(String oldToken,CommonCallback callback) {
-        new HttpRequest().postUrl(false,checkToken(oldToken),callback,BaseCodeEntity.class);
+        new HttpRequest().postUrl(checkToken(oldToken),callback,BaseCodeEntity.class);
     }
 
     /*
     * 获取验证码
     */
     public void getCode(String phone, CommonCallback callback) {
-        new HttpRequest().postUrl(true,getCode(phone),callback, BaseCodeEntity.class);
+        new HttpRequest().postUrl(getCode(phone),callback, BaseCodeEntity.class);
     }
 
     /**
@@ -47,18 +47,18 @@ public class UserManager{
      */
     public void loginByPhone(BaseActivity activity,String phone, String code) {
         activity.showDialog();
-        new HttpRequest().postUrl(true,loginByPhoneParam(phone,code),new LoginGetUserCallback(activity), BaseCodeEntity.class);
+        new HttpRequest().postUrl(loginByPhoneParam(phone,code),new LoginGetUserCallback(activity), BaseCodeEntity.class);
     }
 
     public void loginByOpenId(BaseActivity activity,String openId) {
-        new HttpRequest().postUrl(true, loginByOpenid(openId), new LoginGetUserCallback(activity), BaseCodeEntity.class);
+        new HttpRequest().postUrl(loginByOpenid(openId), new LoginGetUserCallback(activity), BaseCodeEntity.class);
     }
 
     /**
      * 获取用户信息
      */
     public void getUserInfo() {
-        new HttpRequest().postUrl(false,getUserInfo(SharedPreUtil.getToken()),new GetUserInfoCallback(), BaseCodeEntity.class);
+        new HttpRequest().postUrl(getUserInfo(SharedPreUtil.getToken()),new GetUserInfoCallback(), BaseCodeEntity.class);
     }
 
     /**
@@ -70,7 +70,7 @@ public class UserManager{
      * @return
      */
     public void updateUserInfo(String name,String headUrl,int sex,long birth,CommonCallback callback) {
-        new HttpRequest().postUrl(true,updateUserInfo(name,headUrl,sex,birth),callback, BaseCodeEntity.class);
+        new HttpRequest().postUrl(updateUserInfo(name,headUrl,sex,birth),callback, BaseCodeEntity.class);
     }
 
     private String updateUserInfo(String name,String headUrl,int sex,long birth) {
