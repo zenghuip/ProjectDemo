@@ -3,6 +3,8 @@ package com.jgg.games.view.base;
 import android.content.Context;
 import android.view.View;
 
+import com.jgg.games.utils.NetworkUtils;
+import com.jgg.games.utils.ToastUtil;
 import com.jgg.games.widget.dialog.ShareDialog;
 import com.jgg.games.utils.IntentUtils;
 import com.jgg.games.view.activity.SettingActivity;
@@ -88,4 +90,5 @@ public abstract class BaseFragment<T extends HeaderDelegate> extends FragmentPre
         dismissDialog();
         super.onDestroy();
     }
+
 }

@@ -1,14 +1,10 @@
 package com.jgg.games.view.fragment;
 
 import android.os.Handler;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.TextView;
 
 import com.jgg.games.R;
 import com.jgg.games.adapter.BetAdapter;
 import com.jgg.games.adapter.RotationBannerAdapter;
-import com.jgg.games.adapter.base.CommonRecyclerAdapter;
 import com.jgg.games.http.base.CommonCallback;
 import com.jgg.games.model.entity.AnnouncementEntity;
 import com.jgg.games.model.entity.CommonEntity;
@@ -16,23 +12,20 @@ import com.jgg.games.model.entity.IndexBannerEntity;
 import com.jgg.games.model.entity.MatchEntity;
 import com.jgg.games.model.entity.MatchListEntity;
 import com.jgg.games.model.manager.BetManager;
+import com.jgg.games.recycleview.adapter.MultiItemTypeAdapter;
 import com.jgg.games.utils.ToastUtil;
-import com.jgg.games.view.base.RecyclerRefreshFragment;
+import com.jgg.games.view.base.PullRefreshFragment;
 import com.jgg.games.view.delegate.IndexBetFrgDelegate;
-import com.jgg.games.widget.MarqueeFactory;
-import com.jgg.games.widget.MarqueeView;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import cn.bingoogolapple.bgabanner.BGABanner;
 
 
 /**
  * 首页
  *
  */
-public class IndexBetFragment extends RecyclerRefreshFragment<MatchEntity,IndexBetFrgDelegate> {
+public class IndexBetFragment extends PullRefreshFragment<MatchEntity,IndexBetFrgDelegate> {
     public static final String GAME_TYPE_ID = "game_type_id";
     private BetAdapter adapter;
     private List<MatchEntity> matchList = new ArrayList<>();
@@ -51,13 +44,11 @@ public class IndexBetFragment extends RecyclerRefreshFragment<MatchEntity,IndexB
         }
         super.initValue();
         mTopAdapter = new RotationBannerAdapter(activity);
-
-        viewDelegate.addHead(adapter);
     }
 
     @Override
-    protected CommonRecyclerAdapter getAdapter() {
-        adapter = new BetAdapter(activity,matchList, R.layout.item_bill_head);
+    protected MultiItemTypeAdapter<MatchEntity> getAdapter() {
+        adapter = new BetAdapter(activity, R.layout.item_bill_head);
         return adapter;
     }
 
@@ -154,5 +145,11 @@ public class IndexBetFragment extends RecyclerRefreshFragment<MatchEntity,IndexB
     public void onStop() {
         super.onStop();
         viewDelegate.onStop();
+    }
+
+    @Override
+    protected void addHeadView() {
+        super.addHeadView();
+        viewDelegate.addHead(adapter);
     }
 }

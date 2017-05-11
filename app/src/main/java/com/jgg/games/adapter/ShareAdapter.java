@@ -3,10 +3,9 @@ package com.jgg.games.adapter;
 import android.content.Context;
 
 import com.jgg.games.R;
-import com.jgg.games.adapter.base.CommonAdapter;
-import com.jgg.games.adapter.base.ViewHolder;
 import com.jgg.games.model.entity.ShareEntity;
-import com.umeng.socialize.shareboard.SnsPlatform;
+import com.jgg.games.recycleview.adapter.CommonAdapter;
+import com.jgg.games.recycleview.base.ViewHolder;
 
 import java.util.List;
 

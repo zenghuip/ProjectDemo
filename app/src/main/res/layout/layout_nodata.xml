@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/tv_nodata"
+    android:id="@id/tv_nodata"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff"
     android:gravity="center"
-    android:text="暂无数据"
-    android:textColor="#dddddd"
-    android:textSize="20sp"
-    android:textStyle="bold"
-    android:visibility="gone" />
+    android:layout_below="@+id/ly_title"
+    android:text="@string/no_data"
+    android:visibility="gone"
+    android:textColor="@color/color_tv_gray_dd"
+    android:textSize="@dimen/text_size_20sp"
+    android:textStyle="bold"/>

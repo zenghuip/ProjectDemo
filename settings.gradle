@@ -1,1 +1,1 @@
-include ':app',':themvp',':rxretrofitlibrary','selectImage','xRefresh'
+include ':app',':themvp',':rxretrofitlibrary','selectImage','thirdPart'

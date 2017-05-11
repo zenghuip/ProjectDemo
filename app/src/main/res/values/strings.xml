@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ProjectDemo</string>
+    <string name="app_name">JGG</string>
 
     <string name="cancel">取消</string>
     <string name="confirm">确定</string>
@@ -60,12 +60,12 @@
     <string name="mine_circle">我的圈子</string>
     <string name="mine_center">会员中心</string>
     <string name="mine_tool">道具背包</string>
-
-
-
     <string name="setting_title">设置</string>
 
+
     <string name="waiting">敬请期待</string>
+
+    <string name="no_data">暂无数据</string>
 
     <string name="json_error">json解析错误</string>
     <string name="exit_tip">再按一次退出程序</string>
@@ -97,5 +97,6 @@
     <string name="pickerview_choose_time">选择时间</string>
     <string name="pickerview_option">option</string>
     <string name="pickerview_time">time</string>
+
 
 </resources>

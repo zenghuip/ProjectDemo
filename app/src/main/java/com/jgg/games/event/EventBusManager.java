@@ -17,6 +17,8 @@ public final class EventBusManager {
         return instance;
     }
 
+    public static final class NotifyNoNet {
+    }
 
     // 所有更新用户信息的事件
     public static final class NotifyUser {

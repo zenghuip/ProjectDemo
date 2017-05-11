@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_tv_white"
+    android:orientation="vertical">
+
+    <com.jgg.games.pullrefreshview.PullToRefreshView
+        android:id="@id/refresh_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ly_title"
+        android:background="#fff">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/common_3dp"
+            android:paddingRight="@dimen/common_3dp"
+            android:paddingLeft="@dimen/common_3dp"/>
+    </com.jgg.games.pullrefreshview.PullToRefreshView>
+
+    <include
+        layout="@layout/layout_nodata" />
+</RelativeLayout>

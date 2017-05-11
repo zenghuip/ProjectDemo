@@ -5,6 +5,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.jgg.games.utils.NetworkUtils;
 import com.jgg.themvp.view.AppDelegate;
 
 import com.jgg.games.R;
@@ -187,5 +188,15 @@ public abstract class HeaderDelegate extends AppDelegate {
     public void finish()
     {
         getActivity().finish();
+    }
+
+    // 是否有网络
+    public boolean havaNet(){
+        if (!NetworkUtils.isConnected()){
+            ToastUtil.showToast(R.string.net_error);
+            return false;
+        }
+        return true;
+
     }
 }

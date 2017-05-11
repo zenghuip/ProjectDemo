@@ -1,16 +1,10 @@
 package com.jgg.games.adapter;
 
 import android.content.Context;
-import android.util.DisplayMetrics;
-import android.view.View;
-import android.view.WindowManager;
 
-import com.jgg.games.R;
-import com.jgg.games.adapter.base.CommonRecyclerAdapter;
-import com.jgg.games.adapter.base.RecyclerViewHolder;
 import com.jgg.games.model.entity.MatchEntity;
-import com.jgg.games.model.entity.TiebaTypeEntity;
-import com.jgg.games.utils.ConvertUtils;
+import com.jgg.games.recycleview.adapter.CommonRecyclerAdapter;
+import com.jgg.games.recycleview.base.RecyclerViewHolder;
 
 import java.util.List;
 
@@ -20,12 +14,12 @@ import java.util.List;
 public class BetAdapter extends CommonRecyclerAdapter<MatchEntity> {
 
 
-    public BetAdapter(Context context, List<MatchEntity> mDatas, int itemLayoutId) {
-        super(context, mDatas, itemLayoutId);
+    public BetAdapter(Context context, int layoutId) {
+        super(context, layoutId);
     }
 
     @Override
-    public void convert(RecyclerViewHolder viewHolder, MatchEntity item) {
+    protected void convert(RecyclerViewHolder holder, MatchEntity matchEntity, int position) {
 
     }
 

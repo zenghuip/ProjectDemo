@@ -13,9 +13,11 @@
     <!--RelativeLayout-->
     <item name="rl_title" type="id"></item>
 
-    <!--xrefresh-->
-    <item name="xf_view" type="id"></item>
+    <!--refresh-->
+    <item name="refresh_view" type="id"></item>
     <item name="recycler_view" type="id"></item>
     <item name="list_view" type="id"></item>
+
+    <item name="tv_nodata" type="id"></item>
 
 </resources>

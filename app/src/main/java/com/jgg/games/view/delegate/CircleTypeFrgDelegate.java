@@ -1,8 +1,6 @@
 package com.jgg.games.view.delegate;
 
 import android.support.v7.widget.GridLayoutManager;
-import android.view.View;
-import android.widget.RelativeLayout;
 
 import com.jgg.games.R;
 import com.jgg.games.model.entity.TiebaTypeEntity;
@@ -20,7 +18,7 @@ public class CircleTypeFrgDelegate extends RecyclerRefreshDelegate {
 
     @Override
     public int getRootLayoutId() {
-        return R.layout.fragment_circle_type;
+        return R.layout.fragment_common_refresh;
     }
 
     @Override

@@ -9,6 +9,7 @@ import com.jgg.games.adapter.BetAdapter;
 import com.jgg.games.adapter.RotationBannerAdapter;
 import com.jgg.games.model.entity.AnnouncementEntity;
 import com.jgg.games.model.entity.IndexBannerEntity;
+import com.jgg.games.recycleview.adapter.MultiItemTypeAdapter;
 import com.jgg.games.view.base.RecyclerRefreshDelegate;
 import com.jgg.games.widget.MarqueeFactory;
 import com.jgg.games.widget.MarqueeView;
@@ -30,28 +31,26 @@ public class IndexBetFrgDelegate extends RecyclerRefreshDelegate {
 
     @Override
     public int getRootLayoutId() {
-        return R.layout.fragment_recycle_notitle;
+        return R.layout.fragment_common_refresh_notitle;
     }
 
     @Override
     public void initWidget() {
-        super.initWidget();
         showTitle(false);
+        super.initWidget();
     }
 
     @Override
     public void initValue() {
         super.initValue();
-        setEmptyView(R.layout.layout_nodata);
     }
 
-    public void addHead(BetAdapter adapter){
-//        View header =  addHeadView(adapter,R.layout.layout_banner);
+    public void addHead(MultiItemTypeAdapter adapter){
         View header = LayoutInflater.from(this.getActivity()).inflate(R.layout.layout_banner, null, false);
         banner = get(header,R.id.banner);
         marqueeView = get(header, R.id.tv_marquee);
         marqueeView.setVisibility(View.GONE);
-
+        addHeadView(header,adapter);
     }
 
 

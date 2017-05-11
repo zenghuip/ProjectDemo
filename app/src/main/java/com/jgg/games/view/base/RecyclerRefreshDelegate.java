@@ -4,18 +4,22 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.jgg.games.R;
-import com.jgg.games.adapter.base.CommonRecyclerAdapter;
-import com.jgg.refreshview.recyclerview.BaseRecyclerAdapter;
+import com.jgg.games.recycleview.adapter.CommonRecyclerAdapter;
+import com.jgg.games.recycleview.adapter.MultiItemTypeAdapter;
+import com.jgg.games.recycleview.wrapper.HeaderAndFooterWrapper;
 
 /**
  * Created by Administrator on 2017/4/13 0013.
  *
  */
 
-public abstract class RecyclerRefreshDelegate extends PullToRefreshDelegate {
+public abstract class RecyclerRefreshDelegate extends PullRefreshDelegate {
     public static final int HORIZONTAL_LISTVIEW = 0; // 水平列表
     public static final int VERTICAL_LISTVIEW = 1; // 垂直列表
     public static final int GRIDVIEW = 2; // 网格列表
@@ -23,6 +27,8 @@ public abstract class RecyclerRefreshDelegate extends PullToRefreshDelegate {
     public static final int VERTICAL_STAGGEREDGRID = 4; // 垂直瀑布列表
 
     public RecyclerView recyclerView;
+
+    private HeaderAndFooterWrapper mHeaderAndFooterWrapper;
 
     @Override
     public void initWidget() {
@@ -33,7 +39,6 @@ public abstract class RecyclerRefreshDelegate extends PullToRefreshDelegate {
     @Override
     public void initValue() {
         super.initValue();
-        setRefreshViewStyle();
         setListType(VERTICAL_LISTVIEW,0);
     }
 
@@ -73,11 +78,21 @@ public abstract class RecyclerRefreshDelegate extends PullToRefreshDelegate {
     }
 
 
-    public void setAdapter(CommonRecyclerAdapter adapter){
-        recyclerView.setAdapter(adapter);
+    public void setAdapter(MultiItemTypeAdapter adapter){
+        if (mHeaderAndFooterWrapper != null){ // 是否有加头部
+            recyclerView.setAdapter(mHeaderAndFooterWrapper);
+        }else {
+            recyclerView.setAdapter(adapter);
+        }
     }
 
 
 
+    public void addHeadView(View view,MultiItemTypeAdapter adapter){
+        if (mHeaderAndFooterWrapper == null){
+            mHeaderAndFooterWrapper = new HeaderAndFooterWrapper(adapter);
+        }
+        mHeaderAndFooterWrapper.addHeaderView(view);
+    }
 
 }

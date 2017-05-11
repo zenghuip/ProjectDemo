@@ -6,9 +6,9 @@ import android.view.View;
 import android.view.WindowManager;
 
 import com.jgg.games.R;
-import com.jgg.games.adapter.base.CommonRecyclerAdapter;
-import com.jgg.games.adapter.base.RecyclerViewHolder;
 import com.jgg.games.model.entity.TiebaTypeEntity;
+import com.jgg.games.recycleview.adapter.CommonRecyclerAdapter;
+import com.jgg.games.recycleview.base.RecyclerViewHolder;
 import com.jgg.games.utils.ConvertUtils;
 
 import java.util.List;
@@ -20,8 +20,8 @@ public class CircleTypeAdapter extends CommonRecyclerAdapter<TiebaTypeEntity> {
     private int itemWidth;
     private int itemHeight;
 
-    public CircleTypeAdapter(Context context, List<TiebaTypeEntity> mDatas, int itemLayoutId) {
-        super(context, mDatas, itemLayoutId);
+    public CircleTypeAdapter(Context context,int itemLayoutId) {
+        super(context, itemLayoutId);
 
         DisplayMetrics dm = new DisplayMetrics();
         WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
@@ -32,8 +32,7 @@ public class CircleTypeAdapter extends CommonRecyclerAdapter<TiebaTypeEntity> {
     }
 
     @Override
-    public void convert(RecyclerViewHolder viewHolder, final TiebaTypeEntity item) {
-
+    protected void convert(RecyclerViewHolder viewHolder, TiebaTypeEntity item, int position) {
         viewHolder.setText(R.id.tv_cicle_type_name, item.getName());
         viewHolder.setImageByUrl(R.id.iv_circle_icon, item.getImage());
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -45,6 +44,7 @@ public class CircleTypeAdapter extends CommonRecyclerAdapter<TiebaTypeEntity> {
             }
         });
     }
+
 
 
 }
