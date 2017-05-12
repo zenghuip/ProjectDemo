@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">JGG</string>
+
+
+    <!--pullrefresh-->
+    <string name="pull_refresh">下拉刷新</string>
+    <string name="pull_release">放开刷新</string>
+    <string name="pull_load">上拉加载更多</string>
+    <string name="pull_release_load">放开加载更多</string>
+    <string name="pull_loading">加载中...</string>
+</resources>
