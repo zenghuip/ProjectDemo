@@ -77,7 +77,7 @@ public abstract class PullRefreshFragment<T,E extends RecyclerRefreshDelegate>  
         if (isRefresh) {
             mList.clear();
             adapter.clearData();
-            if (list.size() == 0){
+            if (list.size() == 0 && viewDelegate.mHeaderAndFooterWrapper == null){
                 viewDelegate.addEmptyView();
             }else {
                 viewDelegate.removeEmptyView();

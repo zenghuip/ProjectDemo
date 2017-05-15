@@ -1,14 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion '25.0.0'
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
     defaultConfig {
-        applicationId "games.jgg.com.projectdemo"
-        minSdkVersion 18
-        targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
+        applicationId rootProject.ext.android.applicationId
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
     }
     buildTypes {
         release {
@@ -27,24 +27,21 @@ repositories {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:25.0.0'
-    compile 'com.android.support:design:25.0.0'
-    compile 'com.google.code.gson:gson:2.3.1'
+    compile rootProject.ext.dependencies["appcompat-v7"]
+    compile rootProject.ext.dependencies["design"]
+    compile rootProject.ext.dependencies["gson"]
+    compile rootProject.ext.dependencies["eventbus"]
+    compile rootProject.ext.dependencies["permissions"]
+    compile rootProject.ext.dependencies["ucrop"]
+    compile rootProject.ext.dependencies["qiniu"]
     compile project(':themvp')
     compile project(':thirdPart')
     compile project(':rxretrofitlibrary')
-    compile 'org.greenrobot:eventbus:3.0.0'
-    compile 'com.mukesh:permissions:1.0.3'
-
     compile(name: 'banner-release', ext: 'aar')
     // tab滑动
     compile(name: 'FlycoTabLayout_Lib-release', ext: 'aar')
     // 图片选择
     compile project(':selectImage')
-    // 图片裁剪
-    compile 'com.yalantis:ucrop:2.2.0'
-    // qiniu
-    compile 'com.qiniu:qiniu-android-sdk:7.3.+'
 
 
 }

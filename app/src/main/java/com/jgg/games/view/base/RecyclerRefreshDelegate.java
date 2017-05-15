@@ -28,7 +28,7 @@ public abstract class RecyclerRefreshDelegate extends PullRefreshDelegate {
 
     public RecyclerView recyclerView;
 
-    private HeaderAndFooterWrapper mHeaderAndFooterWrapper;
+    public HeaderAndFooterWrapper mHeaderAndFooterWrapper;
 
     @Override
     public void initWidget() {

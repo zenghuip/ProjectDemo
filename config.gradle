@@ -1,0 +1,33 @@
+ext {
+    android = [
+            compileSdkVersion: 25,
+            buildToolsVersion: "25.0.0",
+            applicationId    : "com.jgg.games",
+            minSdkVersion    : 16,
+            targetSdkVersion : 25,
+            versionCode      : 1,
+            versionName      : "1.0"
+    ]
+
+    dependencies = [
+            "appcompat-v7"             : "com.android.support:appcompat-v7:25.0.0",
+            "recyclerview-v7"          : "com.android.support:recyclerview-v7:25.0.0",
+            "design"                    : "com.android.support:design:23.2.1",
+            "support-v4"                : "com.android.support:support-v4:23.2.1",
+            "gson"                       : "com.google.code.gson:gson:2.3.1",
+            "eventbus"                  : "org.greenrobot:eventbus:3.0.0",
+            "permissions"               : "com.mukesh:permissions:1.0.3",
+            "ucrop"                     : "com.yalantis:ucrop:2.2.0",  // 截图
+            "qiniu"                     : "com.qiniu:qiniu-android-sdk:7.3.+",
+            "rxjava"                    : "com.squareup.retrofit2:adapter-rxjava:2.1.0",
+            "rxlifecycle"              : "com.trello:rxlifecycle:1.0",
+            "rxlifecycle-components"  : "com.trello:rxlifecycle-components:1.0",
+            "retrofit2"                 : "com.squareup.retrofit2:retrofit:2.1.0",
+            "converter-scalars"        : "com.squareup.retrofit2:converter-scalars:2.0.0",
+            "rotatephotoview"          : "com.chensl.rotatephotoview:rotatephotoview:1.0.5",  // 图片旋转
+            "glide-transformations"   : "jp.wasabeef:glide-transformations:2.0.2",
+            "glide"                     : "com.github.bumptech.glide:glide:3.6.1",
+            "progress"                  : "com.pnikosis:materialish-progress:1.7", // 刷新progress样式
+
+    ]
+}
