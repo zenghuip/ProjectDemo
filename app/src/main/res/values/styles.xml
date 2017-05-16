@@ -237,4 +237,27 @@
         <item name="android:textSize">@dimen/text_size_14sp</item>
     </style>
 
+    <style name="index_bet_countdown" parent="wrap_wrap">
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:paddingLeft">@dimen/common_15dp</item>
+        <item name="android:paddingTop">@dimen/common_12dp</item>
+        <item name="isShowDay">true</item>
+        <item name="isShowHour">true</item>
+        <item name="isShowMinute">true</item>
+        <item name="isShowSecond">true</item>
+        <item name="isShowMillisecond">false</item>
+        <item name="isTimeTextBold">true</item>
+        <item name="suffixGravity">below</item>
+        <item name="suffixDay">@string/day</item>
+        <item name="suffixHour">@string/hour</item>
+        <item name="suffixMinute">@string/minute</item>
+        <item name="suffixSecond">@string/second</item>
+        <item name="suffixMargin">@dimen/common_10dp</item>
+        <item name="suffixTopMargin">@dimen/common_10dp</item>
+        <item name="suffixTextSize">@dimen/text_size_10sp</item>
+        <item name="timeTextSize">@dimen/text_size_14sp</item>
+        <item name="suffixTextColor">@color/color_tv_pink_ff</item>
+        <item name="timeTextColor">@color/color_tv_pink_ff</item>
+    </style>
+
 </resources>

@@ -7,7 +7,7 @@ import android.widget.TextView;
 import com.jgg.games.R;
 import com.jgg.games.model.entity.UserEntity;
 import com.jgg.games.utils.ImageUtil;
-import com.jgg.games.utils.TimeUtils;
+import com.jgg.games.utils.TimeUtil;
 import com.jgg.games.view.base.HeaderDelegate;
 
 /**
@@ -83,7 +83,7 @@ public class UserInfoDelegate extends HeaderDelegate {
     }
 
     public void setBirth(String birth){
-        tvBirth.setText(TimeUtils.millis2String(birth,TimeUtils.PATTERN_YEAR_MONTH_DAY));
+        tvBirth.setText(TimeUtil.millis2String(birth, TimeUtil.PATTERN_YEAR_MONTH_DAY));
     }
 
     public void setHeadImg(String url){

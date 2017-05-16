@@ -8,6 +8,7 @@ import com.jgg.games.adapter.RotationBannerAdapter;
 import com.jgg.games.http.base.CommonCallback;
 import com.jgg.games.model.entity.AnnouncementEntity;
 import com.jgg.games.model.entity.CommonEntity;
+import com.jgg.games.model.entity.GameTypeEntity;
 import com.jgg.games.model.entity.IndexBannerEntity;
 import com.jgg.games.model.entity.MatchEntity;
 import com.jgg.games.model.entity.MatchListEntity;
@@ -26,11 +27,15 @@ import java.util.List;
  *
  */
 public class IndexBetFragment extends PullRefreshFragment<MatchEntity,IndexBetFrgDelegate> {
-    public static final String GAME_TYPE_ID = "game_type_id";
+
+    public static final String GAME = "game";
     private BetAdapter adapter;
     private List<MatchEntity> matchList = new ArrayList<>();
-    private String gameId;
+
     private RotationBannerAdapter mTopAdapter;
+
+    private String gameId,curTitle;
+    private GameTypeEntity gameTypeEntity;
 
     @Override
     protected Class<IndexBetFrgDelegate> getDelegateClass() {
@@ -38,26 +43,36 @@ public class IndexBetFragment extends PullRefreshFragment<MatchEntity,IndexBetFr
     }
 
     @Override
-    protected void initValue() {
+    protected void getIntentData() {
         if (getArguments() != null ){
-            gameId = getArguments().getString(GAME_TYPE_ID);
+            gameTypeEntity = (GameTypeEntity) getArguments().getSerializable(GAME);
+            if (gameTypeEntity != null){
+                gameId = gameTypeEntity.getId();
+                curTitle = gameTypeEntity.getName();
+            }
+
         }
+    }
+
+    @Override
+    protected void initValue() {
         super.initValue();
         mTopAdapter = new RotationBannerAdapter(activity);
     }
 
     @Override
     protected MultiItemTypeAdapter<MatchEntity> getAdapter() {
-        adapter = new BetAdapter(activity, R.layout.item_bill_head);
+        adapter = new BetAdapter(activity, R.layout.item_bet,curTitle);
         return adapter;
     }
 
     @Override
     protected void getData() {
 
-        if (isRefresh){
+        if (isRefresh) {
             getBanner();
             getAnnounce();
+
         }
 
         BetManager.getInstance().getMatchList(gameId,mCurrentPage, mPageCount, new CommonCallback<CommonEntity<MatchListEntity>>() {

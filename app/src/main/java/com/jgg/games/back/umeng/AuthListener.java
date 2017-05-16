@@ -1,22 +1,16 @@
 package com.jgg.games.back.umeng;
 
-import android.app.Activity;
-import android.util.Log;
-
 import com.jgg.games.R;
 import com.jgg.games.model.manager.UserManager;
-import com.jgg.games.utils.CommonUI;
 import com.jgg.games.utils.SharedPreUtil;
-import com.jgg.games.utils.StringUtils;
+import com.jgg.games.utils.StringUtil;
 import com.jgg.games.utils.ToastUtil;
 import com.jgg.games.view.base.BaseActivity;
-import com.jgg.rxretrofitlibrary.retrofit_rx.subscribers.CustomProgress;
 import com.umeng.socialize.UMAuthListener;
 import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 
 import java.util.Map;
-import java.util.Set;
 
 /**
  * Created by Administrator on 2017/3/27 0027.
@@ -43,7 +37,7 @@ public class AuthListener implements UMAuthListener {
     public void onComplete(SHARE_MEDIA share_media, int i, Map<String, String> map) {
         ToastUtil.showToast(R.string.umeng_authorize_suc);
         final String openId = map.get(OPEN_ID);
-        if (!StringUtils.isEmpty(openId)) {
+        if (!StringUtil.isEmpty(openId)) {
             SharedPreUtil.setOpenId(openId);
             UMShareAPI.get(activity).getPlatformInfo(activity, share_media,
                     new UMAuthListener() {

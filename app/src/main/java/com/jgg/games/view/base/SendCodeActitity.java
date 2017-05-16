@@ -9,9 +9,8 @@ import com.jgg.games.model.entity.BaseCodeEntity;
 import com.jgg.games.model.entity.CommonEntity;
 import com.jgg.games.model.manager.UserManager;
 import com.jgg.games.utils.SharedPreUtil;
-import com.jgg.games.utils.StringUtils;
+import com.jgg.games.utils.StringUtil;
 import com.jgg.games.utils.ToastUtil;
-import com.jgg.games.view.delegate.LoginActivityDelegate;
 import com.jgg.games.view.delegate.SendCodeDelegate;
 
 /**
@@ -36,7 +35,7 @@ public abstract class SendCodeActitity<T extends SendCodeDelegate> extends BaseA
         switch (v.getId()){
             case R.id.tv_getcode:
                 String phone =  viewDelegate.getPhone();
-                if (StringUtils.isEmpty(phone) || phone.length() != 11 || !StringUtils.isTelephone(phone)){
+                if (StringUtil.isEmpty(phone) || phone.length() != 11 || !StringUtil.isTelephone(phone)){
                     ToastUtil.showToast(R.string.login_phone_hint_toast);
                     return;
                 }

@@ -1,7 +1,5 @@
 package com.jgg.games.model.entity;
 
-import com.jgg.games.utils.TimeUtils;
-
 /**
  * Created by sugl on 2017/3/23 0023.
  */

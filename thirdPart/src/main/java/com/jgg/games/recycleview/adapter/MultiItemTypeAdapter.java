@@ -145,7 +145,7 @@ public class MultiItemTypeAdapter<T> extends RecyclerView.Adapter<RecyclerViewHo
         this.mOnItemClickListener = onItemClickListener;
     }
 
-    public void setDatas(List data) {
+    public void setDatas(List<T> data) {
         mDatas.addAll(data);
         notifyDataSetChanged();
     }

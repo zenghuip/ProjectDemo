@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingLeft="@dimen/common_10dp"
+    android:paddingRight="@dimen/common_10dp"
+    android:paddingBottom="@dimen/common_2dp"
+    android:paddingTop="@dimen/common_6dp"
+    android:gravity="center_vertical">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:paddingRight="@dimen/common_10dp"
+        android:paddingTop="@dimen/common_3dp"
+        android:orientation="vertical"
+        android:gravity="right"
+        android:layout_weight="1">
+        <TextView
+            android:id="@+id/tv_time_date"
+            style="@style/wrap_wrap"
+            android:textColor="@color/color_tv_black_33"
+            android:textSize="@dimen/text_size_14sp"
+            android:text="03-14"/>
+
+        <TextView
+            android:id="@+id/tv_time_num"
+            style="@style/wrap_wrap"
+            android:textColor="@color/color_tv_gray_66"
+            android:layout_marginTop="@dimen/common_6dp"
+            android:textSize="@dimen/text_size_12sp"
+            android:text="19:30"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ly_bet_bg"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/common_130dp"
+        android:background="@drawable/bg_dota"
+        android:paddingLeft="@dimen/common_6dp"
+        android:paddingRight="@dimen/common_6dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_weight="6">
+
+        <TextView
+            android:id="@+id/tv_name"
+            style="@style/match_wrap"
+            android:textColor="@color/color_tv_black_33"
+            android:textSize="@dimen/text_size_14sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:padding="@dimen/common_4dp"
+            android:lines="1"
+            android:text="的冯绍峰第三方但是发的的"/>
+
+        <RelativeLayout
+            style="@style/match_wrap"
+            android:layout_margin="@dimen/common_6dp">
+
+            <View
+                android:id="@+id/v_center"
+                android:layout_width="@dimen/common_75dp"
+                android:layout_marginLeft="@dimen/common_4dp"
+                android:layout_marginRight="@dimen/common_4dp"
+                android:layout_centerInParent="true"
+                android:layout_height="@dimen/common_20dp"/>
+
+            <TextView
+                android:id="@+id/tv_score"
+                style="@style/wrap_wrap"
+                android:text="1  -  1"
+                android:layout_centerInParent="true"
+                android:textStyle="bold"
+                android:visibility="gone"
+                android:textColor="@color/color_tv_black_33"
+                android:textSize="@dimen/text_size_16sp"/>
+
+            <ImageView
+                android:id="@+id/iv_video"
+                style="@style/wrap_wrap"
+                android:layout_centerInParent="true"
+                android:visibility="gone"
+                android:src="@drawable/icon_play"/>
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="@dimen/common_75dp"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:visibility="gone"
+                android:textSize="@dimen/text_size_14sp"
+                android:textColor="@color/color_tv_pink_ff"
+                android:layout_height="wrap_content"/>
+            <com.jgg.games.widget.countdownview.CountdownView
+                android:id="@+id/cv_time"
+                style="@style/index_bet_countdown"
+                android:layout_width="@dimen/common_60dp"
+                android:layout_height="@dimen/common_45dp"
+                android:visibility="gone"
+                android:layout_centerInParent="true"/>
+
+            <ImageView
+                android:id="@+id/iv_left_logo"
+                android:layout_width="@dimen/common_30dp"
+                android:layout_height="@dimen/common_30dp"
+                android:src="@drawable/icon_circle"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/v_center"/>
+
+            <ImageView
+                android:id="@+id/iv_right_logo"
+                android:layout_width="@dimen/common_30dp"
+                android:layout_height="@dimen/common_30dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/icon_circle"
+                android:layout_toRightOf="@+id/v_center"/>
+
+            <TextView
+                android:id="@+id/tv_left_name"
+                style="@style/wrap_wrap"
+                android:textSize="@dimen/text_size_14sp"
+                android:text="水电费"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/common_4dp"
+                android:layout_toLeftOf="@+id/iv_left_logo"
+                android:textColor="@color/color_tv_black_33"/>
+            <TextView
+                android:id="@+id/tv_right_name"
+                style="@style/wrap_wrap"
+                android:textSize="@dimen/text_size_14sp"
+                android:text="水电费"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/common_4dp"
+                android:layout_toRightOf="@+id/iv_right_logo"
+                android:textColor="@color/color_tv_black_33"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_bet"
+            android:layout_width="@dimen/common_85dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="@dimen/common_6dp"
+            android:background="@drawable/index_bet_btn_selector"
+            android:gravity="center"
+            android:text="@string/bet_ing"
+            android:textColor="@color/color_tv_white"
+            android:textSize="@dimen/text_size_10sp" />
+
+    </LinearLayout>
+</LinearLayout>

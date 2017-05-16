@@ -49,7 +49,7 @@ public class FileUtils {
      * @return 文件
      */
     public static File getFileByPath(String filePath) {
-        return StringUtils.isSpace(filePath) ? null : new File(filePath);
+        return StringUtil.isSpace(filePath) ? null : new File(filePath);
     }
 
     /**
@@ -96,7 +96,7 @@ public class FileUtils {
         // 文件不存在返回false
         if (!file.exists()) return false;
         // 新的文件名为空返回false
-        if (StringUtils.isSpace(newName)) return false;
+        if (StringUtil.isSpace(newName)) return false;
         // 如果文件名没有改变返回true
         if (newName.equals(file.getName())) return true;
         File newFile = new File(file.getParent() + File.separator + newName);
@@ -859,7 +859,7 @@ public class FileUtils {
             String line;
             int curLine = 1;
             List<String> list = new ArrayList<>();
-            if (StringUtils.isSpace(charsetName)) {
+            if (StringUtil.isSpace(charsetName)) {
                 reader = new BufferedReader(new FileReader(file));
             } else {
                 reader = new BufferedReader(new InputStreamReader(new FileInputStream(file), charsetName));
@@ -901,7 +901,7 @@ public class FileUtils {
         BufferedReader reader = null;
         try {
             StringBuilder sb = new StringBuilder();
-            if (StringUtils.isSpace(charsetName)) {
+            if (StringUtil.isSpace(charsetName)) {
                 reader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
             } else {
                 reader = new BufferedReader(new InputStreamReader(new FileInputStream(file), charsetName));
@@ -1144,7 +1144,7 @@ public class FileUtils {
      * @return 文件的MD5校验码
      */
     public static String getFileMD5ToString(String filePath) {
-        File file = StringUtils.isSpace(filePath) ? null : new File(filePath);
+        File file = StringUtil.isSpace(filePath) ? null : new File(filePath);
         return getFileMD5ToString(file);
     }
 
@@ -1155,7 +1155,7 @@ public class FileUtils {
      * @return 文件的MD5校验码
      */
     public static byte[] getFileMD5(String filePath) {
-        File file = StringUtils.isSpace(filePath) ? null : new File(filePath);
+        File file = StringUtil.isSpace(filePath) ? null : new File(filePath);
         return getFileMD5(file);
     }
 
@@ -1212,7 +1212,7 @@ public class FileUtils {
      * @return filePath最长目录
      */
     public static String getDirName(String filePath) {
-        if (StringUtils.isSpace(filePath)) return filePath;
+        if (StringUtil.isSpace(filePath)) return filePath;
         int lastSep = filePath.lastIndexOf(File.separator);
         return lastSep == -1 ? "" : filePath.substring(0, lastSep + 1);
     }
@@ -1235,7 +1235,7 @@ public class FileUtils {
      * @return 文件名
      */
     public static String getFileName(String filePath) {
-        if (StringUtils.isSpace(filePath)) return filePath;
+        if (StringUtil.isSpace(filePath)) return filePath;
         int lastSep = filePath.lastIndexOf(File.separator);
         return lastSep == -1 ? filePath : filePath.substring(lastSep + 1);
     }
@@ -1258,7 +1258,7 @@ public class FileUtils {
      * @return 不带拓展名的文件名
      */
     public static String getFileNameNoExtension(String filePath) {
-        if (StringUtils.isSpace(filePath)) return filePath;
+        if (StringUtil.isSpace(filePath)) return filePath;
         int lastPoi = filePath.lastIndexOf('.');
         int lastSep = filePath.lastIndexOf(File.separator);
         if (lastSep == -1) {
@@ -1288,7 +1288,7 @@ public class FileUtils {
      * @return 文件拓展名
      */
     public static String getFileExtension(String filePath) {
-        if (StringUtils.isSpace(filePath)) return filePath;
+        if (StringUtil.isSpace(filePath)) return filePath;
         int lastPoi = filePath.lastIndexOf('.');
         int lastSep = filePath.lastIndexOf(File.separator);
         if (lastPoi == -1 || lastSep >= lastPoi) return "";

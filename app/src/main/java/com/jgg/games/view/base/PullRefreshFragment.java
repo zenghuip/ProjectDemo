@@ -1,5 +1,8 @@
 package com.jgg.games.view.base;
 
+import android.app.Activity;
+import android.os.Handler;
+
 import com.jgg.games.pullrefreshview.PullToRefreshView;
 import com.jgg.games.recycleview.adapter.MultiItemTypeAdapter;
 
@@ -18,6 +21,7 @@ public abstract class PullRefreshFragment<T,E extends RecyclerRefreshDelegate>  
 
     @Override
     protected void initValue() {
+        getIntentData();
         reset();
     }
 
@@ -46,6 +50,7 @@ public abstract class PullRefreshFragment<T,E extends RecyclerRefreshDelegate>  
                 isRefresh = false;
 
                 loadMore();
+
             }
         });
     }
@@ -84,12 +89,19 @@ public abstract class PullRefreshFragment<T,E extends RecyclerRefreshDelegate>  
             }
         }
         mList.addAll(list);
-        adapter.setDatas(mList);
+        notifyData();
+
         if (list.size() < mPageCount) {
             viewDelegate.noMoreData();
         }
         loadComplete();
     }
+
+    public void notifyData(){
+        adapter.setDatas(mList);
+
+    }
+
 
     public void loadComplete() {
         viewDelegate.stopRefresh();
@@ -97,6 +109,10 @@ public abstract class PullRefreshFragment<T,E extends RecyclerRefreshDelegate>  
 
     protected abstract MultiItemTypeAdapter getAdapter();
     protected abstract void getData();
+
+    protected void getIntentData(){
+
+    }
 
     // 加头部  可加可不加
     protected void addHeadView(){

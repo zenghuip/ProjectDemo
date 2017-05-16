@@ -4,9 +4,9 @@ import java.text.DecimalFormat;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class StringUtils
+public class StringUtil
 {
-	private StringUtils() {
+	private StringUtil() {
 		throw new UnsupportedOperationException("u can't instantiate me...");
 	}
 

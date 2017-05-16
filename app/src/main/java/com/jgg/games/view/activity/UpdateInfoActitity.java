@@ -15,7 +15,7 @@ import com.jgg.games.widget.pickerview.listener.OnDateSetListener;
 import com.jgg.games.widget.pickerview.listener.OnOptionsSetListener;
 import com.jgg.games.utils.CommonUI;
 import com.jgg.games.utils.IntentUtils;
-import com.jgg.games.utils.StringUtils;
+import com.jgg.games.utils.StringUtil;
 import com.jgg.games.utils.ToastUtil;
 import com.jgg.games.view.base.BaseFragmentActivity;
 import com.jgg.games.view.fragment.UpdateNameFragment;
@@ -118,7 +118,7 @@ public class UpdateInfoActitity extends ImageActivity<UserInfoDelegate> {
 
             case R.id.tv_save:
                 name = viewDelegate.getName();
-                if (StringUtils.isEmptyNotNull(name)){
+                if (StringUtil.isEmptyNotNull(name)){
                     ToastUtil.showToast(R.string.text_myinfo_name_hint);
                     return;
                 }

@@ -1,11 +1,9 @@
 package com.jgg.games.view.activity;
 
 import android.content.Intent;
-import android.util.Log;
 import android.view.View;
 
 import com.jgg.games.back.umeng.AuthListener;
-import com.jgg.games.utils.CommonUI;
 import com.jgg.games.view.base.SendCodeActitity;
 import com.jgg.games.view.delegate.LoginActivityDelegate;
 import com.jgg.rxretrofitlibrary.retrofit_rx.database.DatabaseManager;
@@ -16,7 +14,7 @@ import java.util.List;
 import com.jgg.games.R;
 import com.jgg.games.model.entity.UserEntity;
 import com.jgg.games.model.manager.UserManager;
-import com.jgg.games.utils.StringUtils;
+import com.jgg.games.utils.StringUtil;
 import com.jgg.games.utils.ToastUtil;
 import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.bean.SHARE_MEDIA;
@@ -57,13 +55,13 @@ public class LoginActivity extends SendCodeActitity<LoginActivityDelegate> {
                 String phone =  viewDelegate.getPhone();
                 String code = viewDelegate.getCode();
 
-                if (StringUtils.isEmpty(phone) || phone.length() != 11 ){
+                if (StringUtil.isEmpty(phone) || phone.length() != 11 ){
                     ToastUtil.showToast(R.string.login_phone_hint_toast);
                     return;
                 }
 
 
-                if (StringUtils.isEmpty(code)){
+                if (StringUtil.isEmpty(code)){
                     ToastUtil.showToast(R.string.login_code_hint);
                     return;
                 }

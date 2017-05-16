@@ -18,15 +18,22 @@ import com.jgg.games.utils.constant.TimeConstant;
  *     desc  : 时间相关工具类
  * </pre>
  */
-public class TimeUtils {
+public class TimeUtil {
 
-    private TimeUtils() {
+    private TimeUtil() {
         throw new UnsupportedOperationException("u can't instantiate me...");
     }
 
     public static final String DEFAULT_PATTERN = "yyyy-MM-dd HH:mm:ss";
     public final static String PATTERN_YEAR_MONTH_DAY = "yyyy-MM-dd";
     public final static String PATTERN_MMDDHHMM = "MM月dd日 HH:mm";
+    public final static String PATTERN_MMDD= "MM-dd";
+    public final static String PATTERN_HHSS= "HH:mm";
+
+    public final static long ONE_MINUTE = 1000 * 60;
+    public final static long ONE_HOUR = ONE_MINUTE * 60;
+    public final static long ONE_DAY = ONE_HOUR * 24;
+    public final static long ONE_WEEK = ONE_DAY * 7;
 
     /**
      * 将时间戳转为时间字符串
@@ -58,7 +65,7 @@ public class TimeUtils {
      * @return
      */
     public static String millis2String(String millis, String pattern) {
-        if (StringUtils.isEmpty(millis)){
+        if (StringUtil.isEmpty(millis)){
             return "";
         }
         return new SimpleDateFormat(pattern, Locale.getDefault()).format(new Date(Long.parseLong(millis)));

@@ -5,6 +5,11 @@
     <string name="confirm">确定</string>
     <string name="gold">竞币</string>
     <string name="credit">积分</string>
+    <string name="day">天</string>
+    <string name="hour">时</string>
+    <string name="minute">分</string>
+    <string name="second">秒</string>
+    <string name="one_week">一周后</string>
 
     <string name="fragment_title_1">首页</string>
     <string name="fragment_title_2">赛事</string>
@@ -47,6 +52,25 @@
     <string name="fragment_index_datacenter">数据中心</string>
     <string name="fragment_index_rank">竞猜排行榜</string>
     <string name="fragment_index_search">搜索</string>
+
+    <string name="index_wzry">王者荣耀</string>
+    <string name="index_yxlm">英雄联盟</string>
+    <string name="index_dota">Dota2</string>
+    <string name="index_swxf">守望先锋</string>
+    <string name="index_csgo">CS:GO</string>
+    <string name="index_xjzb">星际争霸</string>
+
+    <!--竞猜-->
+    <string name="bet_end">已结束</string>
+    <string name="bet_timeout">已截止</string>
+    <string name="bet_ing">竞猜</string>
+    <string name="fragment_my_bet_wks">未开始</string>
+    <string name="fragment_my_bet_ing">竞猜中</string>
+    <string name="fragment_my_bet_wait">已停止</string>
+    <string name="fragment_my_bet_end">已结算</string>
+    <string name="fragment_my_bet_cancel">已取消</string>
+    <string name="fragment_my_bet_jxz">进行中</string>
+    <string name="fragment_my_bet_yjs">已结束</string>
 
     <!--我的-->
     <string name="mine_title_guide">引导</string>

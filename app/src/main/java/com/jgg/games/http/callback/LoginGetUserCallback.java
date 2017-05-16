@@ -11,7 +11,7 @@ import com.jgg.games.model.entity.CommonEntity;
 import com.jgg.games.model.entity.UserEntity;
 import com.jgg.games.utils.IntentUtils;
 import com.jgg.games.utils.SharedPreUtil;
-import com.jgg.games.utils.StringUtils;
+import com.jgg.games.utils.StringUtil;
 import com.jgg.games.utils.ToastUtil;
 import com.jgg.games.view.activity.LoginActivity;
 import com.jgg.games.view.activity.MainActivity;
@@ -38,7 +38,7 @@ public class LoginGetUserCallback implements CommonCallback<CommonEntity<BaseCod
                 UserEntity user = login.getUser();
                 boolean finish = false;
                 SharedPreUtil.setUid(user.getUid());
-                if (user != null && StringUtils.isEmptyNotNull(user.getName())){
+                if (user != null && StringUtil.isEmptyNotNull(user.getName())){
                     user.setAvatar(SharedPreUtil.getWeixinOrQqHead());
                     user.setName(SharedPreUtil.getWeixinOrQqName());
                     DatabaseManager.getInstance().insert(user); // 保存对像

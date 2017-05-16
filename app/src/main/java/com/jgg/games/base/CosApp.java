@@ -23,7 +23,7 @@ public class CosApp extends Application {
         context = this.getApplicationContext();
 		Utils.init(getApplicationContext());
         RxRetrofitApp.init(this);
-		AppConfig.setDeBugModel(true);
+		AppConfig.setDeBugModel(false);
 
 		// 初始化图片选择
 		IBoxingMediaLoader loader = new BoxingGlideLoader();
@@ -35,6 +35,7 @@ public class CosApp extends Application {
 		UMShareAPI.get(this);
 	}
 
+	// 第三方登录配置
 	private void setThirdLoginOrShare(){
 		PlatformConfig.setWeixin(AppConfig.WEIXIN_APP_ID, AppConfig.WEIXIN_APP_SECRET);
 		PlatformConfig.setQQZone(AppConfig.QQ_APP_ID, AppConfig.QQ_APP_SECRET);

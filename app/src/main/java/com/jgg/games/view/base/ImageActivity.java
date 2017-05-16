@@ -3,12 +3,11 @@ package com.jgg.games.view.base;
 import android.content.Intent;
 import android.util.Log;
 
-import com.google.gson.Gson;
 import com.jgg.games.http.base.CommonCallback;
 import com.jgg.games.model.entity.CommonEntity;
 import com.jgg.games.model.entity.QnMsgEntity;
 import com.jgg.games.model.manager.UploadFileManager;
-import com.jgg.games.utils.StringUtils;
+import com.jgg.games.utils.StringUtil;
 import com.jgg.games.utils.ToastUtil;
 import com.jgg.selectimage.Boxing;
 import com.jgg.selectimage.model.entity.BaseMedia;
@@ -83,7 +82,7 @@ public abstract class ImageActivity<T extends HeaderDelegate> extends BaseActivi
         //含图片先上传到七牛
         if (resultImg != null && resultImg.size()>0)
             url = resultImg.get(0);
-        if (!StringUtils.isEmpty(url) && change && !isSuc) {
+        if (!StringUtil.isEmpty(url) && change && !isSuc) {
             UploadFileManager.getInstance().getUploadToken(HEAD,new CommonCallback<CommonEntity<QnMsgEntity>>() {
                 @Override
                 public void onSuccess(CommonEntity<QnMsgEntity> entity) {

@@ -49,7 +49,7 @@ public class IndexFragment extends BaseFragment<IndexFrgDelegate> {
                         for (int i = 0; i < list.size(); i++) {
                             GameTypeEntity entry = list.get(i);
                             Bundle bundle = new Bundle();
-                            bundle.putString(IndexBetFragment.GAME_TYPE_ID,entry.getId());
+                            bundle.putSerializable(IndexBetFragment.GAME,entry);
                             IndexBetFragment indexFragment = new IndexBetFragment();
                             indexFragment.setArguments(bundle);
                             mFragments.add(indexFragment);

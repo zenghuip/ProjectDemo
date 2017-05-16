@@ -17,7 +17,7 @@ import com.jgg.games.model.entity.SHARE_TYPE;
 import com.jgg.games.model.entity.ShareEntity;
 import com.jgg.games.utils.AppUtils;
 import com.jgg.games.utils.DisplayUtil;
-import com.jgg.games.utils.StringUtils;
+import com.jgg.games.utils.StringUtil;
 import com.jgg.games.utils.ToastUtil;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareListener;
@@ -218,7 +218,7 @@ public class ShareDialog implements View.OnClickListener,AdapterView.OnItemClick
     }
 
     private void sharePic(SHARE_MEDIA platform){
-        if (StringUtils.isEmpty(imageUrl)) {
+        if (StringUtil.isEmpty(imageUrl)) {
             return;
         }
         UMImage image = new UMImage(mContext, imageUrl);
@@ -228,10 +228,10 @@ public class ShareDialog implements View.OnClickListener,AdapterView.OnItemClick
 
     protected void shareWeb(SHARE_MEDIA platform) {
         UMImage image;
-        if (StringUtils.isEmpty(url)){
+        if (StringUtil.isEmpty(url)){
             return;
         }
-        if (!StringUtils.isEmpty(imageUrl)) {
+        if (!StringUtil.isEmpty(imageUrl)) {
             image = new UMImage(mContext, imageUrl);
         } else {
             image = new UMImage(mContext, R.drawable.default_bg);
@@ -239,7 +239,7 @@ public class ShareDialog implements View.OnClickListener,AdapterView.OnItemClick
         UMWeb web = new UMWeb(url);
         web.setTitle(title);
         web.setThumb(image);
-        if (!StringUtils.isEmpty(content)) {
+        if (!StringUtil.isEmpty(content)) {
             web.setDescription(content);
         }
         new ShareAction((Activity) mContext).setPlatform(platform)

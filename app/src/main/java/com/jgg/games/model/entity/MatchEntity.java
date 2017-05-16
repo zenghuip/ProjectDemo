@@ -1,8 +1,12 @@
 package com.jgg.games.model.entity;
 
+import android.text.TextUtils;
+
+import com.jgg.games.R;
+import com.jgg.games.utils.TimeUtil;
+
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Administrator on 2017/3/23 0023.
@@ -264,5 +268,88 @@ public class MatchEntity extends GraphQlModel implements Serializable {
 
     public void setRank(String rank) {
         this.rank = rank;
+    }
+
+
+    public String getRightTeamName() {
+        if (getRightTeam() != null) {
+            return getRightTeam().getName();
+        }
+        return "";
+    }
+
+    public String getLefttTeamName() {
+        if (getLeftTeam() != null) {
+            return getLeftTeam().getName();
+        }
+        return "";
+    }
+
+    public String getLefttTeamLogo() {
+        if (getLeftTeam() != null) {
+            return getLeftTeam().getLogo();
+        }
+        return "";
+    }
+    public String getRightTeamLogo() {
+        if (getRightTeam() != null) {
+            return getRightTeam().getLogo();
+        }
+        return "";
+    }
+
+
+    public String getMatchScore() {
+        return getIntLeftTeamScore() + "   -   " + getIntRightTeamScore();
+    }
+
+    public int getIntLeftTeamScore() {
+        if (TextUtils.isEmpty(getLeftTeamScore())) {
+            return 0;
+        }
+        return Integer.parseInt(getLeftTeamScore());
+    }
+
+    public int getIntRightTeamScore() {
+        if (TextUtils.isEmpty(getRightTeamScore())) {
+            return 0;
+        }
+        return Integer.parseInt(getRightTeamScore());
+    }
+
+    public String getMatchName() {
+        if (getGame() == null) {
+            return "";
+        }
+        return getGame().getName();
+    }
+
+    public String getScheduleName() {
+        if (getSchedule() == null) {
+            return "";
+        }
+        return getSchedule().getName();
+    }
+
+    public int getBetState(){
+        int state = R.string.fragment_my_bet_wks;
+        int curState = getState();
+        if (curState == STATE_BEFORE){
+            state = R.string.fragment_my_bet_wks;
+        }else if (curState == STATE_START){
+            state = R.string.fragment_my_bet_ing;
+        }else if (curState == STATE_END){
+            state = R.string.fragment_my_bet_end;
+        }
+        return state;
+    }
+
+    public long getCountTime(){
+
+        return (getStartTime() - System.currentTimeMillis()/1000)*1000;
+    }
+
+    public String getStringStartTime(String pattern){
+        return  TimeUtil.millis2String(getStartTime()*1000, pattern);
     }
 }

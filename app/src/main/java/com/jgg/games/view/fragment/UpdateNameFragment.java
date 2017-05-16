@@ -4,7 +4,7 @@ import android.view.View;
 
 import com.jgg.games.R;
 import com.jgg.games.event.EventBusManager;
-import com.jgg.games.utils.StringUtils;
+import com.jgg.games.utils.StringUtil;
 import com.jgg.games.utils.ToastUtil;
 import com.jgg.games.view.base.BaseFragment;
 import com.jgg.games.view.delegate.InputWordDelegate;
@@ -48,7 +48,7 @@ public class UpdateNameFragment extends BaseFragment<InputWordDelegate> {
         switch (v.getId()){
             case R.id.tv_right:
                 String content = viewDelegate.getContent();
-                if (StringUtils.isEmptyNotNull(content)){
+                if (StringUtil.isEmptyNotNull(content)){
                     ToastUtil.showToast(R.string.text_myinfo_name_hint);
                     return;
                 }
