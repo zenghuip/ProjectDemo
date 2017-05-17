@@ -45,7 +45,7 @@ public class ResConverUtil {
      * @param countdownView
      * @param countTime 倒计时时间
      */
-    public static void indexBetState(Context mContext,int state, TextView tvScore, TextView tvBtn,TextView tvTime, CountdownView countdownView,long countTime){
+    public static void indexBetState(final Context mContext, int state, final TextView tvScore, TextView tvBtn, final TextView tvTime, final CountdownView countdownView, final long countTime){
         if (state == MatchEntity.STATE_END){
             tvScore.setVisibility(View.VISIBLE);
             if (tvBtn != null) {
@@ -63,8 +63,19 @@ public class ResConverUtil {
                 tvBtn.setEnabled(true);
                 tvBtn.setText(mContext.getResources().getString(R.string.bet_ing));
             }
-            // 倒计时
-            CountUtils.refreshTime(mContext,countdownView,tvTime,countTime);
+            countdownView.addOnAttachStateChangeListener(new View.OnAttachStateChangeListener() {
+                @Override
+                public void onViewAttachedToWindow(View v) {
+                    // 倒计时
+                    CountUtils.refreshTime(mContext,countdownView,tvTime,countTime);
+                }
+
+                @Override
+                public void onViewDetachedFromWindow(View v) {
+                    countdownView.stop();
+                }
+            });
+
 
         }else if (state == MatchEntity.STATE_START){
             tvScore.setVisibility(View.VISIBLE);

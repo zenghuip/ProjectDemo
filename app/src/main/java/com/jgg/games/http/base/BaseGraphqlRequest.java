@@ -27,13 +27,11 @@ import rx.Observable;
 
 public abstract class BaseGraphqlRequest<T> extends BaseApi implements HttpOnNextListener{
 
-    private String baseUrl = AppConfig.NET_ADDRESS;
     private String urlParam = "";
     private CommonCallback commonCallback;
     private Class<T> tClass;
 
     public BaseGraphqlRequest(){
-        setBaseUrl(baseUrl);
         setOnNextListener(this);
     }
 
@@ -85,7 +83,7 @@ public abstract class BaseGraphqlRequest<T> extends BaseApi implements HttpOnNex
         this.urlParam = urlParam;
         this.commonCallback = commonCallback;
         this.tClass = tClass;
-        HttpManager.getInstance().doHttpDeal(this);
+        HttpManager.getInstance(AppConfig.NET_ADDRESS).doHttpDeal(this);
     }
 
 }

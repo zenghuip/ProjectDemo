@@ -52,6 +52,15 @@ public class BetAdapter extends CommonRecyclerAdapter<MatchEntity> {
         }
 
         ResConverUtil.indexBetState(mContext,state,tvScore,tvBtn,tvTime,countdownView,item.getCountTime());
+
+        if (countdownView != null && countdownView.getVisibility() == View.VISIBLE) {
+            countdownView.setOnCountdownEndListener(new CountdownView.OnCountdownEndListener() {
+                @Override
+                public void onEnd(CountdownView cv) {
+                    notifyDataSetChanged();
+                }
+            });
+        }
     }
 
 }

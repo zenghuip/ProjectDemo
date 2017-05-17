@@ -20,15 +20,32 @@ import rx.schedulers.Schedulers;
  * http交互处理类
  */
 public class HttpManager {
+    private String baseUrl;
     /*软引用對象*/
+    private OkHttpClient.Builder builder;
+    private Retrofit retrofit;
+    /*超时时间-默认6秒*/
+    private int connectionTime = 6;
 
     private static HttpManager instance = null;
-    public HttpManager() {
+    public HttpManager(String baseUrl) {
+        this.baseUrl = baseUrl;
+
+        //手动创建一个OkHttpClient并设置超时时间缓存等设置
+        builder = new OkHttpClient.Builder();
+        builder.connectTimeout(connectionTime, TimeUnit.SECONDS);
+        /*创建retrofit对象*/
+        retrofit = new Retrofit.Builder()
+                .client(builder.build())
+                .addConverterFactory(ScalarsConverterFactory.create())
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .baseUrl(baseUrl)
+                .build();
     }
 
-    public synchronized static HttpManager getInstance() {
+    public synchronized static HttpManager getInstance(String baseUrl) {
         if (instance == null) {
-            instance = new HttpManager();
+            instance = new HttpManager(baseUrl);
         }
         return instance;
     }
@@ -38,17 +55,6 @@ public class HttpManager {
      * @param basePar 封装的请求数据
      */
     public void doHttpDeal(BaseApi basePar) {
-        //手动创建一个OkHttpClient并设置超时时间缓存等设置
-        OkHttpClient.Builder builder = new OkHttpClient.Builder();
-        builder.connectTimeout(basePar.getConnectionTime(), TimeUnit.SECONDS);
-
-        /*创建retrofit对象*/
-        Retrofit retrofit = new Retrofit.Builder()
-                .client(builder.build())
-                .addConverterFactory(ScalarsConverterFactory.create())
-                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                .baseUrl(basePar.getBaseUrl())
-                .build();
         /*rx处理*/
         ProgressSubscriber subscriber = new ProgressSubscriber(basePar);
         Observable observable = basePar.getObservable(retrofit)
