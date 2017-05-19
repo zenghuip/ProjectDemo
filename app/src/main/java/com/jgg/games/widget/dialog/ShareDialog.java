@@ -13,7 +13,6 @@ import android.widget.TextView;
 
 import com.jgg.games.R;
 import com.jgg.games.adapter.ShareAdapter;
-import com.jgg.games.model.entity.SHARE_TYPE;
 import com.jgg.games.model.entity.ShareEntity;
 import com.jgg.games.utils.AppUtils;
 import com.jgg.games.utils.DisplayUtil;
@@ -31,7 +30,7 @@ import java.util.ArrayList;
  * Created by Administrator on 2017/3/20 0020.
  */
 
-public class ShareDialog implements View.OnClickListener,AdapterView.OnItemClickListener{
+public class ShareDialog implements View.OnClickListener, AdapterView.OnItemClickListener {
 
     public final static int SHARE_OF_IMAGE = 1; // 分享图片
     public final static int SHARE_OF_WEB = 2; // 分享网页
@@ -44,24 +43,24 @@ public class ShareDialog implements View.OnClickListener,AdapterView.OnItemClick
     private Context mContext;
     private Dialog mDialog;
     private String imageUrl;
-    private String title ;
+    private String title;
     private String content;
-    private String url ;
+    private String url;
     private int type = SHARE_OF_WEB;
 
-    public ShareDialog(Context context){
+    public ShareDialog(Context context) {
         this.mContext = context;
         init();
     }
 
-    private void init(){
+    private void init() {
         mDialog = new Dialog(mContext, R.style.dialog_notitle);
         View view = LayoutInflater.from(mContext).inflate(R.layout.dialog_share, null);
         gridView = (GridView) view.findViewById(R.id.gv_share);
         tvCancel = (TextView) view.findViewById(R.id.tv_cancel);
         popView = view.findViewById(R.id.popup_view);
 
-        adapter = new ShareAdapter(mContext,R.layout.item_share,platforms);
+        adapter = new ShareAdapter(mContext, R.layout.item_share, platforms);
         gridView.setAdapter(adapter);
         //设置dialog的宽高为屏幕的宽高
         ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(DisplayUtil.getScreenWidth(mContext), DisplayUtil.getScreenHeight((Activity) mContext));
@@ -74,13 +73,13 @@ public class ShareDialog implements View.OnClickListener,AdapterView.OnItemClick
     }
 
     // 设置分享类型 图片还是网页
-    public ShareDialog setShareType(int type){
+    public ShareDialog setShareType(int type) {
         this.type = type;
         return this;
     }
 
     // 设置分享内容
-    public ShareDialog setContent(String title,String content,String url,String imageUrl){
+    public ShareDialog setContent(String title, String content, String url, String imageUrl) {
         this.title = title;
         this.content = content;
         this.url = url;
@@ -88,7 +87,7 @@ public class ShareDialog implements View.OnClickListener,AdapterView.OnItemClick
         return this;
     }
 
-    public void show(){
+    public void show() {
         if (mDialog != null && !mDialog.isShowing()) {
             mDialog.show();
         }
@@ -99,17 +98,17 @@ public class ShareDialog implements View.OnClickListener,AdapterView.OnItemClick
         mDialog.dismiss();
     }
 
-    private void dismiss(){
+    private void dismiss() {
         if (mDialog != null) {
             mDialog.dismiss();
         }
     }
 
-    public ShareDialog initPlatforms(SHARE_TYPE... list) {
+    public ShareDialog initPlatforms(@ShareEntity.ShareType int... list) {
         platforms.clear();
-        for (SHARE_TYPE e : list) {
-            if (!e.toString().equals(SHARE_TYPE.GENERIC.toString())) {
-                platforms.add(e.toSnsPlatform());
+        for (int e : list) {
+            if (e != ShareEntity.GENERIC) {
+                platforms.add(ShareEntity.toSnsPlatform(e));
             }
         }
         adapter.setDatas(platforms);
@@ -117,15 +116,15 @@ public class ShareDialog implements View.OnClickListener,AdapterView.OnItemClick
     }
 
 
-
     private UMShareListener umShareListener = new UMShareListener() {
         @Override
         public void onStart(SHARE_MEDIA platform) {
             //分享开始的回调
         }
+
         @Override
         public void onResult(SHARE_MEDIA platform) {
-            Log.d("plat","platform"+platform);
+            Log.d("plat", "platform" + platform);
 
             ToastUtil.showToast(platform + " 分享成功啦");
 
@@ -136,8 +135,8 @@ public class ShareDialog implements View.OnClickListener,AdapterView.OnItemClick
         @Override
         public void onError(SHARE_MEDIA platform, Throwable t) {
             ToastUtil.showToast(platform + " 分享失败啦");
-            if(t!=null){
-                Log.d("throw","throw:"+t.getMessage());
+            if (t != null) {
+                Log.d("throw", "throw:" + t.getMessage());
                 dismiss();
             }
         }
@@ -152,72 +151,72 @@ public class ShareDialog implements View.OnClickListener,AdapterView.OnItemClick
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         ShareEntity entity = platforms.get(position);
-        if (entity != null){
-            if (entity.mPlatform == SHARE_TYPE.WEIXIN){ // 微信
+        if (entity != null) {
+            if (entity.mPlatform == ShareEntity.WEIXIN) { // 微信
                 shareWeixin(SHARE_MEDIA.WEIXIN);
-            }else if (entity.mPlatform == SHARE_TYPE.WEIXIN_CIRCLE){ // 朋友圈
+            } else if (entity.mPlatform == ShareEntity.WEIXIN_CIRCLE) { // 朋友圈
                 shareWxCircle(SHARE_MEDIA.WEIXIN_CIRCLE);
-            }else if (entity.mPlatform == SHARE_TYPE.QQ){ // qq
+            } else if (entity.mPlatform == ShareEntity.QQ) { // qq
                 shareQQ(SHARE_MEDIA.QQ);
-            }else if (entity.mPlatform == SHARE_TYPE.QZONE){ // 空间
+            } else if (entity.mPlatform == ShareEntity.QZONE) { // 空间
                 shareQzone(SHARE_MEDIA.QZONE);
-            }else if (entity.mPlatform == SHARE_TYPE.SINA){ // 新浪微博
+            } else if (entity.mPlatform == ShareEntity.SINA) { // 新浪微博
                 shareSina(SHARE_MEDIA.SINA);
-            }else if (entity.mPlatform == SHARE_TYPE.FRIENDS){ // 好友
+            } else if (entity.mPlatform == ShareEntity.FRIENDS) { // 好友
 
-            }else if (entity.mPlatform == SHARE_TYPE.GENERIC){ // 圈子
+            } else if (entity.mPlatform == ShareEntity.GENERIC) { // 圈子
 
-            }else if (entity.mPlatform == SHARE_TYPE.CIRCLE){ // 公会
+            } else if (entity.mPlatform == ShareEntity.CIRCLE) { // 公会
 
             }
         }
     }
 
-    private void shareWeixin(SHARE_MEDIA platform){
-        if (!AppUtils.isInstallApp(mContext,"com.tencent.mm")){
+    private void shareWeixin(SHARE_MEDIA platform) {
+        if (!AppUtils.isInstallApp(mContext, "com.tencent.mm")) {
             ToastUtil.showToast(R.string.umeng_share_weixin);
             return;
         }
         share(platform);
     }
 
-    private void shareWxCircle(SHARE_MEDIA platform){
-        if (!AppUtils.isInstallApp(mContext,"com.tencent.mm")){
+    private void shareWxCircle(SHARE_MEDIA platform) {
+        if (!AppUtils.isInstallApp(mContext, "com.tencent.mm")) {
             ToastUtil.showToast(R.string.umeng_share_weixin);
             return;
         }
         share(platform);
     }
 
-    private void shareQQ(SHARE_MEDIA platform){
-        if (!AppUtils.isInstallApp(mContext,"com.tencent.mobileqq")){
+    private void shareQQ(SHARE_MEDIA platform) {
+        if (!AppUtils.isInstallApp(mContext, "com.tencent.mobileqq")) {
             ToastUtil.showToast(R.string.umeng_share_qq);
             return;
         }
         share(platform);
     }
 
-    private void shareQzone(SHARE_MEDIA platform){
-        if (!AppUtils.isInstallApp(mContext,"com.tencent.mobileqq")){
+    private void shareQzone(SHARE_MEDIA platform) {
+        if (!AppUtils.isInstallApp(mContext, "com.tencent.mobileqq")) {
             ToastUtil.showToast(R.string.umeng_share_qq);
             return;
         }
         share(platform);
     }
 
-    private void shareSina(SHARE_MEDIA platform){
+    private void shareSina(SHARE_MEDIA platform) {
         share(platform);
     }
 
-    private void share(SHARE_MEDIA platform){
-        if (type == SHARE_OF_WEB){
+    private void share(SHARE_MEDIA platform) {
+        if (type == SHARE_OF_WEB) {
             shareWeb(platform);
-        }else {
+        } else {
             sharePic(platform);
         }
     }
 
-    private void sharePic(SHARE_MEDIA platform){
+    private void sharePic(SHARE_MEDIA platform) {
         if (StringUtil.isEmpty(imageUrl)) {
             return;
         }
@@ -228,7 +227,7 @@ public class ShareDialog implements View.OnClickListener,AdapterView.OnItemClick
 
     protected void shareWeb(SHARE_MEDIA platform) {
         UMImage image;
-        if (StringUtil.isEmpty(url)){
+        if (StringUtil.isEmpty(url)) {
             return;
         }
         if (!StringUtil.isEmpty(imageUrl)) {
@@ -246,10 +245,10 @@ public class ShareDialog implements View.OnClickListener,AdapterView.OnItemClick
                 .withMedia(web).setCallback(umShareListener).share();
     }
 
-    // 用法
-    public void lizi(){
-//        shareDialog.initPlatforms(SHARE_TYPE.WEIXIN,SHARE_TYPE.WEIXIN_CIRCLE,SHARE_TYPE.QQ,SHARE_TYPE.QZONE,SHARE_TYPE.SINA,SHARE_TYPE.FRIENDS,SHARE_TYPE.GUILD,SHARE_TYPE.CIRCLE)
-//                .setShareType(ShareDialog.SHARE_OF_WEB).setContent("分享标题","分享内容","http://192.168.244.65:4000/cos/590069366a3b2b9c5373d91b#/betprotect","").show();
-
-    }
+//    // 用法
+//    public void lizi(Context context) {
+//        new ShareDialog(context).initPlatforms(ShareEntity.WEIXIN, ShareEntity.WEIXIN_CIRCLE, ShareEntity.QQ, ShareEntity.QZONE, ShareEntity.SINA, ShareEntity.FRIENDS, ShareEntity.GUILD, ShareEntity.CIRCLE)
+//                .setShareType(ShareDialog.SHARE_OF_WEB).setContent("分享标题", "分享内容", "http://192.168.244.65:4000/cos/590069366a3b2b9c5373d91b#/betprotect", "").show();
+//
+//    }
 }

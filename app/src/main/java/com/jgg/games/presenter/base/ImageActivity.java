@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.util.Log;
 
 import com.jgg.games.R;
+import com.jgg.games.base.BoxingGlideLoader;
+import com.jgg.games.base.BoxingUcrop;
 import com.jgg.games.http.base.CommonCallback;
 import com.jgg.games.model.entity.CommonEntity;
 import com.jgg.games.model.entity.QnMsgEntity;
@@ -11,6 +13,9 @@ import com.jgg.games.model.manager.UploadFileManager;
 import com.jgg.games.utils.StringUtil;
 import com.jgg.games.utils.ToastUtil;
 import com.jgg.selectimage.Boxing;
+import com.jgg.selectimage.BoxingCrop;
+import com.jgg.selectimage.BoxingMediaLoader;
+import com.jgg.selectimage.loader.IBoxingMediaLoader;
 import com.jgg.selectimage.model.entity.BaseMedia;
 import com.jgg.selectimage.model.entity.impl.ImageMedia;
 import com.qiniu.android.http.ResponseInfo;
@@ -42,6 +47,14 @@ public abstract class ImageActivity<T extends HeaderDelegate> extends BaseActivi
     boolean change;
     boolean isSuc; // 第一次图片上传成功
 
+    @Override
+    protected void initValue() {
+        // 初始化图片选择
+        IBoxingMediaLoader loader = new BoxingGlideLoader();
+        BoxingMediaLoader.getInstance().init(loader);
+        BoxingCrop.getInstance().init(new BoxingUcrop());
+        super.initValue();
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

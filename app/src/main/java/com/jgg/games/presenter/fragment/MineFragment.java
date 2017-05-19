@@ -4,10 +4,12 @@ import android.view.View;
 
 import com.jgg.games.R;
 import com.jgg.games.event.EventBusManager;
+import com.jgg.games.model.entity.ShareEntity;
 import com.jgg.games.utils.IntentUtils;
 import com.jgg.games.presenter.activity.UpdateInfoActitity;
 import com.jgg.games.presenter.base.BaseFragment;
 import com.jgg.games.view.delegate.MineFrgDelegate;
+import com.jgg.games.widget.dialog.ShareDialog;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -52,6 +54,8 @@ public class MineFragment extends BaseFragment<MineFrgDelegate> {
                 IntentUtils.intentParam(activity,UpdateInfoActitity.class,UpdateInfoActitity.FROM,UpdateInfoActitity.MINE);
                 break;
             case R.id.tv_get_gold:
+                shareDialog.initPlatforms(ShareEntity.WEIXIN, ShareEntity.WEIXIN_CIRCLE, ShareEntity.QQ, ShareEntity.QZONE, ShareEntity.SINA, ShareEntity.FRIENDS, ShareEntity.GUILD, ShareEntity.CIRCLE)
+                .setShareType(ShareDialog.SHARE_OF_WEB).setContent("分享标题", "分享内容", "http://192.168.244.65:4000/cos/590069366a3b2b9c5373d91b#/betprotect", "").show();
 
                 break;
             case R.id.tv_mine_guess:

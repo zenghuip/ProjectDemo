@@ -25,11 +25,6 @@ public class CosApp extends Application {
         RxRetrofitApp.init(this);
 		AppConfig.setDeBugModel(true);
 
-		// 初始化图片选择
-		IBoxingMediaLoader loader = new BoxingGlideLoader();
-		BoxingMediaLoader.getInstance().init(loader);
-		BoxingCrop.getInstance().init(new BoxingUcrop());
-
         // 第三方登录或分享配置
         setThirdLoginOrShare();
 		UMShareAPI.get(this);
