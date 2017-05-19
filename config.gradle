@@ -11,6 +11,7 @@ ext {
 
     dependencies = [
             "appcompat-v7"             : "com.android.support:appcompat-v7:25.0.0",
+            "support-annotations"     : "com.android.support:support-annotations:22.0.0",
             "recyclerview-v7"          : "com.android.support:recyclerview-v7:25.0.0",
             "design"                    : "com.android.support:design:23.2.1",
             "support-v4"                : "com.android.support:support-v4:23.2.1",

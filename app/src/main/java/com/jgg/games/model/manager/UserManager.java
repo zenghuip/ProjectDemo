@@ -15,7 +15,9 @@ import com.jgg.games.utils.SharedPreUtil;
 public class UserManager{
 
     private static final UserManager instance = new UserManager();
+    private UserManager(){
 
+    }
     public static UserManager getInstance() {
         return instance;
     }

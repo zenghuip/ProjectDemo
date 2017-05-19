@@ -13,6 +13,9 @@ public class CircleManager {
     private static final CircleManager instance = new CircleManager();
 
 
+    private CircleManager(){
+
+    }
     public static CircleManager getInstance() {
         return instance;
     }

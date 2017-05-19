@@ -16,6 +16,10 @@ public class BetManager {
 
     private static BetManager instance = new BetManager();
 
+    private BetManager(){
+
+    }
+
     public static BetManager getInstance() {
         return instance;
     }

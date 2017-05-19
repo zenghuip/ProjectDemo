@@ -12,6 +12,10 @@ public class AppManager {
     private static Stack<Activity> activityStack;
     private static final AppManager instance = new AppManager();
 
+    private AppManager(){
+
+    }
+
     public static AppManager getAppManager() {
         return instance;
     }

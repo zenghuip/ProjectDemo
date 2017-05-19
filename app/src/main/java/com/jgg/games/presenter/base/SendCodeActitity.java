@@ -26,7 +26,9 @@ public abstract class SendCodeActitity<T extends SendCodeDelegate> extends BaseA
     @Override
     protected void initValue() {
         super.initValue();
-        viewDelegate.setPhone(SharedPreUtil.getPhone());
+        if (!StringUtil.isEmpty(SharedPreUtil.getPhone())){
+            viewDelegate.setPhone(SharedPreUtil.getPhone());
+        }
     }
 
     @Override
