@@ -7,7 +7,7 @@ import com.jgg.games.R;
 import com.jgg.games.model.entity.UserEntity;
 import com.jgg.games.utils.ImageUtil;
 import com.jgg.games.utils.SharedPreUtil;
-import com.jgg.games.view.base.HeaderDelegate;
+import com.jgg.games.presenter.base.HeaderDelegate;
 
 /**
  * Created by Administrator on 2017/3/20 0020.

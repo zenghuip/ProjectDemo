@@ -10,13 +10,10 @@ import com.jgg.games.model.entity.TiebaTypeEntity;
  */
 public class CircleManager {
 
-    private static CircleManager instance = null;
+    private static final CircleManager instance = new CircleManager();
 
 
-    public synchronized static CircleManager getInstance() {
-        if (instance == null) {
-            instance = new CircleManager();
-        }
+    public static CircleManager getInstance() {
         return instance;
     }
 

@@ -5,12 +5,11 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.jgg.games.R;
-import com.jgg.games.adapter.BetAdapter;
 import com.jgg.games.adapter.RotationBannerAdapter;
 import com.jgg.games.model.entity.AnnouncementEntity;
 import com.jgg.games.model.entity.IndexBannerEntity;
 import com.jgg.games.recycleview.adapter.MultiItemTypeAdapter;
-import com.jgg.games.view.base.RecyclerRefreshDelegate;
+import com.jgg.games.presenter.base.RecyclerRefreshDelegate;
 import com.jgg.games.widget.MarqueeFactory;
 import com.jgg.games.widget.MarqueeView;
 import com.jgg.games.widget.NoticeMarquee;

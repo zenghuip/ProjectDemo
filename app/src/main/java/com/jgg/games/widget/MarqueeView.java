@@ -104,4 +104,12 @@ public class MarqueeView extends ViewFlipper {
         super.onDetachedFromWindow();
         stopFlipping();
     }
+
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        if (!isFlipping()){
+            startFlipping();
+        }
+    }
 }

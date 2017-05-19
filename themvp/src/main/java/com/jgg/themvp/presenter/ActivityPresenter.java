@@ -35,6 +35,7 @@ public abstract class ActivityPresenter<T extends IDelegate> extends RxAppCompat
         viewDelegate.initValue();
         initView();
         initValue();
+        getData();
         bindEvenListener();
     }
 
@@ -42,6 +43,9 @@ public abstract class ActivityPresenter<T extends IDelegate> extends RxAppCompat
     }
     protected void initView() {
     }
+    protected void getData() {
+    }
+
     protected void bindEvenListener() {
     }
 

@@ -4,7 +4,7 @@ import android.support.v7.widget.GridLayoutManager;
 
 import com.jgg.games.R;
 import com.jgg.games.model.entity.TiebaTypeEntity;
-import com.jgg.games.view.base.RecyclerRefreshDelegate;
+import com.jgg.games.presenter.base.RecyclerRefreshDelegate;
 
 import java.util.List;
 

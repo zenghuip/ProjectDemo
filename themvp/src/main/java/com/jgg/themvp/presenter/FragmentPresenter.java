@@ -20,6 +20,13 @@ import com.jgg.themvp.view.IDelegate;
 public abstract class FragmentPresenter<T extends IDelegate> extends Fragment {
     public T viewDelegate;
 
+    /**
+     * 懒加载过
+     */
+    private boolean isLazyLoaded;
+
+    private boolean isPrepared;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,8 +41,7 @@ public abstract class FragmentPresenter<T extends IDelegate> extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle
-            savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         viewDelegate.create(inflater, container, savedInstanceState);
         return viewDelegate.getRootView();
@@ -44,12 +50,32 @@ public abstract class FragmentPresenter<T extends IDelegate> extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        isPrepared = true;
         viewDelegate.initWidget();
         viewDelegate.initValue();
         initView();
         initValue();
+        lazyLoad();
         bindEvenListener();
     }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        lazyLoad();
+    }
+
+    /**
+     * 调用懒加载
+     */
+
+    private void lazyLoad() {
+        if (getUserVisibleHint() && isPrepared && !isLazyLoaded) {
+            onLazyLoad();
+            isLazyLoaded = true;
+        }
+    }
+
 
     protected void bindEvenListener() {
     }
@@ -57,6 +83,9 @@ public abstract class FragmentPresenter<T extends IDelegate> extends Fragment {
     protected void initValue() {
     }
     protected void initView() {
+    }
+
+    protected void onLazyLoad() {
     }
 
     @Override

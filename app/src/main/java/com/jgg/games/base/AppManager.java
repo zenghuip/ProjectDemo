@@ -10,15 +10,9 @@ import java.util.Stack;
  */
 public class AppManager {
     private static Stack<Activity> activityStack;
-    private static AppManager instance;
-
-    private AppManager() {
-    }
+    private static final AppManager instance = new AppManager();
 
     public static AppManager getAppManager() {
-        if (instance == null) {
-            instance = new AppManager();
-        }
         return instance;
     }
 

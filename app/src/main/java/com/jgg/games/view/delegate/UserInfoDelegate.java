@@ -8,7 +8,7 @@ import com.jgg.games.R;
 import com.jgg.games.model.entity.UserEntity;
 import com.jgg.games.utils.ImageUtil;
 import com.jgg.games.utils.TimeUtil;
-import com.jgg.games.view.base.HeaderDelegate;
+import com.jgg.games.presenter.base.HeaderDelegate;
 
 /**
  * Created by Administrator on 2017/4/13 0013.

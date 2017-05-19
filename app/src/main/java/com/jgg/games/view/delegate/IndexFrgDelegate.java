@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 import com.flyco.tablayout.SlidingTabLayout;
 import com.jgg.games.R;
-import com.jgg.games.view.base.HeaderDelegate;
+import com.jgg.games.presenter.base.HeaderDelegate;
 
 import java.util.ArrayList;
 import java.util.List;

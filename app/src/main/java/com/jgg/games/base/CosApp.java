@@ -23,7 +23,7 @@ public class CosApp extends Application {
         context = this.getApplicationContext();
 		Utils.init(getApplicationContext());
         RxRetrofitApp.init(this);
-		AppConfig.setDeBugModel(false);
+		AppConfig.setDeBugModel(true);
 
 		// 初始化图片选择
 		IBoxingMediaLoader loader = new BoxingGlideLoader();

@@ -1,12 +1,12 @@
 package com.jgg.games.model.manager;
 
+import com.jgg.games.callback.OnLoginSucCallBack;
 import com.jgg.games.http.HttpRequest;
 import com.jgg.games.http.base.CommonCallback;
 import com.jgg.games.http.callback.GetUserInfoCallback;
 import com.jgg.games.http.callback.LoginGetUserCallback;
 import com.jgg.games.model.entity.BaseCodeEntity;
 import com.jgg.games.utils.SharedPreUtil;
-import com.jgg.games.view.base.BaseActivity;
 
 /**
  * Created by dingdongdong on 2017/3/28.
@@ -14,13 +14,9 @@ import com.jgg.games.view.base.BaseActivity;
  */
 public class UserManager{
 
-    private static UserManager instance = null;
+    private static final UserManager instance = new UserManager();
 
-
-    public synchronized static UserManager getInstance() {
-        if (instance == null) {
-            instance = new UserManager();
-        }
+    public static UserManager getInstance() {
         return instance;
     }
 
@@ -45,13 +41,12 @@ public class UserManager{
      * @param phone
      * @param code
      */
-    public void loginByPhone(BaseActivity activity,String phone, String code) {
-        activity.showDialog();
-        new HttpRequest().postUrl(loginByPhoneParam(phone,code),new LoginGetUserCallback(activity), BaseCodeEntity.class);
+    public void loginByPhone(String phone, String code,OnLoginSucCallBack back) {
+        new HttpRequest().postUrl(loginByPhoneParam(phone,code),new LoginGetUserCallback(back), BaseCodeEntity.class);
     }
 
-    public void loginByOpenId(BaseActivity activity,String openId) {
-        new HttpRequest().postUrl(loginByOpenid(openId), new LoginGetUserCallback(activity), BaseCodeEntity.class);
+    public void loginByOpenId(String openId,OnLoginSucCallBack back) {
+        new HttpRequest().postUrl(loginByOpenid(openId), new LoginGetUserCallback(back), BaseCodeEntity.class);
     }
 
     /**

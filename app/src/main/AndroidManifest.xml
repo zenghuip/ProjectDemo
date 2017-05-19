@@ -21,20 +21,20 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
-        <activity android:name="com.jgg.games.view.activity.SplashActivity" >
+        <activity android:name=".presenter.activity.SplashActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.jgg.games.view.activity.MainActivity"/>
+        <activity android:name=".presenter.activity.MainActivity"/>
 
-        <activity android:name="com.jgg.games.view.activity.LoginActivity"/>
-        <activity android:name="com.jgg.games.view.activity.UpdateInfoActitity"/>
+        <activity android:name=".presenter.activity.LoginActivity"/>
+        <activity android:name=".presenter.activity.UpdateInfoActitity"/>
         <activity android:name="com.jgg.games.widget.TextActivity"/>
-        <activity android:name="com.jgg.games.view.base.BaseFragmentActivity"/>
-        <activity android:name="com.jgg.games.view.activity.SettingActivity"/>
+        <activity android:name=".presenter.base.BaseFragmentActivity"/>
+        <activity android:name=".presenter.activity.SettingActivity"/>
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
             android:screenOrientation="portrait"

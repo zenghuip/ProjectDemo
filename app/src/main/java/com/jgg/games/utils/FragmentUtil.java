@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-import com.jgg.games.back.ChangeTabBack;
+import com.jgg.games.callback.ChangeTabBack;
 import com.jgg.games.widget.MyTabWidget;
 
 /**

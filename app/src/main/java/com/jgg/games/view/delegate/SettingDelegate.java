@@ -3,7 +3,7 @@ package com.jgg.games.view.delegate;
 import android.widget.TextView;
 
 import com.jgg.games.R;
-import com.jgg.games.view.base.HeaderDelegate;
+import com.jgg.games.presenter.base.HeaderDelegate;
 
 /**
  * Created by Administrator on 2017/3/21 0021.

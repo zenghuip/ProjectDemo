@@ -14,12 +14,9 @@ import com.jgg.games.model.entity.MatchListEntity;
  */
 public class BetManager {
 
-    private static BetManager instance = null;
+    private static BetManager instance = new BetManager();
 
-    public synchronized static BetManager getInstance() {
-        if (instance == null) {
-            instance = new BetManager();
-        }
+    public static BetManager getInstance() {
         return instance;
     }
     /**

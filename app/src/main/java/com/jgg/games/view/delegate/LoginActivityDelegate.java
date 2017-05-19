@@ -1,12 +1,10 @@
 package com.jgg.games.view.delegate;
 
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.jgg.games.R;
-import com.jgg.games.view.base.HeaderDelegate;
 
 /**
  * Created by Administrator on 2017/3/20 0020.

@@ -28,7 +28,7 @@ public class HttpManager {
     private int connectionTime = 6;
 
     private static HttpManager instance = null;
-    public HttpManager(String baseUrl) {
+    private HttpManager(String baseUrl) {
         this.baseUrl = baseUrl;
 
         //手动创建一个OkHttpClient并设置超时时间缓存等设置

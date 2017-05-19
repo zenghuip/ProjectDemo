@@ -5,9 +5,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 
 import com.jgg.games.R;
-import com.jgg.games.back.ChangeTabBack;
+import com.jgg.games.callback.ChangeTabBack;
 import com.jgg.games.utils.FragmentUtil;
-import com.jgg.games.view.base.HeaderDelegate;
+import com.jgg.games.presenter.base.HeaderDelegate;
 import com.jgg.games.widget.MyTabWidget;
 
 /**
