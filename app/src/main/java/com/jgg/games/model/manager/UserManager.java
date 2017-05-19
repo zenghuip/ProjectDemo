@@ -1,6 +1,6 @@
 package com.jgg.games.model.manager;
 
-import com.jgg.games.callback.OnLoginSucCallBack;
+import com.jgg.games.callback.OnLoginCallBack;
 import com.jgg.games.http.HttpRequest;
 import com.jgg.games.http.base.CommonCallback;
 import com.jgg.games.http.callback.GetUserInfoCallback;
@@ -41,12 +41,12 @@ public class UserManager{
      * @param phone
      * @param code
      */
-    public void loginByPhone(String phone, String code,OnLoginSucCallBack back) {
-        new HttpRequest().postUrl(loginByPhoneParam(phone,code),new LoginGetUserCallback(back), BaseCodeEntity.class);
+    public void loginByPhone(String phone, String code,OnLoginCallBack callBack) {
+        new HttpRequest().postUrl(loginByPhoneParam(phone,code),new LoginGetUserCallback(callBack), BaseCodeEntity.class);
     }
 
-    public void loginByOpenId(String openId,OnLoginSucCallBack back) {
-        new HttpRequest().postUrl(loginByOpenid(openId), new LoginGetUserCallback(back), BaseCodeEntity.class);
+    public void loginByOpenId(String openId,OnLoginCallBack callBack) {
+        new HttpRequest().postUrl(loginByOpenid(openId), new LoginGetUserCallback(callBack), BaseCodeEntity.class);
     }
 
     /**

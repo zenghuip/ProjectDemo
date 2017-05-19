@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.view.View;
 
 import com.jgg.games.base.AppManager;
-import com.jgg.games.callback.OnLoginSucCallBack;
+import com.jgg.games.callback.OnLoginCallBack;
 import com.jgg.games.umeng.AuthListener;
 import com.jgg.games.presenter.base.SendCodeActitity;
 import com.jgg.games.utils.IntentUtils;
@@ -27,7 +27,7 @@ import com.umeng.socialize.bean.SHARE_MEDIA;
  * Created by Administrator on 2017/3/20 0020.
  */
 
-public class LoginActivity extends SendCodeActitity<LoginActivityDelegate> implements OnLoginSucCallBack{
+public class LoginActivity extends SendCodeActitity<LoginActivityDelegate> implements OnLoginCallBack {
     private List<UserEntity> userList = new ArrayList<>();
 
     private SHARE_MEDIA plat = SHARE_MEDIA.WEIXIN;

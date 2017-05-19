@@ -7,7 +7,7 @@ import com.jgg.games.model.entity.UserEntity;
  * 登录成功回调
  */
 
-public interface OnLoginSucCallBack {
+public interface OnLoginCallBack {
     void onSuccess(UserEntity userEntity);
     void onFail(String error);
 }

@@ -1,11 +1,10 @@
 package com.jgg.games.http.callback;
 
-import com.jgg.games.callback.OnLoginSucCallBack;
+import com.jgg.games.callback.OnLoginCallBack;
 import com.jgg.games.http.base.CommonCallback;
 import com.jgg.games.model.entity.BaseCodeEntity;
 import com.jgg.games.model.entity.CommonEntity;
 import com.jgg.games.model.entity.UserEntity;
-import com.jgg.games.utils.ToastUtil;
 
 /**
  * Created by Administrator on 2017/3/27 0027.
@@ -13,10 +12,10 @@ import com.jgg.games.utils.ToastUtil;
  */
 
 public class LoginGetUserCallback implements CommonCallback<CommonEntity<BaseCodeEntity>> {
-    private OnLoginSucCallBack back;
+    private OnLoginCallBack callBack;
 
-    public LoginGetUserCallback(OnLoginSucCallBack back){
-        this.back = back;
+    public LoginGetUserCallback(OnLoginCallBack callBack){
+        this.callBack = callBack;
     }
 
     @Override
@@ -26,12 +25,12 @@ public class LoginGetUserCallback implements CommonCallback<CommonEntity<BaseCod
         if (login != null){
             if (login.getStatus() == 0){
                 UserEntity user = login.getUser();
-                if (back != null){
-                    back.onSuccess(user);
+                if (callBack != null){
+                    callBack.onSuccess(user);
                 }
             }else {
-                if (back != null){
-                    back.onFail(login.getMsg());
+                if (callBack != null){
+                    callBack.onFail(login.getMsg());
                 }
             }
         }
@@ -39,8 +38,8 @@ public class LoginGetUserCallback implements CommonCallback<CommonEntity<BaseCod
 
     @Override
     public void onError(String error) {
-        if (back != null){
-            back.onFail(error);
+        if (callBack != null){
+            callBack.onFail(error);
         }
     }
 

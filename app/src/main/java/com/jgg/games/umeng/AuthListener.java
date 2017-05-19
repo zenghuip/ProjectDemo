@@ -1,7 +1,7 @@
 package com.jgg.games.umeng;
 
 import com.jgg.games.R;
-import com.jgg.games.callback.OnLoginSucCallBack;
+import com.jgg.games.callback.OnLoginCallBack;
 import com.jgg.games.model.manager.UserManager;
 import com.jgg.games.presenter.base.BaseActivity;
 import com.jgg.games.utils.SharedPreUtil;
@@ -22,11 +22,11 @@ public class AuthListener implements UMAuthListener {
     private String HEAD_URL = "iconuurl"; // 头像
     private String NINAME = "name"; // 昵称
     private BaseActivity activity;
-    private OnLoginSucCallBack back;
+    private OnLoginCallBack callBack;
 
-    public AuthListener(BaseActivity activity, OnLoginSucCallBack back) {
+    public AuthListener(BaseActivity activity, OnLoginCallBack callBack) {
         this.activity = activity;
-        this.back = back;
+        this.callBack = callBack;
     }
 
     @Override
@@ -61,7 +61,7 @@ public class AuthListener implements UMAuthListener {
                             String niName = map.get(NINAME);
                             SharedPreUtil.setWeixinOrQqHead(headUrl);
                             SharedPreUtil.setWeixinOrQqName(niName);
-                            UserManager.getInstance().loginByOpenId(openId,back);
+                            UserManager.getInstance().loginByOpenId(openId,callBack);
                         }
 
                         @Override
