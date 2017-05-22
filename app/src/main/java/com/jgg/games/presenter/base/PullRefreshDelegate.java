@@ -58,6 +58,11 @@ public abstract class PullRefreshDelegate extends HeaderDelegate {
         refreshView.setListener(listener);
     }
 
+    // 设置自动刷新
+    public void setAutoRefresh(){
+        refreshView.onAutoRefresh();
+    }
+
     public void stopRefresh(){
         refreshView.onFinishLoading();
     }

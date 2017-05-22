@@ -5,6 +5,7 @@ import android.widget.TextView;
 
 import com.jgg.games.R;
 import com.jgg.games.presenter.base.HeaderDelegate;
+import com.jgg.games.widget.dialog.LoginHistoryTelPop;
 
 /**
  * Created by Administrator on 2017/3/20 0020.
@@ -47,6 +48,16 @@ public abstract class SendCodeDelegate extends HeaderDelegate {
 
     public void setPhone(String phone){
         etPhone.setText(phone);
+    }
+
+    public void showHistoryTel(LoginHistoryTelPop pop){
+        if (pop != null){
+            if (pop.isShowing()){
+                pop.dismiss();
+            }else {
+                pop.show(etPhone);
+            }
+        }
     }
 
 }

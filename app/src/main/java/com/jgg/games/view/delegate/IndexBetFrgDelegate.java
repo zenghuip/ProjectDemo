@@ -81,7 +81,7 @@ public class IndexBetFrgDelegate extends RecyclerRefreshDelegate {
 
     public void setBannerAdapter(RotationBannerAdapter adapter, List<IndexBannerEntity> list,List<String> tipList){
         banner.setAdapter(adapter);
-        banner.setData(list, tipList);
+        banner.setData(list, null);
     }
 
     public void onStart() {

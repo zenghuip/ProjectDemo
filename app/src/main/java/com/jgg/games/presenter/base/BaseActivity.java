@@ -1,8 +1,10 @@
 package com.jgg.games.presenter.base;
 
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 
+import com.jgg.games.utils.KeyboardUtils;
 import com.jgg.games.widget.dialog.ShareDialog;
 import com.jgg.rxretrofitlibrary.retrofit_rx.subscribers.CustomProgress;
 import com.jgg.themvp.presenter.ActivityPresenter;
@@ -71,6 +73,18 @@ public abstract class BaseActivity<T extends HeaderDelegate> extends ActivityPre
     public void finish() {
         dismissDialog();
         super.finish();
+    }
+
+    // 点击空白处手起软键盘
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        if (ev.getAction() == MotionEvent.ACTION_DOWN) {
+            View v = getCurrentFocus();
+            if(getCurrentFocus()!=null && getCurrentFocus().getWindowToken()!=null){
+                KeyboardUtils.hideSoftInput(this,v);
+            }
+        }
+        return super.dispatchTouchEvent(ev);
     }
 
     // 通用dialog 点击可以取消

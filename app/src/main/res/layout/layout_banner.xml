@@ -21,11 +21,11 @@
             app:banner_pageChangeDuration="3000"
             app:banner_tipTextColor="@color/color_tv_white"
             app:banner_tipTextSize="@dimen/text_size_12sp"
-            app:banner_tipTextLocate="point_bottom"
+            app:banner_tipTextLocate="point_line"
             app:banner_pointTopBottomMargin="@dimen/common_3dp"
             app:banner_pointAutoPlayAble="true"
             app:banner_pointDrawable="@drawable/bga_banner_selector_point_hollow"
-            app:banner_tipTextBgColor="@color/color_tv_purple_2f_70"
+            app:banner_tipTextBgColor="@color/color_tv_trans"
             app:banner_pointContainerBackground="@color/color_tv_trans"
             app:banner_transitionEffect="defaultEffect" />
 

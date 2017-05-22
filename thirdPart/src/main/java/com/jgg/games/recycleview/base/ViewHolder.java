@@ -267,6 +267,15 @@ public class ViewHolder {
         return this;
     }
 
+    public ViewHolder setOnClickListener(View.OnClickListener listener, int... ids) {
+        if (ids == null) {
+            return this;
+        }
+        for (int id : ids) {
+            getView(id).setOnClickListener(listener);
+        }
+        return this;
+    }
 
     public int getPosition() {
         return mPosition;

@@ -1,5 +1,7 @@
 package com.jgg.games.presenter.base;
 
+import android.os.Handler;
+
 import com.jgg.games.pullrefreshview.PullToRefreshView;
 import com.jgg.games.recycleview.adapter.MultiItemTypeAdapter;
 
@@ -19,7 +21,12 @@ public abstract class PullRefreshFragment<T,E extends RecyclerRefreshDelegate>  
 
     @Override
     protected void onLazyLoad() {
-        reset();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                viewDelegate.setAutoRefresh();
+            }
+        }, 500);
     }
 
     @Override

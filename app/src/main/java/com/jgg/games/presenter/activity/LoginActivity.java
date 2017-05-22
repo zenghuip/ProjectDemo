@@ -1,15 +1,19 @@
 package com.jgg.games.presenter.activity;
 
 import android.content.Intent;
+import android.view.MotionEvent;
 import android.view.View;
 
 import com.jgg.games.base.AppManager;
+import com.jgg.games.callback.OnChooseTelCallBack;
 import com.jgg.games.callback.OnLoginCallBack;
 import com.jgg.games.umeng.AuthListener;
 import com.jgg.games.presenter.base.SendCodeActitity;
 import com.jgg.games.utils.IntentUtils;
+import com.jgg.games.utils.KeyboardUtils;
 import com.jgg.games.utils.SharedPreUtil;
 import com.jgg.games.view.delegate.LoginActivityDelegate;
+import com.jgg.games.widget.dialog.LoginHistoryTelPop;
 import com.jgg.rxretrofitlibrary.retrofit_rx.database.DatabaseManager;
 
 import java.util.ArrayList;
@@ -28,22 +32,28 @@ import com.umeng.socialize.bean.SHARE_MEDIA;
  */
 
 public class LoginActivity extends SendCodeActitity<LoginActivityDelegate> implements OnLoginCallBack {
-    private List<UserEntity> userList = new ArrayList<>();
 
     private SHARE_MEDIA plat = SHARE_MEDIA.WEIXIN;
+    private LoginHistoryTelPop pop;
 
     @Override
     protected void initValue() {
         super.initValue();
         viewDelegate.setTitle(R.string.login_title);
-        // 查询所有用户
-        userList = DatabaseManager.getInstance().getQueryAll(UserEntity.class);
+
+        pop = new LoginHistoryTelPop(this, new OnChooseTelCallBack() {
+            @Override
+            public void onChooseTel(String tel) {
+                viewDelegate.setPhone(tel);
+            }
+        });
+
     }
 
     @Override
     protected void bindEvenListener() {
         super.bindEvenListener();
-        viewDelegate.setOnClickListener(this,R.id.tv_login,R.id.tv_getcode,R.id.ly_weixin,R.id.ly_qq);
+        viewDelegate.setOnClickListener(this,R.id.tv_login,R.id.tv_getcode,R.id.ly_weixin,R.id.ly_qq,R.id.et_phone,R.id.et_code,R.id.rl_content);
     }
 
     @Override
@@ -64,7 +74,6 @@ public class LoginActivity extends SendCodeActitity<LoginActivityDelegate> imple
                     return;
                 }
 
-
                 if (StringUtil.isEmpty(code)){
                     ToastUtil.showToast(R.string.login_code_hint);
                     return;
@@ -83,6 +92,15 @@ public class LoginActivity extends SendCodeActitity<LoginActivityDelegate> imple
             case R.id.ly_qq:
                 plat = SHARE_MEDIA.QQ;
                 loginByQQorWeixin();
+                break;
+            case R.id.et_phone:
+                viewDelegate.showHistoryTel(pop);
+                break;
+            case R.id.et_code:
+            case R.id.rl_content:
+                if (pop != null && pop.isShowing()) {
+                    pop.dismiss();
+                }
                 break;
         }
 
@@ -139,4 +157,5 @@ public class LoginActivity extends SendCodeActitity<LoginActivityDelegate> imple
         dismissDialog();
         ToastUtil.showToast(error);
     }
+
 }

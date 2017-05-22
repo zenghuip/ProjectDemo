@@ -98,4 +98,8 @@ public abstract class RecyclerRefreshDelegate extends PullRefreshDelegate {
         }
         return true;
     }
+
+    public void setShowEmptyOfTitle(boolean showEmptyOfTitle) {
+        this.showEmptyOfTitle = showEmptyOfTitle;
+    }
 }

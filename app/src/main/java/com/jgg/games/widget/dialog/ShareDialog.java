@@ -24,6 +24,7 @@ import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.media.UMImage;
 import com.umeng.socialize.media.UMWeb;
 
+import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -45,6 +46,7 @@ public class ShareDialog implements View.OnClickListener, AdapterView.OnItemClic
     private String imageUrl;
     private String title;
     private String content;
+    private File file; // 分享本地图片
     private String url;
     private int type = SHARE_OF_WEB;
 
@@ -78,12 +80,21 @@ public class ShareDialog implements View.OnClickListener, AdapterView.OnItemClic
         return this;
     }
 
+    public ShareDialog setFile(File file) {
+        this.file = file;
+        return this;
+    }
+
+    public ShareDialog setImageUrl(String url) {
+        this.imageUrl = url;
+        return this;
+    }
+
     // 设置分享内容
-    public ShareDialog setContent(String title, String content, String url, String imageUrl) {
+    public ShareDialog setContent(String title, String content, String url) {
         this.title = title;
         this.content = content;
         this.url = url;
-        this.imageUrl = imageUrl;
         return this;
     }
 
@@ -217,10 +228,15 @@ public class ShareDialog implements View.OnClickListener, AdapterView.OnItemClic
     }
 
     private void sharePic(SHARE_MEDIA platform) {
-        if (StringUtil.isEmpty(imageUrl)) {
+        if (StringUtil.isEmpty(imageUrl) && file == null) {
             return;
         }
-        UMImage image = new UMImage(mContext, imageUrl);
+        UMImage image = null;
+        if (StringUtil.isEmpty(imageUrl) && file != null){
+            image = new UMImage(mContext, file);
+        }else if (!StringUtil.isEmpty(imageUrl) && file == null){
+            image = new UMImage(mContext, imageUrl);
+        }
         new ShareAction((Activity) mContext).withText(title).setPlatform(platform)
                 .withMedia(image).setCallback(umShareListener).share();
     }

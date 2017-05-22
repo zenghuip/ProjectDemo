@@ -1,8 +1,10 @@
 package com.jgg.games.presenter.base;
 
 import android.content.Context;
+import android.view.MotionEvent;
 import android.view.View;
 
+import com.jgg.games.utils.KeyboardUtils;
 import com.jgg.games.widget.dialog.ShareDialog;
 import com.jgg.games.utils.IntentUtils;
 import com.jgg.games.presenter.activity.SettingActivity;

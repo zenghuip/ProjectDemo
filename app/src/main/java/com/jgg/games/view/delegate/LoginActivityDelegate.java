@@ -2,6 +2,7 @@ package com.jgg.games.view.delegate;
 
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.jgg.games.R;
@@ -16,7 +17,7 @@ public class LoginActivityDelegate extends SendCodeDelegate {
     private TextView tvLogin;
     private LinearLayout lyWeixin;
     private LinearLayout lyQQ;
-    private ListView lvHistory;
+    private RelativeLayout rlContent;
 
 
     @Override
@@ -32,7 +33,7 @@ public class LoginActivityDelegate extends SendCodeDelegate {
         tvLogin = get(R.id.tv_login);
         lyWeixin = get(R.id.ly_weixin);
         lyQQ = get(R.id.ly_qq);
-        lvHistory = get(R.id.lv_phone);
+        rlContent = get(R.id.rl_content);
     }
 
 }

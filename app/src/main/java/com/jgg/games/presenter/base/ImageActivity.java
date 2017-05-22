@@ -32,7 +32,7 @@ import java.util.List;
  * 图片选择
  */
 
-public abstract class ImageActivity<T extends HeaderDelegate> extends BaseActivity<T>{
+public abstract class ImageActivity<T extends HeaderDelegate> extends BaseActivity<T> {
     public static final int SINGLE_CODE = 1024; // 图片单选
     public static final int MULTI_CODE = 1025; // 图片多选
 
@@ -40,9 +40,9 @@ public abstract class ImageActivity<T extends HeaderDelegate> extends BaseActivi
 
 
     public int MAX = 9; // 最多图片
-    public  ArrayList<BaseMedia> selectImg = new ArrayList<>();
-    private  ArrayList<String> resultImg = new ArrayList<>();
-    private  String url = "";
+    public ArrayList<BaseMedia> selectImg = new ArrayList<>();
+    private ArrayList<String> resultImg = new ArrayList<>();
+    private String url = "";
     public String headUrl = ""; // 上传完的头像地址
     boolean change;
     boolean isSuc; // 第一次图片上传成功
@@ -62,14 +62,14 @@ public abstract class ImageActivity<T extends HeaderDelegate> extends BaseActivi
         if (resultCode == RESULT_OK && data != null) {
             selectImg.clear();
             selectImg = Boxing.getResult(data);
-            if (requestCode == SINGLE_CODE){ // 单选图片
+            if (requestCode == SINGLE_CODE) { // 单选图片
                 BaseMedia media = selectImg.get(0);
                 resultImg.add(getSingleUrl(media));
                 setImage(resultImg);
                 change = true;
-            }else if (requestCode == MULTI_CODE){ // 多选图片
+            } else if (requestCode == MULTI_CODE) { // 多选图片
                 resultImg.clear();
-                for (BaseMedia media:selectImg){
+                for (BaseMedia media : selectImg) {
                     resultImg.add(getSingleUrl(media));
                 }
             }
@@ -83,22 +83,22 @@ public abstract class ImageActivity<T extends HeaderDelegate> extends BaseActivi
     public abstract void doPost();
 
     // media转url
-    private String getSingleUrl(BaseMedia media){
+    private String getSingleUrl(BaseMedia media) {
         if (media instanceof ImageMedia) {
-           return ((ImageMedia) media).getThumbnailPath();
+            return ((ImageMedia) media).getThumbnailPath();
         } else {
             return media.getPath();
         }
     }
 
     // 上传头像
-    public void postImg(){
+    public void postImg() {
         //含图片先上传到七牛
-        if (resultImg != null && resultImg.size()>0)
+        if (resultImg != null && resultImg.size() > 0)
             url = resultImg.get(0);
         if (!StringUtil.isEmpty(url) && change && !isSuc) {
             showDialog();
-            UploadFileManager.getInstance().getUploadToken(HEAD,new CommonCallback<CommonEntity<QnMsgEntity>>() {
+            UploadFileManager.getInstance().getUploadToken(HEAD, new CommonCallback<CommonEntity<QnMsgEntity>>() {
                 @Override
                 public void onSuccess(CommonEntity<QnMsgEntity> entity) {
                     QnMsgEntity response = entity.getData().getQiniuToken();
@@ -113,8 +113,8 @@ public abstract class ImageActivity<T extends HeaderDelegate> extends BaseActivi
                                         dismissDialog();
                                     } else {
                                         try {
-                                            JSONObject jsonStr  = response.getJSONObject("data");
-                                            JSONObject result  = jsonStr.getJSONObject("qiniuCallback");
+                                            JSONObject jsonStr = response.getJSONObject("data");
+                                            JSONObject result = jsonStr.getJSONObject("qiniuCallback");
                                             headUrl = result.getString("url").toString();
                                         } catch (JSONException e) {
                                             e.printStackTrace();
@@ -135,7 +135,7 @@ public abstract class ImageActivity<T extends HeaderDelegate> extends BaseActivi
                     ToastUtil.showToast(error);
                 }
             });
-        }else {
+        } else {
             doPost();
         }
     }
