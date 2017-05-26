@@ -9,6 +9,13 @@ android {
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode rootProject.ext.android.versionCode
         versionName rootProject.ext.android.versionName
+
+
+        ndk {
+
+            abiFilters"armeabi","armeabi-v7a","x86","mips"
+
+        }
     }
     buildTypes {
         release {
@@ -28,7 +35,7 @@ repositories {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile rootProject.ext.dependencies["appcompat-v7"]
-//    compile rootProject.ext.dependencies["support-annotations"]
+    //    compile rootProject.ext.dependencies["support-annotations"]
     compile rootProject.ext.dependencies["design"]
     compile rootProject.ext.dependencies["gson"]
     compile rootProject.ext.dependencies["eventbus"]
@@ -43,6 +50,5 @@ dependencies {
     compile(name: 'FlycoTabLayout_Lib-release', ext: 'aar')
     // 图片选择
     compile project(':selectImage')
-
-
+    compile files('libs/tencent_sdk_webview_x5.jar')
 }

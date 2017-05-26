@@ -92,6 +92,10 @@
     <style name="title_textview" parent="wrap_match">
         <item name="android:textColor">@color/color_tv_white</item>
         <item name="android:gravity">center</item>
+        <item name="android:lines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:layout_marginLeft">@dimen/common_30dp</item>
+        <item name="android:layout_marginRight">@dimen/common_20dp</item>
         <item name="android:textSize">@dimen/text_size_16sp</item>
     </style>
 

@@ -36,6 +36,8 @@
         <activity android:name="com.jgg.games.widget.TextActivity"/>
         <activity android:name=".presenter.base.BaseFragmentActivity"/>
         <activity android:name=".presenter.activity.SettingActivity"/>
+        <activity android:name=".presenter.activity.WebviewActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
             android:screenOrientation="portrait"

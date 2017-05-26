@@ -65,6 +65,11 @@ public abstract class HeaderDelegate extends AppDelegate {
         tvTitle.setText(rootView.getContext().getResources().getString(title));
     }
 
+    public void setTitle(String title){
+        setViewGoneOrVisible(tvTitle,true);
+        tvTitle.setText(title);
+    }
+
     public void setRightText(int rightText){
         setViewGoneOrVisible(tvRight,true);
         tvRight.setText(rootView.getContext().getResources().getString(rightText));

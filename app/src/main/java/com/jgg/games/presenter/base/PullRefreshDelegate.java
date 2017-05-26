@@ -21,6 +21,7 @@ public abstract class PullRefreshDelegate extends HeaderDelegate {
     private PullToRefreshView refreshView;
     private TextView tvNodata;
     public int refreshModel = RECYCLER_BOTH;
+    public boolean reset; // 不刷新时直接获取数据
 
     @Override
     public void initWidget() {
@@ -36,11 +37,11 @@ public abstract class PullRefreshDelegate extends HeaderDelegate {
             case RECYCLER_BOTH:
                 refreshView.setCanLoadMore(true);
                 refreshView.setCanRefresh(true);
-
                 break;
             case RECYCLER_DISABLE:
                 refreshView.setCanLoadMore(false);
                 refreshView.setCanRefresh(false);
+                reset = true;
                 break;
             case RECYCLER_REFRESH:
                 refreshView.setCanLoadMore(false);
@@ -49,6 +50,7 @@ public abstract class PullRefreshDelegate extends HeaderDelegate {
             case RECYCLER_LOAD:
                 refreshView.setCanLoadMore(true);
                 refreshView.setCanRefresh(false);
+                reset = true;
                 break;
         }
     }

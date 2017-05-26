@@ -1,13 +1,16 @@
 package com.jgg.games.adapter;
 
 import android.content.Context;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.ImageView;
 
 import com.jgg.games.model.entity.IndexBannerEntity;
+import com.jgg.games.presenter.activity.WebviewActivity;
 import com.jgg.games.utils.DisplayUtil;
 import com.jgg.games.utils.ImageUtil;
+import com.jgg.games.utils.IntentUtils;
 
 import cn.bingoogolapple.bgabanner.BGABanner;
 
@@ -32,11 +35,11 @@ public class RotationBannerAdapter implements BGABanner.Adapter<ImageView, Index
             ImageUtil.displayImg(model.getImage().getUrl(), imageView);
         }
 
-//        imageView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                IntentUtil.intentWebView(mContext,model.getUrl());
-//            }
-//        });
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                IntentUtils.intentWebView(mContext,"http://news.cos.99.com/news/05232017/033459574.shtml");
+            }
+        });
     }
 }

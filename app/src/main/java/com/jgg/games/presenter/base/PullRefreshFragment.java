@@ -21,12 +21,17 @@ public abstract class PullRefreshFragment<T,E extends RecyclerRefreshDelegate>  
 
     @Override
     protected void onLazyLoad() {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                viewDelegate.setAutoRefresh();
-            }
-        }, 500);
+        if (viewDelegate.reset){
+            reset();
+        }else {
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    viewDelegate.setAutoRefresh();
+                }
+            }, 500);
+        }
+
     }
 
     @Override
@@ -45,7 +50,6 @@ public abstract class PullRefreshFragment<T,E extends RecyclerRefreshDelegate>  
         viewDelegate.setRefreshOrLoadListener(new PullToRefreshView.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                isRefresh = true;
                 reset();
             }
 

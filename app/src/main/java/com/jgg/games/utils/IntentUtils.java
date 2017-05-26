@@ -10,6 +10,8 @@ import android.provider.MediaStore;
 import android.support.v4.content.FileProvider;
 import android.webkit.MimeTypeMap;
 
+import com.jgg.games.presenter.activity.WebviewActivity;
+
 import java.io.File;
 
 /**
@@ -66,6 +68,16 @@ public class IntentUtils {
             }
         context.startActivity(intent);
     }
+
+
+    public static void intentWebView(Context context,String url){
+        Intent intent = new Intent(context, WebviewActivity.class);
+        intent.putExtra(WebviewActivity.URL, url);
+        context.startActivity(intent);
+
+    }
+
+
 
     /**
      * 获取安装App（支持6.0）的意图

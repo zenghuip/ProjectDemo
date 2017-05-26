@@ -50,7 +50,6 @@ public class IndexBetFragment extends PullRefreshFragment<MatchEntity,IndexBetFr
             if (gameTypeEntity != null){
                 gameId = gameTypeEntity.getId();
                 curTitle = gameTypeEntity.getName();
-                Log.d("dddd",curTitle+"----");
             }
 
         }
