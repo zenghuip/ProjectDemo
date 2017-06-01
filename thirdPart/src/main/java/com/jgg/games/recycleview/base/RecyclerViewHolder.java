@@ -234,10 +234,24 @@ public class RecyclerViewHolder extends RecyclerView.ViewHolder {
     /**
      * 关于事件的
      */
-    public RecyclerViewHolder setOnClickListener(int viewId,
-                                                 View.OnClickListener listener) {
-        View view = getView(viewId);
-        view.setOnClickListener(listener);
+
+    public RecyclerViewHolder setOnClickListener(View.OnClickListener listener, int... ids) {
+        if (ids == null) {
+            return this;
+        }
+        for (int id : ids) {
+            getView(id).setOnClickListener(listener);
+        }
+        return this;
+    }
+
+    public RecyclerViewHolder setOnClickListener(View.OnClickListener listener, View... views) {
+        if (views == null) {
+            return this;
+        }
+        for (View view : views) {
+            view.setOnClickListener(listener);
+        }
         return this;
     }
 

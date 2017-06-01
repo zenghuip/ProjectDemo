@@ -14,14 +14,51 @@
             android:layout_marginTop="@dimen/common_6dp"
             android:orientation="horizontal"
             android:layout_centerHorizontal="true"
-            android:paddingLeft="@dimen/common_16dp"
+            android:paddingLeft="@dimen/common_12dp"
             android:gravity="center_vertical"
             android:background="@color/color_tv_trans">
+            <RelativeLayout
+                android:id="@+id/rl_head"
+                android:layout_width="@dimen/common_100dp"
+                android:layout_height="@dimen/common_33dp"
+                android:layout_marginRight="@dimen/common_6dp"
+                android:background="@drawable/border_index_head">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/iv_head"
+                    android:layout_width="@dimen/common_33dp"
+                    android:layout_height="@dimen/common_33dp"
+                    tl:border_color="@color/color_tv_white"
+                    tl:border_width="@dimen/common_1dp"
+                    android:layout_marginRight="@dimen/common_6dp"/>
+
+                <TextView
+                    android:id="@+id/tv_gold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/common_3dp"
+                    android:textColor="@color/color_tv_white"
+                    android:layout_toRightOf="@id/iv_head"
+                    android:drawablePadding="@dimen/common_3dp"
+                    android:drawableLeft="@drawable/icon_gold"
+                    android:textSize="@dimen/text_size_10sp"/>
+
+                <TextView
+                    android:id="@+id/tv_score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_tv_white"
+                    android:drawableLeft="@drawable/icon_score"
+                    android:drawablePadding="@dimen/common_3dp"
+                    android:layout_toRightOf="@id/iv_head"
+                    android:layout_below="@+id/tv_gold"
+                    android:textSize="@dimen/text_size_10sp"/>
+
+            </RelativeLayout>
             <TextView
                 android:id="@+id/tv_datacenter"
                 style="@style/index_top_tv"
                 android:text="@string/fragment_index_datacenter"
-                android:visibility="gone"
                 android:layout_marginRight="@dimen/common_10dp"
                 android:drawableLeft="@drawable/icon_data_center"/>
             <TextView

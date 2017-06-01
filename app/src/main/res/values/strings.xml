@@ -74,7 +74,11 @@
     <string name="fragment_my_bet_cancel">已取消</string>
     <string name="fragment_my_bet_jxz">进行中</string>
     <string name="fragment_my_bet_yjs">已结束</string>
-
+    <!--竞猜详情-->
+    <string name="guess_detail_bet">竞猜</string>
+    <string name="guess_detail_intelligence">情报</string>
+    <string name="guess_detail_comment">讨论</string>
+    <string name="guess_detail_news">资讯</string>
     <!--我的-->
     <string name="mine_title_guide">引导</string>
     <string name="mine_account">我的账户</string>

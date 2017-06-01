@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/CoordinatorLayout">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        style="@style/AppBarLayout">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            style="@style/CollapsingToolbarLayout">
+
+            <RelativeLayout
+                style="@style/collapsingToolbarLayout_layout">
+
+                <include
+                    android:id="@+id/tv_marquee"
+                    layout="@layout/layout_marquee" />
+                <ImageView
+                    android:id="@+id/iv_bg"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/tv_marquee"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/color_tv_black_70"
+                    android:layout_below="@+id/tv_marquee"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical">
+                    <LinearLayout
+                        android:layout_width="@dimen/common_0dp"
+                        android:layout_height="match_parent"
+                        android:paddingLeft="@dimen/common_8dp"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_weight="1">
+                        <ImageView
+                            android:id="@+id/iv_left_logo"
+                            android:layout_width="@dimen/common_50dp"
+                            android:layout_height="@dimen/common_50dp"
+                            android:scaleType="fitXY"/>
+                        <TextView
+                            android:id="@+id/tv_left_name"
+                            style="@style/guess_detail_top_text"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="@dimen/common_0dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_weight="1">
+                        <TextView
+                            android:id="@+id/tv_score"
+                            style="@style/wrap_wrap"
+                            android:text="1  -  1"
+                            android:layout_centerInParent="true"
+                            android:textStyle="bold"
+                            android:visibility="gone"
+                            android:textColor="@color/color_tv_white"
+                            android:textSize="@dimen/text_size_16sp"/>
+
+                        <ImageView
+                            android:id="@+id/iv_video"
+                            style="@style/wrap_wrap"
+                            android:visibility="gone"
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/icon_play"/>
+
+                        <TextView
+                            android:id="@+id/tv_time"
+                            android:layout_width="@dimen/common_75dp"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:visibility="gone"
+                            android:textSize="@dimen/text_size_14sp"
+                            android:textColor="@color/color_tv_pink_ff"
+                            android:layout_height="wrap_content"/>
+                        <com.jgg.games.widget.countdownview.CountdownView
+                            android:id="@+id/cv_time"
+                            style="@style/index_bet_countdown"
+                            android:layout_width="@dimen/common_60dp"
+                            android:layout_height="@dimen/common_45dp"
+                            android:visibility="gone"
+                            android:layout_centerInParent="true"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="@dimen/common_0dp"
+                        android:layout_height="match_parent"
+                        android:paddingRight="@dimen/common_8dp"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_weight="1">
+                        <ImageView
+                            android:id="@+id/iv_right_logo"
+                            android:layout_width="@dimen/common_50dp"
+                            android:layout_height="@dimen/common_50dp"
+                            android:scaleType="fitXY"/>
+                        <TextView
+                            android:id="@+id/tv_right_name"
+                            style="@style/guess_detail_top_text"/>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/Toolbar" >
+                <include
+                    layout="@layout/include_mainhead"/>
+                </android.support.v7.widget.Toolbar>
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+        <com.jgg.games.widget.MyTabWidget
+            android:id="@+id/tab"
+            style="@style/collapsing_tab">
+
+            <TextView
+                style="@style/collapsing_tab_text"
+                android:text="@string/guess_detail_bet" />
+
+            <TextView
+                style="@style/collapsing_tab_text"
+                android:text="@string/guess_detail_intelligence" />
+
+            <TextView
+                style="@style/collapsing_tab_text"
+                android:text="@string/guess_detail_comment" />
+
+            <TextView
+                style="@style/collapsing_tab_text"
+                android:text="@string/guess_detail_news" />
+
+        </com.jgg.games.widget.MyTabWidget>
+
+
+    </android.support.design.widget.AppBarLayout>
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        style="@style/collapsing_viewpager" />
+
+</android.support.design.widget.CoordinatorLayout>

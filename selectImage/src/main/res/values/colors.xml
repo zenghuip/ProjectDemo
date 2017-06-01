@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources>
-    <color name="boxing_colorPrimary">#000000</color>
-    <color name="boxing_colorPrimaryDark">#ff212121</color>
+    <color name="boxing_colorPrimary">#2f0233</color>
+    <color name="boxing_colorPrimaryDark">#2f0233</color>
     <color name="boxing_colorPrimaryAlpha">#44000000</color>
-    <color name="boxing_colorAccent">#FF4081</color>
+    <color name="boxing_colorAccent">#2f0233</color>
     <color name="color_tv_purple_2f">#2f0233</color>
     <color name="boxing_gray">#999999</color>
     <color name="boxing_gray1">#333333</color>

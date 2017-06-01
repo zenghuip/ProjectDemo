@@ -20,7 +20,7 @@
                 android:scaleType="centerCrop"
                 android:src="@drawable/icon_mine_head_bg" />
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/iv_head"
                 android:layout_width="@dimen/common_70dp"
                 android:layout_height="@dimen/common_70dp"

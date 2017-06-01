@@ -1,8 +1,11 @@
 package com.jgg.games.presenter.base;
 
 import android.content.Context;
+import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.jgg.games.utils.KeyboardUtils;
 import com.jgg.games.widget.dialog.ShareDialog;
@@ -13,6 +16,8 @@ import com.jgg.themvp.presenter.FragmentPresenter;
 import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
 
 import com.jgg.games.R;
+
+import org.greenrobot.eventbus.EventBus;
 
 /**
  * Created by Administrator on 2017/3/20 0020.
@@ -25,11 +30,21 @@ public abstract class BaseFragment<T extends HeaderDelegate> extends FragmentPre
     public CustomProgress progressDialog;
 
     @Override
+    public void onCreate(Bundle savedInstanceState) {
+        registeredEventBus();
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         this.activity = (RxAppCompatActivity) context;
     }
 
+    // 注册eventbus
+    public void registeredEventBus(){
+
+    }
 
     @Override
     protected void initValue() {
@@ -90,6 +105,11 @@ public abstract class BaseFragment<T extends HeaderDelegate> extends FragmentPre
     public void onDestroy() {
         dismissDialog();
         super.onDestroy();
+        if (EventBus.getDefault().isRegistered(this)){
+            EventBus.getDefault().unregister(this);
+        }
     }
+
+
 
 }

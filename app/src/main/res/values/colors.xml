@@ -8,6 +8,7 @@
     <color name="common_main_color">@color/color_tv_purple_2f</color>
 
     <color name="color_tv_black_40">#66000000</color>
+    <color name="color_tv_black_70">#b3000000</color>
     <color name="color_tv_trans">#00000000</color>
     <color name="color_tv_black_33">#333333</color>
     <color name="color_tv_black_55">#555555</color>

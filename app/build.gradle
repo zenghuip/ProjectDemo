@@ -42,6 +42,7 @@ dependencies {
     compile rootProject.ext.dependencies["permissions"]
     compile rootProject.ext.dependencies["ucrop"]
     compile rootProject.ext.dependencies["qiniu"]
+    compile rootProject.ext.dependencies["circleimageview"]
     compile project(':themvp')
     compile project(':thirdPart')
     compile project(':rxretrofitlibrary')

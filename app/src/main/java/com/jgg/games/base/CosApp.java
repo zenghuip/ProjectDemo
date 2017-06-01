@@ -23,7 +23,7 @@ public class CosApp extends Application {
         context = this.getApplicationContext();
 		Utils.init(getApplicationContext());
         RxRetrofitApp.init(this);
-		AppConfig.setDeBugModel(true);
+		AppConfig.setDeBugModel(false);
 
         // 第三方登录或分享配置
         setThirdLoginOrShare();

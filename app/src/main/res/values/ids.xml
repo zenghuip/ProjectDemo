@@ -20,4 +20,9 @@
 
     <item name="tv_nodata" type="id"></item>
 
+    <item name="tab" type="id"></item>
+    <item name="toolbar" type="id"></item>
+    <item name="viewpager" type="id"></item>
+    <item name="appbar" type="id"></item>
+
 </resources>

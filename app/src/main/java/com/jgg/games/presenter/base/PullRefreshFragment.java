@@ -15,7 +15,7 @@ public abstract class PullRefreshFragment<T,E extends RecyclerRefreshDelegate>  
 
     protected int mCurrentPage = 0; // offset
     private int curPage = 0; // 当前页面
-    protected int mPageCount = 10; // limit
+    protected int mPageCount = 20; // limit
     public boolean isRefresh = true;
 
 

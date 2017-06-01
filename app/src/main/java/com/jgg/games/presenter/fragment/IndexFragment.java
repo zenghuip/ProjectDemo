@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.View;
 
 import com.jgg.games.R;
+import com.jgg.games.event.EventBusManager;
 import com.jgg.games.http.base.CommonCallback;
 import com.jgg.games.model.entity.CommonEntity;
 import com.jgg.games.model.entity.GameTypeEntity;
@@ -12,6 +13,10 @@ import com.jgg.games.model.manager.BetManager;
 import com.jgg.games.utils.ToastUtil;
 import com.jgg.games.presenter.base.BaseFragment;
 import com.jgg.games.view.delegate.IndexFrgDelegate;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +37,10 @@ public class IndexFragment extends BaseFragment<IndexFrgDelegate> {
         return IndexFrgDelegate.class;
     }
 
+    @Override
+    public void registeredEventBus() {
+        EventBus.getDefault().register(this);
+    }
 
     @Override
     protected void onLazyLoad() {
@@ -79,5 +88,10 @@ public class IndexFragment extends BaseFragment<IndexFrgDelegate> {
             case R.id.tv_rank:
                 break;
         }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onUpdateUser(EventBusManager.NotifyUser event) {
+        viewDelegate.setHeadData();
     }
 }

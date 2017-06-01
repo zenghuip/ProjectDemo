@@ -10,6 +10,7 @@
 
 
     <!--通用-->
+    <dimen name="common_250dp">250dp</dimen>
     <dimen name="common_230dp">230dp</dimen>
     <dimen name="common_280dp">270dp</dimen>
     <dimen name="common_300dp">300dp</dimen>
@@ -50,6 +51,7 @@
     <dimen name="common_40dp">40dp</dimen>
     <dimen name="common_36dp">36dp</dimen>
     <dimen name="common_35dp">35dp</dimen>
+    <dimen name="common_33dp">33dp</dimen>
     <dimen name="common_30dp">30dp</dimen>
     <dimen name="common_28dp">28dp</dimen>
     <dimen name="common_26dp">26dp</dimen>

@@ -87,7 +87,7 @@ public class UserInfoDelegate extends HeaderDelegate {
     }
 
     public void setHeadImg(String url){
-        ImageUtil.displayCircleImage(url,ivHead);
+        ImageUtil.displayImg(url,ivHead);
     }
 
 }

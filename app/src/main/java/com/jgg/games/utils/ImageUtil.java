@@ -64,6 +64,7 @@ public class ImageUtil {
         Glide.with(CosApp.context)
                 .load(url)
                 .error(defaultImg)
+                .crossFade() // 淡入淡出动画效果
 //                .placeholder(defaultImg) // 缺省的占位图片，一般可以设置一个加载中的进度图
                 .into(imageView);
     }

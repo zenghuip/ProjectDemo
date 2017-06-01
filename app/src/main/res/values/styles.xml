@@ -1,11 +1,11 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/common_main_color</item>
+        <item name="colorPrimaryDark">@color/common_main_color</item>
+        <item name="android:statusBarColor">@color/common_main_color</item>
     </style>
 
     <style name="dialog_notitle" parent="Theme.AppCompat.Dialog">
@@ -16,15 +16,71 @@
         <item name="android:windowAnimationStyle">@style/popup_animation</item>
     </style>
 
-    <style name="Custom_Progress" parent="@android:style/Theme.Dialog">
-        <item name="android:windowFrame">@null</item>
-        <item name="android:windowIsFloating">true</item>
-        <item name="android:windowContentOverlay">@null</item>
-        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
-        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
-        <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:windowNoTitle">true</item>
+    <style name="Toolbar" parent="Widget.AppCompat.Toolbar">
+        <item name="contentInsetStart">0dp</item><!-- 设置该属性解决空白部分-->
+        <item name="layout_collapseMode">pin</item>
+        <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/activity_title_height</item>
     </style>
+
+    <style name="AppBarLayout" parent="match_wrap">
+        <item name="android:theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="CoordinatorLayout" parent="match_match">
+        <item name="android:background">@color/color_tv_white</item>
+        <item name="android:fitsSystemWindows">true</item>
+    </style>
+
+    <style name="CollapsingToolbarLayout" parent="match_match">
+        <item name="contentScrim">@color/color_tv_purple_2f</item>
+        <item name="layout_scrollFlags">scroll|exitUntilCollapsed</item>
+        <item name="android:fitsSystemWindows">true</item>
+    </style>
+
+    <style name="collapsing_tab" parent="match_wrap">
+        <item name="android:layout_height">@dimen/common_35dp</item>
+        <item name="android:background">@color/color_tv_gray_e5</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="collapsingToolbarLayout_layout" parent="match_wrap">
+        <item name="android:layout_height">@dimen/common_250dp</item>
+        <item name="layout_collapseMode">parallax</item>
+        <item name="layout_collapseParallaxMultiplier">0.3</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingTop">@dimen/activity_title_height</item>
+    </style>
+
+    <style name="collapsing_tab_text" parent="match_wrap">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:drawableBottom">@drawable/tab_textbottom_selector</item>
+        <item name="android:textSize">@dimen/text_size_12sp</item>
+        <item name="android:textColor">@color/color_tv_purple_2f</item>
+    </style>
+
+    <style name="collapsing_viewpager" parent="match_wrap">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="layout_behavior">@string/appbar_scrolling_view_behavior</item>
+    </style>
+
+    <!--<style name="Custom_Progress" parent="@android:style/Theme.Dialog">-->
+        <!--<item name="android:windowFrame">@null</item>-->
+        <!--<item name="android:windowIsFloating">true</item>-->
+        <!--<item name="android:windowContentOverlay">@null</item>-->
+        <!--<item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>-->
+        <!--<item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>-->
+        <!--<item name="android:windowBackground">@android:color/transparent</item>-->
+        <!--<item name="android:windowNoTitle">true</item>-->
+    <!--</style>-->
 
     <style name="popup_animation">
         <item name="android:windowEnterAnimation">@anim/pop_win_in_up</item>
@@ -262,6 +318,16 @@
         <item name="timeTextSize">@dimen/text_size_14sp</item>
         <item name="suffixTextColor">@color/color_tv_pink_ff</item>
         <item name="timeTextColor">@color/color_tv_pink_ff</item>
+    </style>
+
+
+    <style name="guess_detail_top_text" parent="wrap_wrap">
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/color_tv_white</item>
+        <item name="android:textSize">@dimen/text_size_14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:lines">2</item>
+        <item name="android:layout_marginTop">@dimen/common_6dp</item>
     </style>
 
 </resources>

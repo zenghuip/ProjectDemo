@@ -8,8 +8,10 @@ import android.widget.TextView;
 
 import com.jgg.games.R;
 import com.jgg.games.model.entity.MatchEntity;
+import com.jgg.games.presenter.activity.GuessDetailActivity;
 import com.jgg.games.recycleview.adapter.CommonRecyclerAdapter;
 import com.jgg.games.recycleview.base.RecyclerViewHolder;
+import com.jgg.games.utils.IntentUtils;
 import com.jgg.games.utils.ResConverUtil;
 import com.jgg.games.utils.StringUtil;
 import com.jgg.games.utils.TimeUtil;
@@ -28,7 +30,7 @@ public class BetAdapter extends CommonRecyclerAdapter<MatchEntity> {
     }
 
     @Override
-    protected void convert(RecyclerViewHolder viewHolder, MatchEntity item, int position) {
+    protected void convert(RecyclerViewHolder viewHolder, final MatchEntity item, int position) {
         LinearLayout rlBg = viewHolder.getView(R.id.ly_bet_bg);
         rlBg.setBackgroundResource(ResConverUtil.indexBetBg(mContext,curTitle));
         viewHolder.setText(R.id.tv_time_date,item.getStringStartTime(TimeUtil.PATTERN_MMDD));
@@ -61,6 +63,13 @@ public class BetAdapter extends CommonRecyclerAdapter<MatchEntity> {
                 }
             });
         }
+
+        viewHolder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                GuessDetailActivity.startActivity(mContext,item);
+            }
+        },viewHolder.itemView);
     }
 
 }
