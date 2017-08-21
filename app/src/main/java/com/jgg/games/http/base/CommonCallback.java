@@ -9,4 +9,5 @@ public interface CommonCallback<T> {
      void onSuccess(T result);
      void onError(String error);
 
+
 }
