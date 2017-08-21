@@ -3,6 +3,7 @@ package com.jgg.rxretrofitlibrary.retrofit_rx.http;
 import com.jgg.rxretrofitlibrary.retrofit_rx.Api.BaseApi;
 import com.jgg.rxretrofitlibrary.retrofit_rx.exception.FactoryException;
 import com.jgg.rxretrofitlibrary.retrofit_rx.exception.RetryWhenNetworkException;
+import com.jgg.rxretrofitlibrary.retrofit_rx.http.cookie.CacheInterceptor;
 import com.jgg.rxretrofitlibrary.retrofit_rx.subscribers.ProgressSubscriber;
 
 import java.util.concurrent.TimeUnit;
@@ -33,6 +34,7 @@ public class HttpManager {
 
         //手动创建一个OkHttpClient并设置超时时间缓存等设置
         builder = new OkHttpClient.Builder();
+        builder.addInterceptor(new CacheInterceptor());
         builder.connectTimeout(connectionTime, TimeUnit.SECONDS);
         /*创建retrofit对象*/
         retrofit = new Retrofit.Builder()

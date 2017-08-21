@@ -94,8 +94,8 @@ public class MatchEntity extends GraphQlModel implements Serializable {
         this.groupRound = groupRound;
     }
 
-    public String getBORound() {
-        return BORound;
+    public int getBORound() {
+        return getInt(BORound);
     }
 
     public void setBORound(String BORound) {

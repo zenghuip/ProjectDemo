@@ -5,6 +5,7 @@ import android.content.Context;
 import com.jgg.games.http.HttpRequest;
 import com.jgg.games.http.base.CommonCallback;
 import com.jgg.games.model.entity.AnnouncementEntity;
+import com.jgg.games.model.entity.BetsEntity;
 import com.jgg.games.model.entity.GameTypeEntity;
 import com.jgg.games.model.entity.IndexBannerEntity;
 import com.jgg.games.model.entity.MatchListEntity;
@@ -60,6 +61,27 @@ public class BetManager {
         new HttpRequest().postUrl(getMatchList(gameId,offset,limit),responseCallback,MatchListEntity.class);
     }
 
+    /**
+     * 竞猜列表
+     *
+     * @param matchId
+     * @param responseCallback
+     */
+    public void getBetList(String matchId, CommonCallback responseCallback) {
+        new HttpRequest().postUrl(getBetList(matchId), responseCallback, BetsEntity.class);
+    }
+
+    private String getBetList(String matchId) {
+
+        return "{\n" +
+                "  bets(match: \"" + matchId + "\") {\n" +
+                "    id,name,shortName,maxBet,BONumber,minBet,frequency,desc,status,startTime,endTime,type,totalIn\n" +
+                "    betOptions {\n" +
+                "      id,people,odds,isCorrect,title\n" +
+                "    }\n" +
+                "  }\n" +
+                "}";
+    }
 
     private String getGameType(int offset,int limit){
         return "{\n" +

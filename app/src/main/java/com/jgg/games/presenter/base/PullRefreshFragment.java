@@ -1,6 +1,7 @@
 package com.jgg.games.presenter.base;
 
 import android.os.Handler;
+import android.util.Log;
 
 import com.jgg.games.pullrefreshview.PullToRefreshView;
 import com.jgg.games.recycleview.adapter.MultiItemTypeAdapter;

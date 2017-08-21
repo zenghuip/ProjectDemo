@@ -2,27 +2,22 @@ package com.jgg.games.presenter.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
-import android.support.design.widget.AppBarLayout;
 import android.support.v4.app.Fragment;
-import android.view.View;
-import android.widget.TextView;
 
-import com.jgg.games.R;
-import com.jgg.games.callback.AppBarStateChangeListener;
 import com.jgg.games.http.base.CommonCallback;
 import com.jgg.games.model.entity.AnnouncementEntity;
 import com.jgg.games.model.entity.CommonEntity;
-import com.jgg.games.model.entity.GameTypeEntity;
 import com.jgg.games.model.entity.MatchEntity;
 import com.jgg.games.model.manager.BetManager;
 import com.jgg.games.presenter.base.BaseTabActitity;
 import com.jgg.games.presenter.fragment.EmptyFragment;
-import com.jgg.games.presenter.fragment.IndexBetFragment;
+import com.jgg.games.presenter.fragment.GuessListFragment;
 import com.jgg.games.utils.ToastUtil;
 import com.jgg.games.view.delegate.GuessDetailDelegate;
-import com.jgg.games.widget.MarqueeFactory;
-import com.jgg.games.widget.NoticeMarquee;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,10 +52,13 @@ public class GuessDetailActivity extends BaseTabActitity<GuessDetailDelegate> {
             entity = (MatchEntity) getIntent().getSerializableExtra(MATCH_BEAN);
         }
         super.initValue();
-        EmptyFragment fragment = new EmptyFragment();
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(MATCH_BEAN,entity);
+        GuessListFragment fragment = new GuessListFragment();
         EmptyFragment fragment1 = new EmptyFragment();
         EmptyFragment fragment2 = new EmptyFragment();
         EmptyFragment fragment3 = new EmptyFragment();
+        fragment.setArguments(bundle);
         mFragments.add(fragment);
         mFragments.add(fragment1);
         mFragments.add(fragment2);
@@ -72,21 +70,21 @@ public class GuessDetailActivity extends BaseTabActitity<GuessDetailDelegate> {
     @Override
     protected void bindEvenListener() {
         super.bindEvenListener();
-        viewDelegate.OnOffsetChangedListener(new AppBarStateChangeListener() {
-            @Override
-            public void onStateChanged(AppBarLayout appBarLayout, State state) {
-                switch (state) {
-                    case COLLAPSED:
-                        viewDelegate.setTitleState(true,false,true,false,true);
-                        viewDelegate.setTitle("sfsd fsdf sd fds ");
-                        break;
-                    case EXPANDED:
-                    case IDLE:
-                        viewDelegate.setTitleState(true,false,false,false,true);
-                        break;
-                }
-            }
-        });
+//        viewDelegate.OnOffsetChangedListener(new AppBarStateChangeListener() {
+//            @Override
+//            public void onStateChanged(AppBarLayout appBarLayout, State state) {
+//                switch (state) {
+//                    case COLLAPSED:
+//                        viewDelegate.setTitleState(true,false,true,false,true);
+//                        viewDelegate.setTitle("sfsd fsdf sd fds ");
+//                        break;
+//                    case EXPANDED:
+//                    case IDLE:
+//                        viewDelegate.setTitleState(true,false,false,false,true);
+//                        break;
+//                }
+//            }
+//        });
     }
 
     public void getAnnounce(){

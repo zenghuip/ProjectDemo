@@ -55,12 +55,116 @@ public class BetEntity extends GraphQlModel {
         this.attemptId = attemptId;
     }
 
+    public MatchEntity getMatch() {
+        return match;
+    }
+
+    public void setMatch(MatchEntity match) {
+        this.match = match;
+    }
+
+    public ArrayList<BetOptionEntity> getBetOptions() {
+        return betOptions;
+    }
+
+    public void setBetOptions(ArrayList<BetOptionEntity> betOptions) {
+        this.betOptions = betOptions;
+    }
+
+    public BetEntity getMultiBetOrder() {
+        return multiBetOrder;
+    }
+
+    public void setMultiBetOrder(BetEntity multiBetOrder) {
+        this.multiBetOrder = multiBetOrder;
+    }
+
     public BetEntity getCreateBetAttempt() {
         return createBetAttempt;
     }
 
     public void setCreateBetAttempt(BetEntity createBetAttempt) {
         this.createBetAttempt = createBetAttempt;
+    }
+
+    public TicketEntity getTicketUsed() {
+        return ticketUsed;
+    }
+
+    public void setTicketUsed(TicketEntity ticketUsed) {
+        this.ticketUsed = ticketUsed;
+    }
+
+    public String getTotalOut() {
+        return totalOut;
+    }
+
+    public void setTotalOut(String totalOut) {
+        this.totalOut = totalOut;
+    }
+
+    public static int getStateBefore() {
+        return STATE_BEFORE;
+    }
+
+    public static void setStateBefore(int stateBefore) {
+        STATE_BEFORE = stateBefore;
+    }
+
+    public static int getStateStart() {
+        return STATE_START;
+    }
+
+    public static void setStateStart(int stateStart) {
+        STATE_START = stateStart;
+    }
+
+    public static int getStateCounting() {
+        return STATE_COUNTING;
+    }
+
+    public static void setStateCounting(int stateCounting) {
+        STATE_COUNTING = stateCounting;
+    }
+
+    public static int getStateCounted() {
+        return STATE_COUNTED;
+    }
+
+    public static void setStateCounted(int stateCounted) {
+        STATE_COUNTED = stateCounted;
+    }
+
+    public static int getStateCancel() {
+        return STATE_CANCEL;
+    }
+
+    public static void setStateCancel(int stateCancel) {
+        STATE_CANCEL = stateCancel;
+    }
+
+    public static int getLogUnclear() {
+        return LOG_UNCLEAR;
+    }
+
+    public static void setLogUnclear(int logUnclear) {
+        LOG_UNCLEAR = logUnclear;
+    }
+
+    public static int getLogYes() {
+        return LOG_YES;
+    }
+
+    public static void setLogYes(int logYes) {
+        LOG_YES = logYes;
+    }
+
+    public static int getLogNo() {
+        return LOG_NO;
+    }
+
+    public static void setLogNo(int logNo) {
+        LOG_NO = logNo;
     }
 
     public String getName() {
@@ -101,14 +205,6 @@ public class BetEntity extends GraphQlModel {
 
     public void setTotalIn(String totalIn) {
         this.totalIn = totalIn;
-    }
-
-    public String getTotalOut() {
-        return totalOut;
-    }
-
-    public void setTotalOut(String totalOut) {
-        this.totalOut = totalOut;
     }
 
     public String getEarning() {
@@ -159,6 +255,7 @@ public class BetEntity extends GraphQlModel {
         this.desc = desc;
     }
 
+
     public int getMinBet() {
         return minBet;
     }
@@ -167,13 +264,6 @@ public class BetEntity extends GraphQlModel {
         this.minBet = minBet;
     }
 
-    public MatchEntity getMatch() {
-        return match;
-    }
-
-    public void setMatch(MatchEntity match) {
-        this.match = match;
-    }
 
     public String getShortName() {
         return shortName;
@@ -183,13 +273,6 @@ public class BetEntity extends GraphQlModel {
         this.shortName = shortName;
     }
 
-    public ArrayList<BetOptionEntity> getBetOptions() {
-        return betOptions;
-    }
-
-    public void setBetOptions(ArrayList<BetOptionEntity> betOptions) {
-        this.betOptions = betOptions;
-    }
 
     public String getHasBetLog() {
         return hasBetLog;
@@ -231,22 +314,6 @@ public class BetEntity extends GraphQlModel {
         isCheck = check;
     }
 
-    public BetEntity getMultiBetOrder() {
-        return multiBetOrder;
-    }
-
-    public void setMultiBetOrder(BetEntity multiBetOrder) {
-        this.multiBetOrder = multiBetOrder;
-    }
-
-    public TicketEntity getTicketUsed() {
-        return ticketUsed;
-    }
-
-    public void setTicketUsed(TicketEntity ticketUsed) {
-        this.ticketUsed = ticketUsed;
-    }
-
     public int getBONumber() {
         return BONumber;
     }
@@ -254,4 +321,33 @@ public class BetEntity extends GraphQlModel {
     public void setBONumber(int BONumber) {
         this.BONumber = BONumber;
     }
+
+    public int getBetState(){
+        int state = R.string.fragment_my_bet_wks;
+        int curState = getStatus();
+        if (curState == STATE_BEFORE){
+            state = R.string.fragment_my_bet_wks;
+        }else if (curState == STATE_START){
+            state = R.string.fragment_my_bet_ing;
+        }else if (curState == STATE_COUNTING){
+            state = R.string.fragment_my_bet_wait;
+        }else if (curState == STATE_COUNTED){
+            state = R.string.fragment_my_bet_end;
+        }else if (curState == STATE_CANCEL){
+            state = R.string.fragment_my_bet_cancel;
+        }
+        return state;
+    }
+
+
+    public static List<BetEntity> getBoList(List<BetEntity> datas, int BoNum) {
+        List<BetEntity> list = new ArrayList<>();
+        for (BetEntity bet : datas) {
+            if (bet != null && bet.getBONumber() == BoNum) {
+                list.add(bet);
+            }
+        }
+        return list;
+    }
+
 }

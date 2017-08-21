@@ -41,41 +41,46 @@ public class CountUtils {
         return retMillisecondStr;
     }
 
-    public static void refreshTime(Context context,CountdownView mTvOptionTime, TextView tvTime,long countTime){
+    public static void refreshTime(Context context,CountdownView mTvOptionTime, TextView tvTime,long countTime,int state){
         DynamicConfig.Builder config = new DynamicConfig.Builder();
         long timeResult = countTime;
-
-        if (timeResult > 0) {
-            mTvOptionTime.start(timeResult);
-            mTvOptionTime.setVisibility(View.VISIBLE);
-            tvTime.setVisibility(View.GONE);
-            if (timeResult > TimeUtil.ONE_WEEK) {
-                mTvOptionTime.setVisibility(View.GONE);
-                tvTime.setVisibility(View.VISIBLE);
-                tvTime.setText(context.getString(R.string.one_week));
-            } else if (timeResult > TimeUtil.ONE_DAY) {
-                //一天
-                config.setShowDay(true);
-                config.setShowHour(true);
-                config.setShowMinute(true);
-                config.setShowSecond(false);
-                //一个小时
-            } else if (timeResult > TimeUtil.ONE_HOUR) {
-                config.setShowDay(false);
-                config.setShowHour(true);
-                config.setShowMinute(true);
-                config.setShowSecond(true);
-            } else {
-                config.setShowDay(false);
-                config.setShowHour(true);
-                config.setShowMinute(true);
-                config.setShowSecond(true);
-            }
-            mTvOptionTime.dynamicShow(config.build());
-        } else {
-            mTvOptionTime.stop();
+        if (state != 0){
             mTvOptionTime.setVisibility(View.GONE);
+        }else {
+            if (timeResult > 0) {
+                mTvOptionTime.start(timeResult);
+                mTvOptionTime.setVisibility(View.VISIBLE);
+                tvTime.setVisibility(View.GONE);
+                if (timeResult > TimeUtil.ONE_WEEK) {
+                    mTvOptionTime.setVisibility(View.GONE);
+                    tvTime.setVisibility(View.VISIBLE);
+                    tvTime.setText(context.getString(R.string.one_week));
+                } else if (timeResult > TimeUtil.ONE_DAY) {
+                    //一天
+                    config.setShowDay(true);
+                    config.setShowHour(true);
+                    config.setShowMinute(true);
+                    config.setShowSecond(false);
+                    //一个小时
+                } else if (timeResult > TimeUtil.ONE_HOUR) {
+                    config.setShowDay(false);
+                    config.setShowHour(true);
+                    config.setShowMinute(true);
+                    config.setShowSecond(true);
+                } else {
+                    config.setShowDay(false);
+                    config.setShowHour(true);
+                    config.setShowMinute(true);
+                    config.setShowSecond(true);
+                }
+                mTvOptionTime.dynamicShow(config.build());
+            } else {
+                mTvOptionTime.stop();
+                mTvOptionTime.setVisibility(View.GONE);
+            }
         }
+
+
     }
 
 

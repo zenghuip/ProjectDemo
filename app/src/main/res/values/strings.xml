@@ -79,6 +79,18 @@
     <string name="guess_detail_intelligence">情报</string>
     <string name="guess_detail_comment">讨论</string>
     <string name="guess_detail_news">资讯</string>
+
+
+    <string name="guess_list_tip">已参与</string>
+    <string name="guess_list_tip2">项竞猜</string>
+    <string name="guess_list_next">下一步</string>
+    <string name="guess_list_qc">全场</string>
+    <string name="guess_list_djc">第%d局</string>
+
+
+
+
+
     <!--我的-->
     <string name="mine_title_guide">引导</string>
     <string name="mine_account">我的账户</string>

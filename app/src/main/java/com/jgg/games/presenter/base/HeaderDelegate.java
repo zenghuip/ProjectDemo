@@ -190,6 +190,7 @@ public abstract class HeaderDelegate extends AppDelegate {
         return getActivity().getResources().getString(string);
     }
 
+
     public void finish()
     {
         getActivity().finish();

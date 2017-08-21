@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="@dimen/common_60dp"
+        android:layout_height="40dp"
+        android:paddingBottom="@dimen/common_3dp"
+        android:textColor="@drawable/guess_top_text_selector"
+        android:drawableBottom="@drawable/guess_top_underline_selector"
+        android:textSize="@dimen/text_size_14sp"
+        android:gravity="center"/>
+
+</LinearLayout>

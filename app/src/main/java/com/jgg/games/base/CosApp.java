@@ -3,6 +3,7 @@ package com.jgg.games.base;
 import android.app.Application;
 import android.content.Context;
 
+import com.jgg.games.utils.LogUtils;
 import com.jgg.rxretrofitlibrary.retrofit_rx.RxRetrofitApp;
 import com.jgg.selectimage.BoxingCrop;
 import com.jgg.selectimage.BoxingMediaLoader;

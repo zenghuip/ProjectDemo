@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/CoordinatorLayout">
 
     <android.support.design.widget.AppBarLayout
@@ -29,6 +30,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_below="@+id/tv_marquee"
                     android:gravity="center_vertical">
                     <LinearLayout
                         android:layout_width="@dimen/common_0dp"
@@ -107,12 +109,8 @@
                             style="@style/guess_detail_top_text"/>
 
                     </LinearLayout>
-
-
                 </LinearLayout>
-
             </RelativeLayout>
-
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -122,34 +120,41 @@
                 </android.support.v7.widget.Toolbar>
         </android.support.design.widget.CollapsingToolbarLayout>
 
-        <com.jgg.games.widget.MyTabWidget
-            android:id="@+id/tab"
-            style="@style/collapsing_tab">
-
-            <TextView
-                style="@style/collapsing_tab_text"
-                android:text="@string/guess_detail_bet" />
-
-            <TextView
-                style="@style/collapsing_tab_text"
-                android:text="@string/guess_detail_intelligence" />
-
-            <TextView
-                style="@style/collapsing_tab_text"
-                android:text="@string/guess_detail_comment" />
-
-            <TextView
-                style="@style/collapsing_tab_text"
-                android:text="@string/guess_detail_news" />
-
-        </com.jgg.games.widget.MyTabWidget>
-
-
     </android.support.design.widget.AppBarLayout>
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <com.jgg.games.widget.MyTabWidget
+                android:id="@+id/tab"
+                style="@style/collapsing_tab">
 
+                <TextView
+                    style="@style/collapsing_tab_text"
+                    android:text="@string/guess_detail_bet" />
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewpager"
-        style="@style/collapsing_viewpager" />
+                <TextView
+                    style="@style/collapsing_tab_text"
+                    android:text="@string/guess_detail_intelligence" />
 
+                <TextView
+                    style="@style/collapsing_tab_text"
+                    android:text="@string/guess_detail_comment" />
+
+                <TextView
+                    style="@style/collapsing_tab_text"
+                    android:text="@string/guess_detail_news" />
+
+            </com.jgg.games.widget.MyTabWidget>
+            <android.support.v4.view.ViewPager
+                android:id="@+id/viewpager"
+                style="@style/collapsing_viewpager" />
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
 </android.support.design.widget.CoordinatorLayout>

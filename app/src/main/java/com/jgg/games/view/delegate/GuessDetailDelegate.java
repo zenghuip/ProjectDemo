@@ -45,7 +45,6 @@ public class GuessDetailDelegate extends BaseTabDelegate {
     @Override
     public void initWidget() {
         super.initWidget();
-
         setTitleState(true,false,true,false,true);
         ivLeftLogo = get(R.id.iv_left_logo);
         ivRightLogo = get(R.id.iv_right_logo);
@@ -96,15 +95,16 @@ public class GuessDetailDelegate extends BaseTabDelegate {
             tvScore.setText(bean.getMatchScore());
             ImageUtil.displayImg(bean.getLefttTeamLogo(), ivLeftLogo);
             ImageUtil.displayImg(bean.getRightTeamLogo(), ivRightLogo);
-            if (StringUtil.isEmpty(bean.getVideoURL())) {
+            if (StringUtil.isEmpty(bean.getVideoURL()) || bean.getState() == MatchEntity.STATE_START){
                 ivVideo.setVisibility(View.GONE);
-            } else {
+            }else {
                 ivVideo.setVisibility(View.VISIBLE);
             }
             if (bean.getGame() != null) {
                 ImageUtil.displayImg(bean.getGame().getLogo(),ivBg);
             }
             ResConverUtil.indexBetState(this.getActivity(),bean.getState(),tvScore,null,tvTime,cvTime,bean.getCountTime());
+            setTitle(bean.getMatchName());
         }
     }
 

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_tv_white"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:id="@+id/sv_top"
+        style="@style/match_wrap"
+        android:visibility="gone">
+
+        <com.jgg.games.widget.MyTabWidget
+            android:id="@+id/ly_top"
+            android:gravity="center"
+            style="@style/match_wrap"
+            android:orientation="horizontal" />
+    </ScrollView>
+
+    <com.jgg.games.pullrefreshview.PullToRefreshView
+        android:id="@id/refresh_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/rl_content"
+        android:layout_below="@+id/sv_top"
+        android:background="@color/common_main_bg">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </com.jgg.games.pullrefreshview.PullToRefreshView>
+
+    <RelativeLayout
+        android:id="@+id/rl_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_35dp"
+        android:paddingLeft="@dimen/common_12dp"
+        android:visibility="gone"
+        android:layout_alignParentBottom="true">
+
+        <TextView
+            android:id="@+id/tv_tip"
+            style="@style/guess_list_bottom_text"
+            android:text="@string/guess_list_tip"/>
+
+        <TextView
+            android:id="@+id/tv_num"
+            style="@style/guess_list_num_text"
+            android:layout_marginLeft="@dimen/common_4dp"
+            android:layout_marginRight="@dimen/common_4dp"
+            android:layout_toRightOf="@+id/tv_tip" />
+
+        <TextView
+            android:id="@+id/tv_tip2"
+            android:layout_toRightOf="@+id/tv_num"
+            style="@style/guess_list_bottom_text"
+            android:text="@string/guess_list_tip2"/>
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="@dimen/common_90dp"
+            style="@style/guess_list_time_text"
+            android:layout_toLeftOf="@+id/tv_next"
+            android:layout_marginRight="@dimen/common_6dp" />
+
+        <TextView
+            android:id="@+id/tv_next"
+            android:layout_width="@dimen/common_90dp"
+            style="@style/guess_list_next_text"
+            android:text="@string/guess_list_next"/>
+    </RelativeLayout>
+
+    <include
+        layout="@layout/layout_nodata" />
+</RelativeLayout>

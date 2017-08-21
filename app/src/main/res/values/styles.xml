@@ -322,12 +322,39 @@
 
 
     <style name="guess_detail_top_text" parent="wrap_wrap">
-        <item name="android:gravity">center</item>
         <item name="android:textColor">@color/color_tv_white</item>
         <item name="android:textSize">@dimen/text_size_14sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:lines">2</item>
         <item name="android:layout_marginTop">@dimen/common_6dp</item>
+    </style>
+
+
+    <style name="guess_list_bottom_text" parent="wrap_wrap">
+        <item name="android:textColor">@color/color_tv_black_55</item>
+        <item name="android:textSize">@dimen/text_size_12sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
+    <style name="guess_list_num_text" parent="guess_list_bottom_text">
+        <item name="android:textColor">@color/color_tv_pink_ff</item>
+        <item name="android:textSize">@dimen/text_size_14sp</item>
+    </style>
+
+    <style name="guess_list_time_text" parent="guess_list_bottom_text">
+        <item name="android:textSize">@dimen/text_size_10sp</item>
+        <item name="android:lineSpacingExtra">@dimen/common_3dp</item>
+    </style>
+
+    <style name="guess_list_next_text" parent="match_match">
+        <item name="android:textSize">@dimen/text_size_14sp</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:textColor">@color/color_tv_white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:enabled">false</item>
+        <item name="android:background">@drawable/next_btn_selector</item>
+        <item name="android:layout_centerVertical">true</item>
     </style>
 
 </resources>

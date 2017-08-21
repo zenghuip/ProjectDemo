@@ -45,15 +45,15 @@ public class ResConverUtil {
      * @param countdownView
      * @param countTime 倒计时时间
      */
-    public static void indexBetState(final Context mContext, int state, final TextView tvScore, TextView tvBtn, final TextView tvTime, final CountdownView countdownView, final long countTime){
+    public static void indexBetState(final Context mContext, final int state, final TextView tvScore, TextView tvBtn, final TextView tvTime, final CountdownView countdownView, final long countTime){
         if (state == MatchEntity.STATE_END){
+            countdownView.setVisibility(View.GONE);
             tvScore.setVisibility(View.VISIBLE);
             if (tvBtn != null) {
                 tvBtn.setEnabled(false);
                 tvBtn.setText(mContext.getResources().getString(R.string.bet_end));
             }
             tvTime.setVisibility(View.GONE);
-            countdownView.setVisibility(View.GONE);
             countdownView.stop();
         }else if (state == MatchEntity.STATE_BEFORE){
             tvScore.setVisibility(View.GONE);
@@ -63,19 +63,6 @@ public class ResConverUtil {
                 tvBtn.setEnabled(true);
                 tvBtn.setText(mContext.getResources().getString(R.string.bet_ing));
             }
-            countdownView.addOnAttachStateChangeListener(new View.OnAttachStateChangeListener() {
-                @Override
-                public void onViewAttachedToWindow(View v) {
-                    // 倒计时
-                    CountUtils.refreshTime(mContext,countdownView,tvTime,countTime);
-                }
-
-                @Override
-                public void onViewDetachedFromWindow(View v) {
-                    countdownView.stop();
-                }
-            });
-
 
         }else if (state == MatchEntity.STATE_START){
             tvScore.setVisibility(View.VISIBLE);
@@ -87,5 +74,18 @@ public class ResConverUtil {
             }
             countdownView.stop();
         }
+
+        countdownView.addOnAttachStateChangeListener(new View.OnAttachStateChangeListener() {
+            @Override
+            public void onViewAttachedToWindow(View v) {
+                // 倒计时
+                CountUtils.refreshTime(mContext,countdownView,tvTime,countTime,state);
+            }
+
+            @Override
+            public void onViewDetachedFromWindow(View v) {
+                countdownView.stop();
+            }
+        });
     }
 }
